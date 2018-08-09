@@ -52,7 +52,7 @@ namespace NTierApp.Business
         public void Delete(int categoryId)
         {
             if (categoryId != null)
-                categoryRepository.Delete(c=> c.Id == categoryId);
+                categoryRepository.Delete(c => c.Id == categoryId);
         }
     }
 }

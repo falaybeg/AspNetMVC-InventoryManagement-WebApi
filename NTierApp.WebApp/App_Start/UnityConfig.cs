@@ -6,6 +6,7 @@ using NTierApp.Business.Interface;
 using NTierApp.WebApp.Areas.HelpPage.Controllers;
 using NTierApp.WebApp.Controllers;
 using NTierApp.WebApp.Controllers.Api;
+using NTierApp.WebApp.Resolver;
 using System.Web.Mvc;
 using Unity;
 using Unity.Injection;

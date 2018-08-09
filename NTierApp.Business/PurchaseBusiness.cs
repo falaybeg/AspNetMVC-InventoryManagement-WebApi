@@ -47,7 +47,10 @@ namespace NTierApp.Business
         public void Update(Purchase purchase)
         {
             if (purchase != null)
+            {
+                purchase.PurchasedTime = DateTime.Now;
                 _purchaseRepository.Update(purchase);
+            }
         }
 
         public void Delete(int purchaseId)

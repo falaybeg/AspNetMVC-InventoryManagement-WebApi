@@ -23,12 +23,18 @@ namespace NTierApp.WebApp
         {
             var container = new UnityContainer();
 
-            container.RegisterType<ICategoryBusiness, CategoryBusiness>();
             container.RegisterType<IUnitOfWork, UnitOfWork>();
 
 
-            container.RegisterType<AccountController>(new InjectionConstructor());
-            container.RegisterType<HelpController>(new InjectionConstructor());
+            container.RegisterType<ICategoryBusiness, CategoryBusiness>();
+            container.RegisterType<ISupplierBusiness, SupplierBusiness>();
+            container.RegisterType<IProductBusiness, ProductBusiness>();
+            container.RegisterType<IPurchaseBusiness, PurchaseBusiness>();
+            container.RegisterType<IOrdersBusiness, OrdersBusiness>();
+
+
+
+
             config.DependencyResolver = new UnityResolver(container);
 
             // Web API configuration and services

@@ -1,17 +1,13 @@
 ﻿using NTier.Domain;
-using NtierApp.Repository;
 using NtierApp.Repository.Infrastucture.Contract;
 using NtierApp.Repository.Repositories;
 using NTierApp.Business.Interface;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NTierApp.Business
 {
-    class OrdersBusiness : IOrdersBusiness
+    public class OrdersBusiness : IOrdersBusiness
     {
 
         private readonly IUnitOfWork unitOfWork;
@@ -46,7 +42,9 @@ namespace NTierApp.Business
         {
             if (order != null)
             {
-                order.Product.StockAmount--;
+                order.OrderDate = DateTime.Now;
+                order.ConfirmStatus = false;
+                order.ConfirmDate = DateTime.Now;
                 _orderRepository.Insert(order);
             }
         }
@@ -54,7 +52,12 @@ namespace NTierApp.Business
         public void Update(Orders order)
         {
             if (order != null)
+            {
+                order.OrderDate = DateTime.Now;
+                order.ConfirmDate = DateTime.Now;
+                order.ConfirmStatus = false;
                 _orderRepository.Update(order);
+            }
         }
 
         public void Delete(int orderId)
@@ -69,6 +72,7 @@ namespace NTierApp.Business
             {
                 var result = _orderRepository.GetById(x => x.Id == orderId);
                 result.ConfirmStatus = true;
+                result.ConfirmDate = DateTime.Now;
                 _orderRepository.Update(result);
             }
         }
