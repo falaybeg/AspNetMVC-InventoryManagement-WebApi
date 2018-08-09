@@ -57,7 +57,7 @@ namespace NtierApp.Repository.Migrations
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
-                        CardNumber = c.String(nullable: false),
+                        CardNumber = c.String(nullable: true),
                         Email = c.String(maxLength: 256),
                         EmailConfirmed = c.Boolean(nullable: false),
                         PasswordHash = c.String(),
