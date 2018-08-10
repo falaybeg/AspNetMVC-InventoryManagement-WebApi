@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AutoMapper;
+using NTierApp.WebApp.App_Start;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,6 +15,7 @@ namespace NTierApp.WebApp
     {
         protected void Application_Start()
         {
+            Mapper.Initialize(c => c.AddProfile<AutoMapperProfile>());
             AreaRegistration.RegisterAllAreas();
             UnityConfig.RegisterComponents();
             GlobalConfiguration.Configure(WebApiConfig.Register);

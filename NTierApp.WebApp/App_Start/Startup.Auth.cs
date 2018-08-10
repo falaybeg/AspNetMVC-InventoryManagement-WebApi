@@ -10,6 +10,7 @@ using Microsoft.Owin.Security.OAuth;
 using Owin;
 using NTierApp.WebApp.Providers;
 using NTierApp.WebApp.Models;
+using NtierApp.Repository.Context;
 
 namespace NTierApp.WebApp
 {

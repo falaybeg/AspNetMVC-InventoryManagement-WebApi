@@ -564,3 +564,11 @@ D:\InventoryManagement-WebApi-Project\NTierApp.WebApp\obj\Debug\NTierApp.WebApp.
 D:\InventoryManagement-WebApi-Project\NTierApp.WebApp\obj\Debug\NTierApp.WebApp.csproj.CopyComplete
 D:\InventoryManagement-WebApi-Project\NTierApp.WebApp\obj\Debug\NTierApp.WebApp.dll
 D:\InventoryManagement-WebApi-Project\NTierApp.WebApp\obj\Debug\NTierApp.WebApp.pdb
+D:\InventoryManagement-WebApi-Project\NTierApp.WebApp\bin\System.Web.Cors.dll
+D:\InventoryManagement-WebApi-Project\NTierApp.WebApp\bin\System.Web.Http.Cors.dll
+D:\InventoryManagement-WebApi-Project\NTierApp.WebApp\bin\System.Web.Http.Cors.xml
+D:\InventoryManagement-WebApi-Project\NTierApp.WebApp\bin\AutoMapper.dll
+D:\InventoryManagement-WebApi-Project\NTierApp.WebApp\bin\System.ValueTuple.dll
+D:\InventoryManagement-WebApi-Project\NTierApp.WebApp\bin\AutoMapper.pdb
+D:\InventoryManagement-WebApi-Project\NTierApp.WebApp\bin\AutoMapper.xml
+D:\InventoryManagement-WebApi-Project\NTierApp.WebApp\bin\System.ValueTuple.xml

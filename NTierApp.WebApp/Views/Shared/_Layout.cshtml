@@ -18,9 +18,10 @@
     <link rel="stylesheet" type="text/css" href="~/Content/assets/lib/jqvmap/jqvmap.min.css" />
     <link rel="stylesheet" type="text/css" href="~/Content/assets/lib/datetimepicker/css/bootstrap-datetimepicker.min.css" />
     <link rel="stylesheet" href="~/Content/assets/css/style.css" type="text/css" />
+    <script src="~/Scripts/knockout-3.4.2.js"></script>
 
-
-
+        @Scripts.Render("~/bundles/app")
+    
 
 </head>
 <body>
@@ -41,7 +42,7 @@
                                     </div>
                                 </li>
                                 <li><a href="#"><span class="icon mdi mdi-card"></span>My Account</a></li>
-                                <li><a href="#"><span class="icon mdi mdi-power"></span>Log Out</a></li>
+                                <li><a href="#"><span class="icon mdi mdi-power" data-bind="click: logout"></span>Log Out</a></li>
                             </ul>
                         </li>
                     </ul>

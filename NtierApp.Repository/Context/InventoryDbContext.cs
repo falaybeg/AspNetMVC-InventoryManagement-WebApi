@@ -1,21 +1,24 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using NTier.Domain;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace NtierApp.Repository.Context
 {
-    class InventoryDbContext : IdentityDbContext<ApplicationUser>
+    public class InventoryDbContext : IdentityDbContext<ApplicationUser>
     {
 
         public InventoryDbContext()
                 : base("InventoryDbContext")
         {
         }
+
 
         public virtual DbSet<Category> Category { get; set; }
         public virtual DbSet<Supplier> Supplier { get; set; }
