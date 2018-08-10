@@ -42,7 +42,7 @@
                                     </div>
                                 </li>
                                 <li><a href="#"><span class="icon mdi mdi-card"></span>My Account</a></li>
-                                <li><a href="#"><span class="icon mdi mdi-power" data-bind="click: logout"></span>Log Out</a></li>
+                                <li><a href="#" id="logout"><span class="icon mdi mdi-power" ></span>Log Out</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -201,6 +201,34 @@
             App.dashboard();
 
         });
+    </script>
+
+    <script>
+        $("#logout").click(function(){
+        
+         var token = sessionStorage.getItem("accessToken");
+            var headers = {};
+            if (token) {
+                headers.Authorization = 'Bearer ' + token;
+            }
+
+           $.ajax({
+            type: 'POST',
+            url: '/api/Account/Logout',
+            headers: headers
+        }).done(function (data) {
+           
+            sessionStorage.removeItem('accessToken');
+            window.location.href = '/UserManagement/Login';
+        }).fail(function(){
+        alert("Error !");
+        });
+        });
+           
+        
+            
+
+        
     </script>
 </body>
 </html>
