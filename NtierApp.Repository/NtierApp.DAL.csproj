@@ -60,6 +60,18 @@
     <Compile Include="Migrations\201808081444377_InitialCreateDatabase.Designer.cs">
       <DependentUpon>201808081444377_InitialCreateDatabase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808101308316_AddedUserTableColumn.cs" />
+    <Compile Include="Migrations\201808101308316_AddedUserTableColumn.Designer.cs">
+      <DependentUpon>201808101308316_AddedUserTableColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808101324476_UpdateUserTableColumn.cs" />
+    <Compile Include="Migrations\201808101324476_UpdateUserTableColumn.Designer.cs">
+      <DependentUpon>201808101324476_UpdateUserTableColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808101508479_UpdateSupplierTable.cs" />
+    <Compile Include="Migrations\201808101508479_UpdateSupplierTable.Designer.cs">
+      <DependentUpon>201808101508479_UpdateSupplierTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
     <Compile Include="Infrastucture\BaseRepository.cs" />
@@ -90,6 +102,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201808081444377_InitialCreateDatabase.resx">
       <DependentUpon>201808081444377_InitialCreateDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808101308316_AddedUserTableColumn.resx">
+      <DependentUpon>201808101308316_AddedUserTableColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808101324476_UpdateUserTableColumn.resx">
+      <DependentUpon>201808101324476_UpdateUserTableColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808101508479_UpdateSupplierTable.resx">
+      <DependentUpon>201808101508479_UpdateSupplierTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

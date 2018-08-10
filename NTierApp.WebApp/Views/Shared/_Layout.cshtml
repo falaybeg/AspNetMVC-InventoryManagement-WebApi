@@ -1,41 +1,205 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="~/Content/assets/img/logo-fav.png">
+    <title>Inventory Management System</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/lib/perfect-scrollbar/css/perfect-scrollbar.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/lib/material-design-icons/css/material-design-iconic-font.min.css" />
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/lib/jquery.vectormap/jquery-jvectormap-1.2.2.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/lib/jqvmap/jqvmap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/lib/datetimepicker/css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" href="~/Content/assets/css/style.css" type="text/css" />
+
+
+
+
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    <div class="be-wrapper be-fixed-sidebar">
+        <nav class="navbar navbar-default navbar-fixed-top be-top-header">
+            <div class="container-fluid">
+                <div class="navbar-header"><a href="@Url.Action("Index","Home")" class="navbar-brand"></a></div>
+                <div class="be-right-navbar">
+
+                    <ul class="nav navbar-nav navbar-right be-user-nav">
+                        <li class="dropdown">
+                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="dropdown-toggle"><img src="~/Content/assets/img/avatar3.png" alt="Avatar"><span class="user-name">Name Surname </span></a>
+                            <ul role="menu" class="dropdown-menu">
+                                <li>
+                                    <div class="user-info">
+                                        <div class="user-name">Name Surname</div>
+                                        <div class="user-position online">Online</div>
+                                    </div>
+                                </li>
+                                <li><a href="#"><span class="icon mdi mdi-card"></span>My Account</a></li>
+                                <li><a href="#"><span class="icon mdi mdi-power"></span>Log Out</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="page-title" style="font-size: 23px"><span><b>Inventory Management System</b></span></div>
+                    <ul class="nav navbar-nav navbar-right be-icons-nav">
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="dropdown-toggle"><span class="icon mdi mdi-apps"></span></a>
+                            <ul class="dropdown-menu be-connections">
+                                <li>
+                                    <div class="list">
+                                        <div class="content">
+                                            <div class="row">
+                                                <div class="col-xs-4"><a href="https://www.facebook.com/" class="connection-item"><img src="~/Content/assets/img/facebook.png" alt="Github"><span>Facebook</span></a></div>
+                                                <div class="col-xs-4"><a href="https://twitter.com/?lang=tr" class="connection-item"><img src="~/Content/assets/img/twitter.jpg" alt="Bitbucket"><span>Twitter</span></a></div>
+                                                <div class="col-xs-4"><a href="https://www.dropbox.com" class="connection-item"><img src="~/Content/assets/img/dropbox.png" alt="Dropbox"><span>DropBox</span></a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right be-user-nav">
+                       
+                    </ul>
+
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
+        </nav>
+        <div class="be-left-sidebar">
+            <div class="left-sidebar-wrapper">
+                <a href="#" class="left-sidebar-toggle">Main Page</a>
+                <div class="left-sidebar-spacer">
+                    <div class="left-sidebar-scroll">
+                        <div class="left-sidebar-content">
+                            <ul class="sidebar-elements">
+                                <li class="divider">Menu</li>
+                                <li class="active">
+                                    <a href="@Url.Action("Index","Home")"><i class="icon mdi mdi-home"></i><span>Main Page</span></a>
+                                </li>
+                                @*<li class="parent">
+                <a href="#"><i class="icon mdi mdi-account"></i><span>Employee Management</span></a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="@Url.Action("AddEmployee","Employee")" style="font-size: 14px">New Employee</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ListEmployee","Employee")" style="font-size: 14px">Employee Management</a>
+                    </li>
+
                 </ul>
+            </li>*@
+                                <li class="parent">
+                                    <a href="#">
+                                        <i class="icon mdi mdi-card"></i>
+                                        <span>Product Management</span>
+                                    </a>
+                                    <ul class="sub-menu">
+
+                                        <li>
+                                            <a href="@Url.Action("AddProduct","Product")" style="font-size: 14px">New Product</a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("ListProduct","Product")" style="font-size: 14px">Product Management</a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("AddCategory","Product")" style="font-size: 14px">Category Management</a>
+                                        </li>
+                                </li>
+
+                            </ul>
+                            </li>
+
+                            <li class="parent">
+                                <a href="#"><i class="icon mdi mdi-assignment-o"></i><span>Supplier Management</span></a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="@Url.Action("AddSupplier","Supplier")" style="font-size: 14px">New Supplier</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("ListSupplier","Supplier")" style="font-size: 14px">Supplier Management</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li class="parent">
+                                <a href="#"><i class="icon mdi mdi-account-add"></i><span>Customer Management</span></a>
+                                <ul class="sub-menu">
+                                    @*<li>
+                    <a href="@Url.Action("AddCustomer","Customer")" style="font-size: 14px">New Customer</a>
+                </li>*@
+                                    <li>
+                                        <a href="@Url.Action("ListCustomer","Customer")" style="font-size: 14px">Customer Management</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="parent">
+                                <a href="#"><i class="icon mdi mdi-shopping-cart"></i><span>Order Management</span></a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="@Url.Action("ListOrder","Orders")" style="font-size: 14px">Order Management</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li class="parent">
+                                <a href="#"><i class="icon mdi mdi-shopping-basket"></i><span>Purchase Management</span></a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="@Url.Action("AddPurchase","Purchase")" style="font-size: 14px">New Purchase</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("ListPurchase","Purchase")" style="font-size: 14px">Purchase Management</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="be-content">
+            <div class="main-content container-fluid">
+                @RenderBody()
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+
+
+    <script src="~/Content/assets/lib/jquery/jquery.min.js" type="text/javascript"></script>
+    <script src="~/Content/assets/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
+    <script src="~/Content/assets/js/main.js" type="text/javascript"></script>
+    <script src="~/Scripts/bootstrap.min.js" type="text/javascript"></script>
+    <script src="~/Content/assets/lib/jquery-flot/jquery.flot.js" type="text/javascript"></script>
+    <script src="~/Content/assets/lib/jquery-flot/jquery.flot.pie.js" type="text/javascript"></script>
+    <script src="~/Content/assets/lib/jquery-flot/jquery.flot.resize.js" type="text/javascript"></script>
+    <script src="~/Content/assets/lib/jquery-flot/plugins/jquery.flot.orderBars.js" type="text/javascript"></script>
+    <script src="~/Content/assets/lib/jquery-flot/plugins/curvedLines.js" type="text/javascript"></script>
+    <script src="~/Content/assets/lib/jquery.sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
+    <script src="~/Content/assets/lib/countup/countUp.min.js" type="text/javascript"></script>
+    <script src="~/Content/assets/lib/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="~/Content/assets/lib/jqvmap/jquery.vmap.min.js" type="text/javascript"></script>
+    <script src="~/Content/assets/lib/jqvmap/maps/jquery.vmap.world.js" type="text/javascript"></script>
+    <script src="~/Content/assets/js/app-dashboard.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //initialize the javascript
+            App.init();
+            App.dashboard();
+
+        });
+    </script>
 </body>
 </html>

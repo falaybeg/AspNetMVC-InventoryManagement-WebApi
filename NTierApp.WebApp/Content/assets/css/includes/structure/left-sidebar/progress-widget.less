@@ -1,0 +1,34 @@
+.be-left-sidebar{
+
+	.progress-widget{
+		padding: 20px;
+		cursor: pointer;
+		
+		.progress-data{
+			color: @left-sidebar-color;
+		}
+
+		.progress-value{
+			float: right;
+		}
+
+		.progress{
+			margin: 10px 0 0;
+			height: 8px;
+			background-color: darken(@left-sidebar-bg, 4%);
+			border-radius: 2px;
+		}
+
+		&:hover{
+			background-color: darken(@left-sidebar-bg, 2%);
+
+			.progress{
+				background-color: darken(@left-sidebar-bg, 6%);
+			}
+		}
+
+		@media @phone{
+			display: none;
+		}
+	}
+}

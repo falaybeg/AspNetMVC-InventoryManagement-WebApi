@@ -1,0 +1,64 @@
+﻿
+
+<div class="row">
+    <div class="col-sm-12" style="margin-top: 30px">
+        <div class="panel panel-default panel-table">
+            <div class="panel-heading">
+                <h2 class="page-head-title"><b><b>Customer Management Screen</b></b></h2>
+                <br />
+                <div class="col-sm-4">
+                    @*<a href="@Url.Action("AddCustomer","Customer")"><button class="btn btn-success">New Customer</button></a><br>*@
+
+                    <div class="input-group" style="margin-top: 7px">
+                        <span class="input-group-addon" id="sizing-addon2"><i class="glyphicon glyphicon-search"></i></span>
+                        <input type="text" class="form-control" placeholder="Müşteri Ara..." aria-describedby="sizing-addon2">
+                    </div>
+                </div>
+
+                <br><br><br><hr>
+                <div class="panel-body">
+                    <table class="table table-striped table-hover">
+
+                        <thead>
+                            <tr>
+
+                                <th style="width:27%;">Customer</th>
+                                <th style="width:12%;">Card Number</th>
+                                <th style="width:12%;">Phone</th>
+                                <th style="width:20%;">Email</th>
+                                <th style="width:23%;">Address</th>
+                                <th style="width:18%;">City</th>
+                                <th style="width:8%;"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td class="user-avatar cell-detail user-info "><img width="64" height="64" src="~/Content/assets/img/avatar6.png" alt="Avatar"><span>FirstName LastName</span></td>
+                                <td class="cell-detail"> <span>123465798</span></td>
+                                <td>
+                                    +00984984984494
+                                </td>
+                                <td class="cell-detail"><span>example@gmail.com</span></td>
+                                <td class="cell-detail"><span>Street 1 City</span></td>
+                                <td>
+                                    Country
+                                </td>
+                                <td class="text-right">
+                                    <div class="btn-group btn-hspace">
+                                        <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle islemler" aria-expanded="false">Actions<span class="icon-dropdown mdi mdi-chevron-down"></span></button>
+                                        <ul role="menu" class="dropdown-menu pull-right">
+                                            <li><a href="#"><i class="icon mdi mdi-edit"></i><span>Edit</span></a></li>
+                                            <li><a href="#"><i class="icon mdi mdi-delete"></i><span>Delete</span></a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -30,7 +30,7 @@ namespace NTierApp.WebApp
             container.RegisterType<IUnitOfWork, UnitOfWork>();
 
 
-            container.RegisterType<AccountController>(new InjectionConstructor());
+            container.RegisterType<UserManagementController>(new InjectionConstructor());
             container.RegisterType<HelpController>(new InjectionConstructor());
 
 

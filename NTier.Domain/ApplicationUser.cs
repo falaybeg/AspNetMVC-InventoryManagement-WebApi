@@ -12,9 +12,10 @@ namespace NTier.Domain
 {
     public class ApplicationUser : IdentityUser
     {
-        [Required]
         public string CardNumber { get; set; }
-
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public DateTime RegisteredDate { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
