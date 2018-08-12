@@ -18,7 +18,7 @@ namespace NTier.Domain
 
         public virtual Product Product { get; set; }
         [ForeignKey("UserId")]
-        public virtual ApplicationUser User { get; set; }
+        public virtual ApplicationUserr User { get; set; }
 
 
     }

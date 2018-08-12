@@ -5,37 +5,37 @@
             <div class="panel-heading panel-heading-divider" style="font-size: 22px;"><b>New Supplier Registration</b></div>
             <div class="panel-body">
                 <form action="#" class="form-horizontal group-border-dashed" novalidate="">
-                    
-                    
+
+
                     <div class="form-group">
                         <label class="col-sm-3 control-label yazi">Company Name :</label>
                         <div class="col-sm-6">
-                            <input type="text" placeholder="Firma Adı Giriniz..." class="form-control parsley-error" data-parsley-id="29">
+                            <input type="text" placeholder="Enter the Company Name..." class="form-control parsley-error" data-parsley-id="29" id="supplierName">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 control-label yazi">Phone :</label>
                         <div class="col-sm-6">
-                            <input type="text" data-parsley-maxlength="6" placeholder="Geçerli Telefon numarası giriniz..." class="form-control parsley-error" data-parsley-id="33">
+                            <input type="text" data-parsley-maxlength="6" placeholder="Enter the phone number..." class="form-control parsley-error" data-parsley-id="33" id="supplierPhone">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 control-label yazi">Email :</label>
                         <div class="col-sm-6">
-                            <input type="text" placeholder="Geçerli Email adresi giriniz..." class="form-control parsley-error" data-parsley-id="35">
+                            <input type="text" placeholder="Enter the email address..." class="form-control parsley-error" data-parsley-id="35" id="supplierEmail">
                         </div>
                     </div>
-                  
+
                     <div class="form-group">
                         <label class="col-sm-3 control-label yazi">Address :</label>
                         <div class="col-sm-6">
-                            <input type="text" data-parsley-min="6" placeholder="Adres Bilgisi Giriniz..." class="form-control parsley-error" data-parsley-id="37">
+                            <input type="text" data-parsley-min="6" placeholder="Enter the address..." class="form-control parsley-error" data-parsley-id="37" id="supplierAdres">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-sm-2 col-sm-10 ">
-                            <button type="submit" class="btn btn-space btn-success" style="font-size: 17px; width: 80px; height:38px;">Save</button>
+                            <button type="submit" class="btn btn-space btn-success" style="font-size: 17px; width: 80px; height:38px;" id="btnSave">Save</button>
                             <button class="btn btn-space btn-default " style="height: 40px; font-size: 14px;">Cancel</button>
                         </div>
                     </div>
@@ -44,4 +44,33 @@
         </div>
     </div>
 </div>
+
+
+
+<script type="text/javascript">
+
+
+
+    $("#btnSave").click(function () {
+
+        $.ajax({
+            url: '/api/Suppliers',
+            method: 'POST',
+            data: {
+                Name: $('#supplierName').val(),
+                Email: $('#supplierEmail').val(),
+                Adress: $('#supplierAdres').val(),
+                PhoneNumber: $('#supplierPhone').val()
+            },
+            success: function () {
+                window.location.href = "/Supplier/ListSupplier"
+            },
+            error: function (jqXHR) {
+                alert("Error !");
+            }
+        });
+    });
+
+
+</script>
 

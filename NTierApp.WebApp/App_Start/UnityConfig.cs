@@ -26,9 +26,13 @@ namespace NTierApp.WebApp
 
             // e.g. container.RegisterType<ITestService, TestService>();
 
-            container.RegisterType<ICategoryBusiness, CategoryBusiness>();
             container.RegisterType<IUnitOfWork, UnitOfWork>();
 
+            container.RegisterType<ICategoryBusiness, CategoryBusiness>();
+            container.RegisterType<ISupplierBusiness, SupplierBusiness>();
+            container.RegisterType<IProductBusiness, ProductBusiness>();
+            container.RegisterType<IPurchaseBusiness, PurchaseBusiness>();
+            container.RegisterType<IOrdersBusiness, OrdersBusiness>();
 
             container.RegisterType<UserManagementController>(new InjectionConstructor());
             container.RegisterType<HelpController>(new InjectionConstructor());

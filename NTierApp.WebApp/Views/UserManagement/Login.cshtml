@@ -45,7 +45,7 @@
         </div>
     </div>
 
- 
+
     <script>
       $("#btnLogin").click(function () {
     $.ajax({
@@ -65,6 +65,8 @@
         // EmployeeService project before running it
         success: function (response) {
             sessionStorage.setItem("accessToken", response.access_token);
+            sessionStorage.setItem("username", response.userName);
+
             window.location.href = '/Home/Index';
         },
         error: function (jqXHR) {

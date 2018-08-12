@@ -29,6 +29,12 @@ namespace NTierApp.Business
             return result;
         }
 
+        public IEnumerable<Orders> GetAllUnConfirmedOrders()
+        {
+            var result = _orderRepository.GetAll(x => x.ConfirmStatus == false);
+            return result;
+        }
+
         public Orders GetById(int orderId)
         {
             Orders result = null;
@@ -77,6 +83,6 @@ namespace NTierApp.Business
             }
         }
 
-
+       
     }
 }

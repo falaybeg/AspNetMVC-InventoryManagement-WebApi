@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace NtierApp.Repository.Context
 {
-    public class InventoryDbContext : IdentityDbContext<ApplicationUser>
+    public class InventoryDbContext : IdentityDbContext<ApplicationUserr>
     {
 
         public InventoryDbContext()

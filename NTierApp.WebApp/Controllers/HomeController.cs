@@ -9,12 +9,6 @@ namespace NTierApp.WebApp.Controllers
 {
     public class HomeController : Controller
     {
-        ICategoryBusiness _category;
-        public HomeController(ICategoryBusiness category)
-        {
-            this._category = category;
-        }
-
         public ActionResult Index()
         {
             ViewBag.Title = "Home Page";
@@ -22,10 +16,6 @@ namespace NTierApp.WebApp.Controllers
             return View();
         }
 
-        public ActionResult GetAll()
-        {
-            var result = _category.GetAll();
-            return View(result);
-        }
+   
     }
 }

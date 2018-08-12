@@ -77,11 +77,11 @@ D:\InventoryManagement-WebApi-Project\NtierApp.Repository\bin\Debug\Microsoft.As
 D:\InventoryManagement-WebApi-Project\NtierApp.Repository\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 D:\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.DAL.csprojAssemblyReference.cache
 D:\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.Repository.Migrations.InitialCreateDatabase.resources
+D:\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.Repository.Migrations.AddedUserTableColumn.resources
+D:\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.Repository.Migrations.UpdateUserTableColumn.resources
+D:\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.Repository.Migrations.UpdateSupplierTable.resources
 D:\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.DAL.csproj.GenerateResource.cache
 D:\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.DAL.csproj.CoreCompileInputs.cache
 D:\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.DAL.csproj.CopyComplete
 D:\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.Repository.dll
 D:\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.Repository.pdb
-D:\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.Repository.Migrations.AddedUserTableColumn.resources
-D:\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.Repository.Migrations.UpdateUserTableColumn.resources
-D:\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.Repository.Migrations.UpdateSupplierTable.resources

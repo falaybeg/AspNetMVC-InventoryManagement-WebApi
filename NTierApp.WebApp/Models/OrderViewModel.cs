@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NTier.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,5 +14,8 @@ namespace NTierApp.WebApp.Models
         public DateTime OrderDate { get; set; }
         public DateTime ConfirmDate { get; set; }
         public bool ConfirmStatus { get; set; }
+
+        public virtual Product Product { get; set; }
+        public virtual ApplicationUserr User { get; set; }
     }
 }

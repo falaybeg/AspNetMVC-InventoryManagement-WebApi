@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<NTierApp.WebApp.Models.CategoryViewModel>
 
 <div class="row">
     <div class="col-md-12">
@@ -12,13 +12,13 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label yazi"> Cateogry Name :</label>
                         <div class="col-sm-6">
-                            <input type="text" placeholder="Yeni Kategori giriniz..." class="form-control parsley-error" data-parsley-id="29">
+                            <input type="text" placeholder="Enter the new category..." class="form-control parsley-error" data-parsley-id="29" id="categoryName">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-sm-2 col-sm-10 ">
-                            <button type="submit" class="btn btn-space btn-success" style="font-size: 17px; width: 80px; height:38px;">Save</button>
+                            <button type="submit" class="btn btn-space btn-success" style="font-size: 17px; width: 80px; height:38px;" id="btnSave">Save</button>
                             <button class="btn btn-space btn-default " style="height: 40px; font-size: 14px;">Cancel</button>
                         </div>
                     </div>
@@ -41,38 +41,63 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>Mobile Phone</td>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@item.Name</td>
+                                                <td class="actions"><a href="#" class="icon"><i class="mdi mdi-edit" style="float: right"></i></a></td>
+                                                <td class="actions">
+                                                    <a href="#" class="icon"><i class="mdi mdi-delete" onclick="Delete(@item.Id)"></i></a>
+                                                </td>
+                                            </tr>
+                                        }
 
-                                            <td class="actions"><a href="#" class="icon"><i class="mdi mdi-edit" style="float: right"></i></a></td>
-                                            <td class="actions"><a href="#" class="icon"><i class="mdi mdi-delete"></i></a></td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>Computer</td>
-
-                                            <td class="actions"><a href="#" class="icon"><i class="mdi mdi-edit" style="float: right"></i></a></td>
-                                            <td class="actions"><a href="#" class="icon"><i class="mdi mdi-delete"></i></a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Mac OS</td>
-
-                                            <td class="actions"><a href="#" class="icon"><i class="mdi mdi-edit" style="float: right"></i></a></td>
-                                            <td class="actions"><a href="#" class="icon"><i class="mdi mdi-delete"></i></a></td>
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
 
-
-
-
-                    <br><br>
-
+                    <br>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+
+<script type="text/javascript">
+
+    var Delete = function(id)
+    {
+         $.ajax({
+                    url: '/api/Categories/'+id,
+                    method: 'DELETE',
+                    success: function () {
+                             window.location.href = "/Product/AddCategory"
+                    },
+                    error: function (jqXHR) {
+                       alert("Error !");
+                    }
+                });
+    }
+
+        $("#btnSave").click(function(){
+
+              $.ajax({
+                        url: '/api/Categories',
+                        method: 'POST',
+                        data: {
+                             Name: $('#categoryName').val()
+                        },
+                        success: function () {
+                                 window.location.href = "/Product/AddCategory"
+                        },
+                        error: function (jqXHR) {
+                           alert("Error !");
+                        }
+                    });
+             });
+
+
+</script>

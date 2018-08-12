@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<NTierApp.WebApp.Models.SupplierViewModel>
+
 <div class="row">
     <div class="col-sm-12" style="margin-top: 30px">
         <div class="panel panel-default panel-table">
@@ -32,53 +33,24 @@
 
                         </thead>
                         <tbody>
-
-                            <tr>
-                                <td>X Tedarik Product</td>
-                                <td>0548949849849</td>
-                                <td>furkan12345@hotmail.com</td>
-                                <td>Sakarya Cark Caddesi no:15</td>
-                                <td class="text-right">
-                                    <div class="btn-group btn-hspace">
-                                        <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle " aria-expanded="false">İşlemler <span class="icon-dropdown mdi mdi-chevron-down"></span></button>
-                                        <ul role="menu" class="dropdown-menu pull-right">
-                                            <li><a href="#"><i class="icon mdi mdi-edit"></i><span>Düzenle</span></a></li>
-                                            <li><a href="#"><i class="icon mdi mdi-delete"></i><span>Sil</span></a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>Y Urun Makina</td>
-                                <td>543543543545435</td>
-                                <td>salih@hotmail.com</td>
-                                <td>Merkez Cark Caddesi no:15</td>
-                                <td class="text-right">
-                                    <div class="btn-group btn-hspace">
-                                        <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle " aria-expanded="false">İşlemler <span class="icon-dropdown mdi mdi-chevron-down"></span></button>
-                                        <ul role="menu" class="dropdown-menu pull-right">
-                                            <li><a href="#"><i class="icon mdi mdi-edit"></i><span>Düzenle</span></a></li>
-                                            <li><a href="#"><i class="icon mdi mdi-delete"></i><span>Sil</span></a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Ironsoft Product</td>
-                                <td>05324568855</td>
-                                <td>onurironsoft@hotmail.com</td>
-                                <td>Kemalpasa Mahalles sokak no:15 Merkez ap no:4</td>
-                                <td class="text-right">
-                                    <div class="btn-group btn-hspace">
-                                        <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle " aria-expanded="false">İşlemler <span class="icon-dropdown mdi mdi-chevron-down"></span></button>
-                                        <ul role="menu" class="dropdown-menu pull-right">
-                                            <li><a href="#"><i class="icon mdi mdi-edit"></i><span>Düzenle</span></a></li>
-                                            <li><a href="#"><i class="icon mdi mdi-delete"></i><span>Sil</span></a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Name</td>
+                                    <td>@item.PhoneNumber</td>
+                                    <td>@item.Email</td>
+                                    <td>@item.Adress</td>
+                                    <td class="text-right">
+                                        <div class="btn-group btn-hspace">
+                                            <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle " aria-expanded="false">İşlemler <span class="icon-dropdown mdi mdi-chevron-down"></span></button>
+                                            <ul role="menu" class="dropdown-menu pull-right">
+                                                <li><a href="#"><i class="icon mdi mdi-edit"></i><span>Düzenle</span></a></li>
+                                                <li><a href="#" onclick="Delete(@item.Id)"><i class="icon mdi mdi-delete"></i><span>Sil</span></a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
                         </tbody>
                     </table>
                 </div>
@@ -86,3 +58,22 @@
         </div>
     </div>
 </div>
+
+
+<script type="text/javascript">
+
+    var Delete = function(id)
+    {
+         $.ajax({
+                    url: '/api/Suppliers/'+id,
+                    method: 'DELETE',
+                    success: function () {
+                             window.location.href = "/Supplier/ListSupplier"
+                    },
+                    error: function (jqXHR) {
+                       alert("Error !");
+                    }
+                });
+    }
+
+</script>
