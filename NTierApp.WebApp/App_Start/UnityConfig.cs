@@ -33,6 +33,8 @@ namespace NTierApp.WebApp
             container.RegisterType<IProductBusiness, ProductBusiness>();
             container.RegisterType<IPurchaseBusiness, PurchaseBusiness>();
             container.RegisterType<IOrdersBusiness, OrdersBusiness>();
+            container.RegisterType<IUserBusiness, UserBusiness>();
+
 
             container.RegisterType<UserManagementController>(new InjectionConstructor());
             container.RegisterType<HelpController>(new InjectionConstructor());

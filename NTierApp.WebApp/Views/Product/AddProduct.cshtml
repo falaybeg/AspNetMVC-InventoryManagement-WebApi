@@ -3,59 +3,59 @@
 <div class="row">
 
     <div class="col-md-12">
-            <div class="panel panel-default panel-border-color panel-border-color-primary">
-                <div class="panel-heading panel-heading-divider" style="font-size: 22px"><b>New Product</b></div>
-                <div class="panel-body">
-                    <form action="#" class="form-horizontal group-border-dashed" novalidate="">
-                        <br>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label yazi">Product Code :</label>
-                            <div class="col-sm-6">
-                                <input type="text" placeholder="Product Code..." class="form-control parsley-error" data-parsley-id="29" id="productCode">
-                            </div>
+        <div class="panel panel-default panel-border-color panel-border-color-primary">
+            <div class="panel-heading panel-heading-divider" style="font-size: 22px"><b>New Product</b></div>
+            <div class="panel-body">
+                <form action="#" class="form-horizontal group-border-dashed" novalidate="">
+                    <br>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label yazi">Product Code :</label>
+                        <div class="col-sm-6">
+                            <input type="text" placeholder="Product Code..." class="form-control parsley-error" data-parsley-id="29" id="productCode">
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label yazi">Product Name :</label>
-                            <div class="col-sm-6">
-                                <input type="text" placeholder="Enter the Product Name..." class="form-control parsley-error" data-parsley-id="29" id="productName">
-                            </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label yazi">Product Name :</label>
+                        <div class="col-sm-6">
+                            <input type="text" placeholder="Enter the Product Name..." class="form-control parsley-error" data-parsley-id="29" id="productName">
                         </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label yazi" for="sel1">Category :</label>
-                            <div class="col-sm-6">
-                                @Html.DropDownListFor(m => m.CategoryId, (SelectList)ViewBag.Category, "-Select-", new { @class = "form-control" })
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label yazi" for="sel1">Category :</label>
+                        <div class="col-sm-6">
+                            @Html.DropDownListFor(m => m.CategoryId, (SelectList)ViewBag.Category, "- Select Category -", new { @class = "form-control" })
                         </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label yazi" for="sel1">Supplier :</label>
-                            <div class="col-sm-6">
-                                @Html.DropDownListFor(m => m.SupplierId, (SelectList)ViewBag.Supplier, "-Select-", new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label yazi" for="sel1">Supplier :</label>
+                        <div class="col-sm-6">
+                            @Html.DropDownListFor(m => m.SupplierId, (SelectList)ViewBag.Supplier, "- Select Supplier -", new { @class = "form-control" })
 
-                            </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label yazi">Stock Amount :</label>
-                            <div class="col-sm-6">
-                                <input type="text" id="productStock" data-parsley-max="6" placeholder="Enter the stock amount..." class="form-control parsley-error" data-parsley-id="39" name="StockAmount">
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label yazi">Stock Amount :</label>
+                        <div class="col-sm-6">
+                            <input type="text" data-parsley-max="6" placeholder="Enter the stock amount..." class="form-control parsley-error" data-parsley-id="39" name="StockAmount" id="productStock">
                         </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label yazi">Purchase Price :</label>
-                            <div class="col-sm-6">
-                                <input type="text" id="productPurchase" data-parsley-max="6" placeholder="Enter the purchase price..." class="form-control parsley-error" data-parsley-id="39" name="PurchasePrice">
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label yazi">Purchase Price :</label>
+                        <div class="col-sm-6">
+                            <input type="text" data-parsley-max="6" placeholder="Enter the purchase price..." class="form-control parsley-error" data-parsley-id="39" name="PurchasePrice" id="productPurchase" >
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label yazi">Selling Price :</label>
-                            <div class="col-sm-6">
-                                <input type="text" id="productSelling" data-parsley-max="6" placeholder="Enter the sales price..." class="form-control parsley-error" data-parsley-id="39" name="SellingPrice">
-                            </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label yazi">Selling Price :</label>
+                        <div class="col-sm-6">
+                            <input type="text" data-parsley-max="6" placeholder="Enter the sales price..." class="form-control parsley-error" data-parsley-id="39" name="SellingPrice" id="productSelling" >
                         </div>
+                    </div>
 
 
-                        @*<div class="form-group">
+                    @*<div class="form-group">
 
                             <label class="col-sm-3 control-label yazi"><br><br><br><b>Product Picture : </b></label>
                             <div class="col-sm-4">
@@ -72,15 +72,50 @@
                             </div>
                         </div>*@
 
-                        <div class="form-group">
-                            <div class="col-sm-2 col-sm-10 ">
-                                <button type="submit" class="btn btn-space btn-primary kaydet" style="font-size: 16px" id="btnSave">Save</button>
-                                <button class="btn btn-space btn-default " style="height: 40px; font-size: 14px;" id="btnCancel">Cancel</button>
-                            </div>
+                    <div class="form-group">
+                        <div class="col-sm-2 col-sm-10 ">
+                            <button type="submit" class="btn btn-space btn-primary kaydet" style="font-size: 16px" onclick="Save()">Save</button>
+                            <button class="btn btn-space btn-default " style="height: 40px; font-size: 14px;" id="btnCancel">Cancel</button>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
+        </div>
     </div>
 </div>
 
+<script>
+   var token = sessionStorage.getItem("accessToken");
+var headers = {};
+headers.Authorization = "Bearer " + token;
+
+$(document).ready(function() {
+  if (token == null) {
+    window.location.href = "/UserManagement/Login";
+  }
+});
+
+var Save = function() {
+  $.ajax({
+    url: "/api/Products",
+    method: "POST",
+    headers: headers,
+    data: {
+      Name: $("#productName").val(),
+      Code: $("#productCode").val(),
+      SellingPrice: $("#productSelling").val(),
+      PurchasingPrice: $("#productPurchase").val(),
+      StockAmount: $("#productStock").val(),
+      CategoryId: $("#CategoryId").val(),
+      SupplierId: $("#SupplierId").val()
+    },
+    success: function() {
+      window.location.href = "/Product/ListProduct";
+    },
+    error: function(jqXHR) {
+      alert("Error !");
+    }
+  });
+};
+
+</script>

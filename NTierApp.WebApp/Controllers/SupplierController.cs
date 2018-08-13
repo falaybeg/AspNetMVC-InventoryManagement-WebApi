@@ -11,6 +11,9 @@ namespace NTierApp.WebApp.Controllers
     public class SupplierController : Controller
     {
         ISupplierBusiness _supplier;
+        IOrdersBusiness _order;
+        IProductBusiness _product;
+
 
         public SupplierController(ISupplierBusiness supplier)
         {

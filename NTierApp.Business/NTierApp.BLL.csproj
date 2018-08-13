@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CategoryBusiness.cs" />
+    <Compile Include="Interface\IUserBusiness.cs" />
     <Compile Include="SupplierBusiness.cs" />
     <Compile Include="PurchaseBusiness.cs" />
     <Compile Include="OrdersBusiness.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="Interface\IPurchaseBusiness.cs" />
     <Compile Include="Interface\ISupplierBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserBusiness.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NTier.Domain\NTierApp.Model.csproj">

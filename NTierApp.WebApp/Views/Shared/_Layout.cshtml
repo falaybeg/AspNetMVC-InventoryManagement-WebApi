@@ -21,8 +21,6 @@
     @*<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>*@
     <script src="~/Scripts/jquery-3.3.1.js"></script>
 
-
-
 </head>
 <body>
     <div class="be-wrapper be-fixed-sidebar">
@@ -37,7 +35,7 @@
                             <ul role="menu" class="dropdown-menu">
                                 <li>
                                     <div class="user-info">
-                                        <div class="user-name">Name Surname</div>
+                                        <div class="user-name">@User.Identity.Name</div>
                                         <div class="user-position online">Online</div>
                                     </div>
                                 </li>
@@ -132,17 +130,7 @@
 
                                 </ul>
                             </li>
-                            <li class="parent">
-                                <a href="#"><i class="icon mdi mdi-account-add"></i><span>Customer Management</span></a>
-                                <ul class="sub-menu">
-                                    @*<li>
-                                            <a href="@Url.Action("AddCustomer","Customer")" style="font-size: 14px">New Customer</a>
-                                        </li>*@
-                                    <li>
-                                        <a href="@Url.Action("ListCustomer","Customer")" style="font-size: 14px">Customer Management</a>
-                                    </li>
-                                </ul>
-                            </li>
+
                             <li class="parent">
                                 <a href="#"><i class="icon mdi mdi-shopping-cart"></i><span>Order Management</span></a>
                                 <ul class="sub-menu">
@@ -164,6 +152,17 @@
                                         <a href="@Url.Action("ListPurchase","Purchase")" style="font-size: 14px">Purchase Management</a>
                                     </li>
 
+                                </ul>
+                            </li>
+                            <li class="parent">
+                                <a href="#"><i class="icon mdi mdi-account-add"></i><span>User Management</span></a>
+                                <ul class="sub-menu">
+                                    @*<li>
+                                            <a href="@Url.Action("AddCustomer","Customer")" style="font-size: 14px">New Customer</a>
+                                        </li>*@
+                                    <li>
+                                        <a href="@Url.Action("ListCustomer","Customer")" style="font-size: 14px">User Management</a>
+                                    </li>
                                 </ul>
                             </li>
                             </ul>
@@ -212,43 +211,14 @@
         $(document).ready(function () {
 
             var token = sessionStorage.getItem("accessToken");
-            var username = sessionStorage.getItem("username");
 
-         
-            
             if (token == null) {
-              //  window.location.href = "/UserManagement/Login"
+              window.location.href = "/UserManagement/Login"
             }
             else {
-                $('.user-name').text(username);
-
-
-               $('#btnSave').click(function () {
-                $.ajax({
-                    url: '/Product/AddProduct',
-                    method: 'POST',
-                    data: {
-                        Name: $('#productName').val(),
-                        Code: $('#productCode').val(),
-                        SellingPrice: $('#productSelling').val(),
-                        PurchasingPrice: $('#productPurchase').val(),
-                        StockAmount: $('#productStock').val(),
-                        CategoryId: $('#CategoryId').val(),
-                        SupplierId: $('#SupplierId').val()
-                    },
-                    success: function () {
-                             window.location.href = "/Product/ListProduct"
-                    },
-                    error: function (jqXHR) {
-                       alert("Error !");
-                    }
-                });
-
-                });
 
                 $("#logout").click(function () {
 
-                    var token = sessionStorage.getItem("accessToken");
                     var headers = {};
                     if (token) {
                         headers.Authorization = 'Bearer ' + token;
@@ -260,15 +230,12 @@
                         headers: headers
                     }).done(function (data) {
                         sessionStorage.removeItem('accessToken');
-                        sessionStorage.removeItem('username');
                         window.location.href = '/UserManagement/Login';
                     }).fail(function () {
                         alert("Error !");
                     });
                 });
             }
-
-
         });
 
     </script>

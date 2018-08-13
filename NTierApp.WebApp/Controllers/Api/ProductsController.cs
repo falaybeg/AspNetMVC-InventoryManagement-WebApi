@@ -6,6 +6,7 @@ using System.Web.Http;
 
 namespace NTierApp.WebApp.Controllers.Api
 {
+    [Authorize]
     public class ProductsController : ApiController
     {
         private IProductBusiness _product;

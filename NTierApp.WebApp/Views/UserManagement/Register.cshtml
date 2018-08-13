@@ -1,7 +1,103 @@
-﻿
-@{
-    ViewBag.Title = "Register";
+﻿@{
+    Layout = null;
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="~/Content/assets/img/logo-fav.png">
+    <title>Login Page - Welcome</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/lib/perfect-scrollbar/css/perfect-scrollbar.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/lib/material-design-icons/css/material-design-iconic-font.min.css" />
+    <link rel="stylesheet" href="~/Content/assets/css/style.css" type="text/css" />
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+</head>
+<body class="be-splash-screen">
+    <div class="be-wrapper be-login be-signup">
+        <div class="be-content">
+            <div class="main-content container-fluid">
+                <div class="splash-container sign-up">
+                    <div class="panel panel-default panel-border-color panel-border-color-primary">
+                        <div class="panel-heading"><img src="~/Content/assets/img/logo.png" alt="logo" width="150" height="70" class="logo-img"></div>
 
-<h2>Register</h2>
+                        <div class="panel-body">
+                            <span class="splash-title xs-pb-20">Sign Up</span>
+                            <div class="form-group">
+                                <input type="text" placeholder="First Name" class="form-control" id="firstName" >
+                            </div>
+                            <div class="form-group">
+                                <input type="text" placeholder="LastName"  class="form-control" id="lastName">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" placeholder="Card Number"  class="form-control" id="cardNumber">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" placeholder="Phone Number"  class="form-control" id="phoneNumber">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" placeholder="E-mail"  class="form-control" id="email">
+                            </div>
+                            <div class="form-group row signup-password">
+                                <div class="col-xs-6">
+                                    <input type="password" placeholder="Password" class="form-control" id="password">
+                                </div>
+                                <div class="col-xs-6">
+                                    <input type="password"  placeholder="Confirm Password" class="form-control" id="confirmPassword">
+                                </div>
+                            </div>
+                            <div class="form-group xs-pt-10">
+                                <button type="submit" class="btn btn-block btn-primary btn-xl" id="btnRegister">Sign Up</button>
+                            </div>
+                            <div class="title"><span class="splash-title xs-pb-15">Or</span></div>
+                            <div class="form-group row social-signup">
+                                <div class="col-xs-6">
+                                    <button type="button" class="btn btn-lg btn-block btn-social btn-facebook btn-color"><i class="mdi mdi-facebook icon icon-left"></i> Facebook</button>
+                                </div>
+                                <div class="col-xs-6">
+                                    <button type="button" class="btn btn-lg btn-block btn-social btn-google-plus btn-color"><i class="mdi mdi-google-plus icon icon-left"></i> Google Plus</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        $(document).ready(function () {
+            $("#btnRegister").click(function () {
+                $.ajax({
+                    // Post username, password & the grant type to /token
+                    url: "/api/Account/Register",
+                    method: "POST",
+                    data: {
+                        Email: $("#email").val(),
+                        Password: $("#password").val(),
+                        ConfirmPassword: $("#confirmPassword").val(),
+                        FirstName: $("#firstName").val(),
+                        LastName: $("#lastName").val(),
+                        CardNumber: $("#cardNumber").val(),
+                        PhoneNumber: $("#phoneNumber").val()
+                    },
+                    success: function (response) {
+                        window.location.href = "/UserManagement/Login";
+                    },
+                    error: function (jqXHR) {
+                        alert("Error !");
+                    }
+                });
+            });
+        });
+
+    </script>
+
+</body>
+</html>
 

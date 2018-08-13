@@ -7,6 +7,7 @@ using NTierApp.WebApp.Models;
 
 namespace NTierApp.WebApp.Controllers.Api
 {
+    [Authorize]
     public class SuppliersController : ApiController
     {
         private ISupplierBusiness _supplier;

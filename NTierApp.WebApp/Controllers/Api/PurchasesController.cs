@@ -10,6 +10,7 @@ using NTierApp.WebApp.Models;
 
 namespace NTierApp.WebApp.Controllers.Api
 {
+    [Authorize]
     public class PurchasesController : ApiController
     {
         private IPurchaseBusiness _purchase;

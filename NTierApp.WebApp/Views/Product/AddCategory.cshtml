@@ -67,37 +67,45 @@
 
 
 <script type="text/javascript">
+    var token = sessionStorage.getItem("accessToken");
+    var headers = {};
+    headers.Authorization = "Bearer " + token;
 
-    var Delete = function(id)
-    {
-         $.ajax({
-                    url: '/api/Categories/'+id,
-                    method: 'DELETE',
-                    success: function () {
-                             window.location.href = "/Product/AddCategory"
-                    },
-                    error: function (jqXHR) {
-                       alert("Error !");
-                    }
-                });
-    }
+    $(document).ready(function () {
+        if (token == null) {
+            window.location.href = "/UserManagement/Login";
+        }
+    });
 
-        $("#btnSave").click(function(){
+    var Delete = function (id) {
+        $.ajax({
+            url: "/api/Categories/" + id,
+            method: "DELETE",
+            headers: headers,
+            success: function () {
+                window.location.href = "/Product/AddCategory";
+            },
+            error: function (jqXHR) {
+                alert("Error !");
+            }
+        });
+    };
 
-              $.ajax({
-                        url: '/api/Categories',
-                        method: 'POST',
-                        data: {
-                             Name: $('#categoryName').val()
-                        },
-                        success: function () {
-                                 window.location.href = "/Product/AddCategory"
-                        },
-                        error: function (jqXHR) {
-                           alert("Error !");
-                        }
-                    });
-             });
-
+    $("#btnSave").click(function () {
+        $.ajax({
+            url: "/api/Categories",
+            method: "POST",
+            headers: headers,
+            data: {
+                Name: $("#categoryName").val()
+            },
+            success: function () {
+                window.location.href = "/Product/AddCategory";
+            },
+            error: function (jqXHR) {
+                alert("Error !");
+            }
+        });
+    });
 
 </script>

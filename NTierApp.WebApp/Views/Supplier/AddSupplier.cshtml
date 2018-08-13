@@ -49,13 +49,24 @@
 
 <script type="text/javascript">
 
+      $(document).ready(function () {
 
+        var token = sessionStorage.getItem("accessToken");
+        var headers = {};
 
+        if (token == null) {
+                 window.location.href = "/UserManagement/Login"
+               }
+        else
+        {
+            headers.Authorization = 'Bearer ' + token;
     $("#btnSave").click(function () {
 
         $.ajax({
             url: '/api/Suppliers',
             method: 'POST',
+            headers: headers,
+
             data: {
                 Name: $('#supplierName').val(),
                 Email: $('#supplierEmail').val(),
@@ -70,7 +81,7 @@
             }
         });
     });
-
-
+    }
+    });
 </script>
 

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using NTier.Domain;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -15,5 +17,8 @@ namespace NTierApp.WebApp.Models
         public int StockAmount { get; set; }
         public int CategoryId { get; set; }
         public int SupplierId { get; set; }
+
+        public Category Category { get; set; }
+        public Supplier Supplier { get; set; }
     }
 }

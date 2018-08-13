@@ -26,7 +26,19 @@ namespace NTierApp.WebApp.Controllers
         // GET: Product
         public ActionResult ListProduct()
         {
-            return View();
+            var result = _product.GetAll().Select(x => new ProductViewModel {
+
+                Id = x.Id,
+                Code = x.Code, 
+                Name = x.Name,
+                PurchasingPrice = x.PurchasingPrice,
+                SellingPrice = x.SellingPrice,
+                Category = x.Category,
+                Supplier = x.Supplier,
+                StockAmount = x.StockAmount
+            });
+
+            return View(result);
         }
 
         public ActionResult AddProduct()

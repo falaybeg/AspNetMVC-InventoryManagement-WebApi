@@ -10,6 +10,7 @@ using System.Web.Http;
 
 namespace NTierApp.WebApp.Controllers.Api
 {
+    [Authorize]
     [RoutePrefix("api/Categories")]
     public class CategoriesController : ApiController
     {

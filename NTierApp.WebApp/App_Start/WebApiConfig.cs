@@ -33,7 +33,7 @@ namespace NTierApp.WebApp
             container.RegisterType<IProductBusiness, ProductBusiness>();
             container.RegisterType<IPurchaseBusiness, PurchaseBusiness>();
             container.RegisterType<IOrdersBusiness, OrdersBusiness>();
-
+            container.RegisterType<IUserBusiness, UserBusiness>();
 
 
 

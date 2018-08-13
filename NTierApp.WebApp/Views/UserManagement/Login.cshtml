@@ -34,6 +34,9 @@
                             <div class="form-group login-submit">
                                 <button class="btn btn-primary btn-xl" id="btnLogin">Log In</button>
                             </div>
+                            <div class="form-group login-submit">
+                                <button class="btn btn-success btn-xl" style="margin-top: -30px;" id="btnRegister">Register</button>
+                            </div>
                             <div id="divError" class="alert alert-danger collapse">
                                 <a id="linkClose" href="#" class="close">&times;</a>
                                 <div id="divErrorText"></div>
@@ -65,7 +68,6 @@
         // EmployeeService project before running it
         success: function (response) {
             sessionStorage.setItem("accessToken", response.access_token);
-            sessionStorage.setItem("username", response.userName);
 
             window.location.href = '/Home/Index';
         },
@@ -75,6 +77,11 @@
         }
     });
 });
+
+      $("#btnRegister").click(function () {
+        
+            window.location.href = '/UserManagement/Register';
+        });
     </script>
 
 </body>
