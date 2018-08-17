@@ -17,6 +17,8 @@ namespace NTierApp.WebApp.Models
         public int StockAmount { get; set; }
         public int CategoryId { get; set; }
         public int SupplierId { get; set; }
+        public string CategoryName { get; set; }
+
 
         public Category Category { get; set; }
         public Supplier Supplier { get; set; }

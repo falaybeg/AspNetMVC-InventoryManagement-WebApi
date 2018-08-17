@@ -36,4 +36,10 @@ namespace NTierApp.WebApp.Models
             return new ApplicationDbContext();
         }
     }
+	
+	
+	
+	
 }
+
+

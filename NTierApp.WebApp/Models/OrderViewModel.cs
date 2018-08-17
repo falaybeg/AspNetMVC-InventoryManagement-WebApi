@@ -10,12 +10,15 @@ namespace NTierApp.WebApp.Models
     {
         public int Id { get; set; }
         public int ProductId { get; set; }
+        public string ProductName { get; set; }
+        public string ProductCategory { get; set; }
         public string UserId { get; set; }
         public DateTime OrderDate { get; set; }
         public DateTime ConfirmDate { get; set; }
         public bool ConfirmStatus { get; set; }
+        public string ShippingAddress { get; set; }
 
-        public virtual Product Product { get; set; }
-        public virtual ApplicationUserr User { get; set; }
+        public  Product Product { get; set; }
+        public  ApplicationUserr User { get; set; }
     }
 }

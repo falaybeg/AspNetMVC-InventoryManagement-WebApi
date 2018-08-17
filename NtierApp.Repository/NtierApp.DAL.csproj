@@ -60,6 +60,10 @@
     <Compile Include="Migrations\201808121956065_InitialAzureDb.Designer.cs">
       <DependentUpon>201808121956065_InitialAzureDb.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808161616306_AddOrderShippinAddress.cs" />
+    <Compile Include="Migrations\201808161616306_AddOrderShippinAddress.Designer.cs">
+      <DependentUpon>201808161616306_AddOrderShippinAddress.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
     <Compile Include="Infrastucture\BaseRepository.cs" />
@@ -91,6 +95,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201808121956065_InitialAzureDb.resx">
       <DependentUpon>201808121956065_InitialAzureDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808161616306_AddOrderShippinAddress.resx">
+      <DependentUpon>201808161616306_AddOrderShippinAddress.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

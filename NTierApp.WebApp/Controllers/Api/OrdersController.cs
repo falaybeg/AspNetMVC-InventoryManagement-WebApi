@@ -4,13 +4,14 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Microsoft.AspNet.Identity;
 using NTier.Domain;
 using NTierApp.Business.Interface;
 using NTierApp.WebApp.Models;
 
 namespace NTierApp.WebApp.Controllers.Api
 {
-    [Authorize]
+    //[Authorize]
     public class OrdersController : ApiController
     {
         private IOrdersBusiness _order;
@@ -51,6 +52,29 @@ namespace NTierApp.WebApp.Controllers.Api
             });
             return Ok(result);
         }
+        [Route("api/Orders/GetMyOrders")]
+        [HttpGet]
+        public IHttpActionResult GetMyOrders()
+        {
+            var UserId = User.Identity.GetUserId();
+            var result = _order.GetMyOrders(UserId)
+                .Select(x => new OrderViewModel
+            {
+                Id = x.Id,
+                ProductId = x.ProductId,
+                ProductName = x.Product.Name,
+                ProductCategory = x.Product.Category.Name,
+                UserId = x.UserId,
+                OrderDate = x.OrderDate,
+                ConfirmDate = x.ConfirmDate,
+                ConfirmStatus = x.ConfirmStatus,
+                ShippingAddress = x.ShippingAddress
+
+            }).OrderByDescending(x=>x.OrderDate);
+
+            return Ok(result);
+        }
+
         [HttpGet]
         public IHttpActionResult GetById(int id)
         {
@@ -75,9 +99,9 @@ namespace NTierApp.WebApp.Controllers.Api
         {
             Orders order = new Orders
             {
-                Id = model.Id,
                 ProductId = model.ProductId,
-                UserId = model.UserId
+                UserId = User.Identity.GetUserId(),
+                ShippingAddress = model.ShippingAddress
             };
             _order.Insert(order);
             return Ok(order);
@@ -90,7 +114,8 @@ namespace NTierApp.WebApp.Controllers.Api
             {
                 Id = model.Id,
                 ProductId = model.ProductId,
-                UserId = model.UserId
+                UserId = model.UserId,
+                ShippingAddress = model.ShippingAddress
             };
             _order.Update(order);
             return Ok(order);

@@ -29,7 +29,7 @@ namespace NTierApp.WebApp.Controllers
                 User = m.User,
                 OrderDate = m.OrderDate,
                 ConfirmStatus = m.ConfirmStatus
-            });
+            }).OrderByDescending(x=>x.OrderDate);
 
             return View(result);
         }

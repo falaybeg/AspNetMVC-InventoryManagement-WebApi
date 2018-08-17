@@ -15,6 +15,7 @@ namespace NTier.Domain
         public DateTime OrderDate { get; set; }
         public DateTime ConfirmDate { get; set; }
         public bool ConfirmStatus { get; set; }
+        public string ShippingAddress { get; set; }
 
         public virtual Product Product { get; set; }
         [ForeignKey("UserId")]

@@ -28,8 +28,10 @@ namespace NTierApp.WebApp.Controllers.Api
                 SellingPrice = x.SellingPrice,
                 StockAmount = x.StockAmount,
                 CategoryId = x.CategoryId,
-                SupplierId = x.SupplierId
+                SupplierId = x.SupplierId,
+                CategoryName = x.Category.Name
             });
+
             return Ok(result);
         }
 

@@ -57,7 +57,8 @@ namespace NTierApp.WebApp
             EnableCorsAttribute cors = new EnableCorsAttribute("*", "*", "*");
             config.EnableCors();
 
-            config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
+            config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("application/json"));
+
         }
     }
 }

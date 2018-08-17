@@ -12,10 +12,12 @@ namespace NTierApp.Business
 
         private readonly IUnitOfWork unitOfWork;
         private readonly OrderRepository _orderRepository;
+        private readonly IProductBusiness _productBusiness;
 
-        public OrdersBusiness(IUnitOfWork _unitOfWork)
+        public OrdersBusiness(IUnitOfWork _unitOfWork, IProductBusiness productBusiness)
         {
             this.unitOfWork = _unitOfWork;
+            this._productBusiness = productBusiness;
             this._orderRepository = new OrderRepository(unitOfWork);
         }
         public IEnumerable<Orders> GetAll()
@@ -26,6 +28,12 @@ namespace NTierApp.Business
         public IEnumerable<Orders> GetAllConfirmedOrders()
         {
             var result = _orderRepository.GetAll(x => x.ConfirmStatus == true);
+            return result;
+        }
+
+        public IEnumerable<Orders> GetMyOrders(string userId)
+        {
+            var result = _orderRepository.GetAll(x => x.UserId == userId);
             return result;
         }
 
@@ -46,12 +54,17 @@ namespace NTierApp.Business
 
         public void Insert(Orders order)
         {
+
             if (order != null)
             {
+
                 order.OrderDate = DateTime.Now;
                 order.ConfirmStatus = false;
                 order.ConfirmDate = DateTime.Now;
+                var product = _productBusiness.GetById(order.ProductId);
+                product.StockAmount--;
                 _orderRepository.Insert(order);
+                _productBusiness.Update(product);
             }
         }
 

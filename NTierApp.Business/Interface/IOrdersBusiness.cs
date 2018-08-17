@@ -17,6 +17,7 @@ namespace NTierApp.Business.Interface
         void ConfirmOrder(int orderId);
         IEnumerable<Orders> GetAllConfirmedOrders();
         IEnumerable<Orders> GetAllUnConfirmedOrders();
+        IEnumerable<Orders> GetMyOrders(string userId);
 
 
     }
