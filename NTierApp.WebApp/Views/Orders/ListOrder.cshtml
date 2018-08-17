@@ -51,18 +51,18 @@ headers.Authorization = 'Bearer ' + token;
 
 $(document).ready(function () {
 if (token == null) {
+         toastr.info("Please try again after signin up !", { timeOut: 3000 });
          window.location.href = "/UserManagement/Login"
        }
 });
 
-var ConfirmOrder = function(id)
-      {
-   
+var ConfirmOrder = function(id) {
      $.ajax({
                 url: '/api/Orders/ConfirmOrder?id='+id,
                 method: 'POST',
                 headers: headers,
                 success: function () {
+                         toastr.success("Selected Ordes confirmed successfully !", { timeOut: 4000 })
                          window.location.href = "/Orders/ConfirmedListOrder"
                 },
                 error: function (jqXHR) {

@@ -67,45 +67,47 @@
 
 
 <script type="text/javascript">
-    var token = sessionStorage.getItem("accessToken");
-    var headers = {};
-    headers.Authorization = "Bearer " + token;
+var token = sessionStorage.getItem("accessToken");
+var headers = {};
+headers.Authorization = "Bearer " + token;
 
-    $(document).ready(function () {
-        if (token == null) {
-            window.location.href = "/UserManagement/Login";
-        }
-    });
+$(document).ready(function() {
+  if (token == null) {
+    toastr.info("Please try again after signing up!");
+    window.location.href = "/UserManagement/Login";
+  }
+});
 
-    var Delete = function (id) {
-        $.ajax({
-            url: "/api/Categories/" + id,
-            method: "DELETE",
-            headers: headers,
-            success: function () {
-                window.location.href = "/Product/AddCategory";
-            },
-            error: function (jqXHR) {
-                alert("Error !");
-            }
-        });
-    };
+var Delete = function(id) {
+  $.ajax({
+    url: "/api/Categories/" + id,
+    method: "DELETE",
+    headers: headers,
+    success: function() {
+      window.location.href = "/Product/AddCategory";
+    },
+    error: function(jqXHR) {
+      alert("Error !");
+    }
+  });
+};
 
-    $("#btnSave").click(function () {
-        $.ajax({
-            url: "/api/Categories",
-            method: "POST",
-            headers: headers,
-            data: {
-                Name: $("#categoryName").val()
-            },
-            success: function () {
-                window.location.href = "/Product/AddCategory";
-            },
-            error: function (jqXHR) {
-                alert("Error !");
-            }
-        });
-    });
+$("#btnSave").click(function() {
+  $.ajax({
+    url: "/api/Categories",
+    method: "POST",
+    headers: headers,
+    data: {
+      Name: $("#categoryName").val()
+    },
+    success: function() {
+      window.location.href = "/Product/AddCategory";
+    },
+    error: function(jqXHR) {
+      alert("Error !");
+    }
+  });
+});
+
 
 </script>

@@ -38,7 +38,7 @@ namespace NTierApp.WebApp.Controllers
                 vm.TotalProductValues += (item.SellingPrice + item.StockAmount);
             }
             vm.Orders = _order.GetAll().OrderByDescending(x=>x.OrderDate).Take(5);
-            vm.User = _user.GetAll().Take(5);
+            vm.User = _user.GetAll().OrderByDescending(x=>x.RegisteredDate).Take(5);
           
             return View(vm);
         }

@@ -37,7 +37,7 @@
                                         <div class="btn-group btn-hspace">
                                             <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle " aria-expanded="false">İşlemler <span class="icon-dropdown mdi mdi-chevron-down"></span></button>
                                             <ul role="menu" class="dropdown-menu pull-right">
-                                                <li><a href="#"><i class="icon mdi mdi-edit"></i><span>Düzenle</span></a></li>
+                                                <li><a href="@Url.Action("Edit","Supplier", new { id = item.Id})"><i class="icon mdi mdi-edit"></i><span>Düzenle</span></a></li>
                                                 <li><a href="#" onclick="Delete(@item.Id)"><i class="icon mdi mdi-delete"></i><span>Sil</span></a></li>
                                             </ul>
                                         </div>
@@ -61,17 +61,18 @@ headers.Authorization = 'Bearer ' + token;
 $(document).ready(function () {
 
   if (token == null) {
+         toastr.info( "Please try again after signin up !", { timeOut: 3000 });
          window.location.href = "/UserManagement/Login"
        }
 });
 var Delete = function(id)
-{ 
-   
+{
  $.ajax({
             url: '/api/Suppliers/'+id,
             method: 'DELETE',
             headers: headers,
             success: function () {
+                     toastr.success("Supplier deleted successfully", { timeOut: 1000 })
                      window.location.href = "/Supplier/ListSupplier"
             },
             error: function (jqXHR) {

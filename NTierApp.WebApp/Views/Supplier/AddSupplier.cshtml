@@ -1,47 +1,92 @@
-﻿
+﻿@model NTierApp.WebApp.Models.SupplierViewModel
 <div class="row">
     <div class="col-md-12" style="margin-top: -15px">
-        <div class="panel panel-default panel-border-color panel-border-color-primary">
-            <div class="panel-heading panel-heading-divider" style="font-size: 22px;"><b>New Supplier Registration</b></div>
-            <div class="panel-body">
-                <form action="#" class="form-horizontal group-border-dashed" novalidate="">
 
+        @if (Model != null)
+        {
+            <div class="panel panel-default panel-border-color panel-border-color-primary">
+                <div class="panel-heading panel-heading-divider" style="font-size: 22px;"><b>New Supplier Registration</b></div>
+                <div class="panel-body">
+                    <form action="#" class="form-horizontal group-border-dashed" novalidate="">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label yazi">Company Name :</label>
+                            <div class="col-sm-6">
+                                <input type="text" placeholder="Enter the Company Name..." class="form-control parsley-error" data-parsley-id="29" id="supplierName" value="@Model.Name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label yazi">Phone :</label>
+                            <div class="col-sm-6">
+                                <input type="text" data-parsley-maxlength="6" placeholder="Enter the phone number..." class="form-control parsley-error" data-parsley-id="33" id="supplierPhone" value="@Model.PhoneNumber">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label yazi">Email :</label>
+                            <div class="col-sm-6">
+                                <input type="text" placeholder="Enter the email address..." class="form-control parsley-error" data-parsley-id="35" id="supplierEmail" value="@Model.Email">
+                            </div>
+                        </div>
 
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label yazi">Company Name :</label>
-                        <div class="col-sm-6">
-                            <input type="text" placeholder="Enter the Company Name..." class="form-control parsley-error" data-parsley-id="29" id="supplierName">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label yazi">Address :</label>
+                            <div class="col-sm-6">
+                                <input type="text" data-parsley-min="6" placeholder="Enter the address..." class="form-control parsley-error" data-parsley-id="37" id="supplierAdres" value="@Model.Adress">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label yazi">Phone :</label>
-                        <div class="col-sm-6">
-                            <input type="text" data-parsley-maxlength="6" placeholder="Enter the phone number..." class="form-control parsley-error" data-parsley-id="33" id="supplierPhone">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label yazi">Email :</label>
-                        <div class="col-sm-6">
-                            <input type="text" placeholder="Enter the email address..." class="form-control parsley-error" data-parsley-id="35" id="supplierEmail">
-                        </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label yazi">Address :</label>
-                        <div class="col-sm-6">
-                            <input type="text" data-parsley-min="6" placeholder="Enter the address..." class="form-control parsley-error" data-parsley-id="37" id="supplierAdres">
+                        <div class="form-group">
+                            <div class="col-sm-2 col-sm-10 ">
+                                <button type="submit" class="btn btn-space btn-warning" style="font-size: 17px" width: 80px; height:38px;" id="btnUpdate">Update</button>
+                                <button class="btn btn-space btn-default " style="height: 40px; font-size: 14px;">Cancel</button>
+                                <input type="hidden" id="supplierId" value="@Model.Id" />
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-sm-2 col-sm-10 ">
-                            <button type="submit" class="btn btn-space btn-success" style="font-size: 17px; width: 80px; height:38px;" id="btnSave">Save</button>
-                            <button class="btn btn-space btn-default " style="height: 40px; font-size: 14px;">Cancel</button>
-                        </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
-        </div>
+        }
+        else
+        {
+            <div class="panel panel-default panel-border-color panel-border-color-primary">
+                <div class="panel-heading panel-heading-divider" style="font-size: 22px;"><b>New Supplier Registration</b></div>
+                <div class="panel-body">
+                    <form action="#" class="form-horizontal group-border-dashed" novalidate="">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label yazi">Company Name :</label>
+                            <div class="col-sm-6">
+                                <input type="text" placeholder="Enter the Company Name..." class="form-control parsley-error" data-parsley-id="29" id="supplierName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label yazi">Phone :</label>
+                            <div class="col-sm-6">
+                                <input type="text" data-parsley-maxlength="6" placeholder="Enter the phone number..." class="form-control parsley-error" data-parsley-id="33" id="supplierPhone">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label yazi">Email :</label>
+                            <div class="col-sm-6">
+                                <input type="text" placeholder="Enter the email address..." class="form-control parsley-error" data-parsley-id="35" id="supplierEmail">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label yazi">Address :</label>
+                            <div class="col-sm-6">
+                                <input type="text" data-parsley-min="6" placeholder="Enter the address..." class="form-control parsley-error" data-parsley-id="37" id="supplierAdres">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-2 col-sm-10 ">
+                                <button type="submit" class="btn btn-space btn-success" style="font-size: 17px; width: 80px; height:38px;" id="btnSave">Save</button>
+                                <button class="btn btn-space btn-default " style="height: 40px; font-size: 14px;">Cancel</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        }
     </div>
 </div>
 
@@ -49,39 +94,63 @@
 
 <script type="text/javascript">
 
-      $(document).ready(function () {
+    $(document).ready(function() {
+  var token = sessionStorage.getItem("accessToken");
+  var headers = {};
 
-        var token = sessionStorage.getItem("accessToken");
-        var headers = {};
-
-        if (token == null) {
-                 window.location.href = "/UserManagement/Login"
-               }
-        else
-        {
-            headers.Authorization = 'Bearer ' + token;
-    $("#btnSave").click(function () {
-
-        $.ajax({
-            url: '/api/Suppliers',
-            method: 'POST',
-            headers: headers,
-
-            data: {
-                Name: $('#supplierName').val(),
-                Email: $('#supplierEmail').val(),
-                Adress: $('#supplierAdres').val(),
-                PhoneNumber: $('#supplierPhone').val()
-            },
-            success: function () {
-                window.location.href = "/Supplier/ListSupplier"
-            },
-            error: function (jqXHR) {
-                alert("Error !");
-            }
-        });
+  if (token == null) {
+    window.location.href = "/UserManagement/Login";
+  } else {
+    headers.Authorization = "Bearer " + token;
+    $("#btnSave").click(function() {
+      $.ajax({
+        url: "/api/Suppliers",
+        method: "POST",
+        headers: headers,
+        data: {
+          Name: $("#supplierName").val(),
+          Email: $("#supplierEmail").val(),
+          Adress: $("#supplierAdres").val(),
+          PhoneNumber: $("#supplierPhone").val()
+        },
+        success: function() {
+          toastr.success("Supplier added successfully !", { timeOut: 2000 });
+          window.location.href = "/Supplier/ListSupplier";
+        },
+        error: function(jqXHR) {
+          alert("Error !");
+          window.location.href = "/Supplier/ListSupplier";
+        }
+      });
     });
-    }
+
+
+    $("#btnUpdate").click(function() {
+      $.ajax({
+        url: "/api/Suppliers",
+        method: "PUT",
+        headers: headers,
+        data: {
+          Id: $("#supplierId").val(),
+          Name: $("#supplierName").val(),
+          Email: $("#supplierEmail").val(),
+          Adress: $("#supplierAdres").val(),
+          PhoneNumber: $("#supplierPhone").val()
+        },
+        success: function() {
+          toastr.success("Supplier updated successfully !", { timeOut: 2000 });
+          window.location.href = "/Supplier/ListSupplier";
+        },
+        error: function() {
+          alert("Error !");
+          window.location.href = "/Supplier/ListSupplier";
+        }
+      });
     });
+  }
+});
+
+
+
 </script>
 

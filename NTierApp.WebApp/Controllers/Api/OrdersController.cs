@@ -11,7 +11,7 @@ using NTierApp.WebApp.Models;
 
 namespace NTierApp.WebApp.Controllers.Api
 {
-    //[Authorize]
+    [Authorize]
     public class OrdersController : ApiController
     {
         private IOrdersBusiness _order;

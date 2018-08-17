@@ -18,9 +18,9 @@
     <link rel="stylesheet" type="text/css" href="~/Content/assets/lib/jqvmap/jqvmap.min.css" />
     <link rel="stylesheet" type="text/css" href="~/Content/assets/lib/datetimepicker/css/bootstrap-datetimepicker.min.css" />
     <link rel="stylesheet" href="~/Content/assets/css/style.css" type="text/css" />
-    @*<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>*@
     <script src="~/Scripts/jquery-3.3.1.js"></script>
-
+    <script src="~/Scripts/toastr.js"></script>
+    <link href="~/Content/toastr.css" rel="stylesheet" />
 </head>
 <body>
     <div class="be-wrapper be-fixed-sidebar">
@@ -211,12 +211,10 @@
         $(document).ready(function () {
 
             var token = sessionStorage.getItem("accessToken");
-
             if (token == null) {
-              window.location.href = "/UserManagement/Login"
+                window.location.href = "/UserManagement/Login"
             }
             else {
-
                 $("#logout").click(function () {
 
                     var headers = {};
@@ -230,6 +228,7 @@
                         headers: headers
                     }).done(function (data) {
                         sessionStorage.removeItem('accessToken');
+                        toastr.info("Thank you, goodbye !", { timeOut: 3000 })
                         window.location.href = '/UserManagement/Login';
                     }).fail(function () {
                         alert("Error !");

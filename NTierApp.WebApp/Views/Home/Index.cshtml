@@ -221,3 +221,20 @@
 
 *@
 
+
+
+<script>
+
+$(document).ready(function() {
+  var token = sessionStorage.getItem("accessToken");
+  var headers = {};
+  headers.Authorization = "Bearer " + token;
+  if (token == null) {
+    toastr.info("Please try again after signin up !", { timeOut: 3000 });
+    window.location.href = "/UserManagement/Login";
+  } 
+});
+
+
+
+</script>

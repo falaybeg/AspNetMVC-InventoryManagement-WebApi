@@ -73,13 +73,14 @@ namespace NTierApp.WebApp.Controllers.Api
                 Id = model.Id,
                 Name = model.Name,
                 Adress = model.Adress,
-                PhoneNumber = model.PhoneNumber
-
+                PhoneNumber = model.PhoneNumber,
+                Email = model.Email
             };
 
             _supplier.Update(supplier);
             return Ok(model);
         }
+
         [HttpDelete]
         public IHttpActionResult Delete(int id)
         {

@@ -22,14 +22,15 @@ namespace NTierApp.WebApp.Controllers
             this._supplier = supplier;
             this._product = product;
         }
-        
+
         // GET: Product
         public ActionResult ListProduct()
         {
-            var result = _product.GetAll().Select(x => new ProductViewModel {
+            var result = _product.GetAll().Select(x => new ProductViewModel
+            {
 
                 Id = x.Id,
-                Code = x.Code, 
+                Code = x.Code,
                 Name = x.Name,
                 PurchasingPrice = x.PurchasingPrice,
                 SellingPrice = x.SellingPrice,
@@ -43,21 +44,57 @@ namespace NTierApp.WebApp.Controllers
 
         public ActionResult AddProduct()
         {
-            var category = _category.GetAll().ToList();
-            ViewBag.Category = new SelectList(category, "Id", "Name");
 
-            var supplier = _supplier.GetAll().ToList();
-            ViewBag.Supplier = new SelectList(supplier, "Id", "Name");
+                var category = _category.GetAll().ToList();
+                ViewBag.Category = new SelectList(category, "Id", "Name");
+
+                var supplier = _supplier.GetAll().ToList();
+                ViewBag.Supplier = new SelectList(supplier, "Id", "Name");
 
             return View();
         }
 
+        public ActionResult EditProduct(int id)
+        {
+            if (id > 0)
+            {
+                var product = _product.GetById(id);
+                if (product != null)
+                {
+                    var vm = new ProductViewModel
+                    {
+                        Id = product.Id,
+                        Code = product.Code,
+                        Name = product.Name,
+                        CategoryId = product.CategoryId,
+                        SupplierId = product.SupplierId,
+                        PurchasingPrice = product.PurchasingPrice,
+                        SellingPrice = product.SellingPrice,
+                        StockAmount = product.StockAmount
+
+                    };
+
+                    var category = _category.GetAll().ToList();
+                    ViewBag.Category = new SelectList(category, "Id", "Name");
+
+                    var supplier = _supplier.GetAll().ToList();
+                    ViewBag.Supplier = new SelectList(supplier, "Id", "Name");
+                    return View("AddProduct", vm);
+
+                }
+
+            }
+
+            return View("AddProduct");
+        }
+
+
         [HttpPost]
         public ActionResult AddProduct(ProductViewModel model)
         {
-           var result = Mapper.Map<ProductViewModel, Product>(model);
+            var result = Mapper.Map<ProductViewModel, Product>(model);
             _product.Insert(result);
-            return View(); 
+            return View();
         }
 
         public ActionResult AddCategory()
@@ -71,5 +108,6 @@ namespace NTierApp.WebApp.Controllers
 
             return View(result);
         }
+
     }
 }

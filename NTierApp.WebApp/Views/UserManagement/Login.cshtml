@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="~/Content/assets/css/style.css" type="text/css" />
     <script src="~/Scripts/jquery-3.3.1.js"></script>
     <script src="~/Scripts/Project/login.js"></script>
+    <script src="~/Scripts/toastr.js"></script>
+    <link href="~/Content/toastr.css" rel="stylesheet" />
 </head>
 <body class="be-splash-screen">
     <div class="be-wrapper be-login">
@@ -68,10 +70,12 @@
         // EmployeeService project before running it
         success: function (response) {
             sessionStorage.setItem("accessToken", response.access_token);
-
+            toastr.info("Redirecting to Home Page !", { timeOut: 2000 })
             window.location.href = '/Home/Index';
+
         },
         error: function (jqXHR) {
+           toastr.error("Encountered with a error !", { timeOut: 3000 })
             $('#divErrorText').text(jqXHR.responseText);
             $('#divError').show('fade');
         }
@@ -79,7 +83,7 @@
 });
 
       $("#btnRegister").click(function () {
-        
+         
             window.location.href = '/UserManagement/Register';
         });
     </script>

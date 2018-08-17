@@ -1,88 +1,151 @@
 ﻿@model NTierApp.WebApp.Models.ProductViewModel
 
-<div class="row">
 
+
+<div class="row">
     <div class="col-md-12">
         <div class="panel panel-default panel-border-color panel-border-color-primary">
-            <div class="panel-heading panel-heading-divider" style="font-size: 22px"><b>New Product</b></div>
+            @if (Model != null)
+            {
+                <div class="panel-heading panel-heading-divider" style="font-size: 22px"><b>Update Product</b></div>
+            }
+            else
+            {
+                <div class="panel-heading panel-heading-divider" style="font-size: 22px"><b>New Product</b></div>
+
+            }
             <div class="panel-body">
-                <form action="#" class="form-horizontal group-border-dashed" novalidate="">
-                    <br>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label yazi">Product Code :</label>
-                        <div class="col-sm-6">
-                            <input type="text" placeholder="Product Code..." class="form-control parsley-error" data-parsley-id="29" id="productCode">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label yazi">Product Name :</label>
-                        <div class="col-sm-6">
-                            <input type="text" placeholder="Enter the Product Name..." class="form-control parsley-error" data-parsley-id="29" id="productName">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label yazi" for="sel1">Category :</label>
-                        <div class="col-sm-6">
-                            @Html.DropDownListFor(m => m.CategoryId, (SelectList)ViewBag.Category, "- Select Category -", new { @class = "form-control" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label yazi" for="sel1">Supplier :</label>
-                        <div class="col-sm-6">
-                            @Html.DropDownListFor(m => m.SupplierId, (SelectList)ViewBag.Supplier, "- Select Supplier -", new { @class = "form-control" })
-
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label yazi">Stock Amount :</label>
-                        <div class="col-sm-6">
-                            <input type="text" data-parsley-max="6" placeholder="Enter the stock amount..." class="form-control parsley-error" data-parsley-id="39" name="StockAmount" id="productStock">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label yazi">Purchase Price :</label>
-                        <div class="col-sm-6">
-                            <input type="text" data-parsley-max="6" placeholder="Enter the purchase price..." class="form-control parsley-error" data-parsley-id="39" name="PurchasePrice" id="productPurchase" >
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label yazi">Selling Price :</label>
-                        <div class="col-sm-6">
-                            <input type="text" data-parsley-max="6" placeholder="Enter the sales price..." class="form-control parsley-error" data-parsley-id="39" name="SellingPrice" id="productSelling" >
-                        </div>
-                    </div>
-
-
-                    @*<div class="form-group">
-
-                            <label class="col-sm-3 control-label yazi"><br><br><br><b>Product Picture : </b></label>
-                            <div class="col-sm-4">
-                                <br>
-                                <br>
-                                <br>
-                                <input type="file" name="pic" accept="image/*" placeholder="Ürün Resmi Ekleyiniz..." class="form-control parsley-error">
+                @if (Model != null)
+                {
+                    <form action="#" class="form-horizontal group-border-dashed" novalidate="">
+                        <br>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label yazi">Product Code :</label>
+                            <div class="col-sm-6">
+                                <input type="text" placeholder="Product Code..." class="form-control parsley-error" data-parsley-id="29" id="productCode" name="Code" value="@Model.Code">
                             </div>
-
-                            <div class="col-sm-3">
-                                &nbsp      &nbsp      &nbsp &nbsp
-
-                                <img style="margin-top: -12px" width="140" height="115" src="http://news.yuvayana.org/wp-content/uploads/sites/10/2015/06/muther-dairy-milk.jpg">
-                            </div>
-                        </div>*@
-
-                    <div class="form-group">
-                        <div class="col-sm-2 col-sm-10 ">
-                            <button type="submit" class="btn btn-space btn-primary kaydet" style="font-size: 16px" onclick="Save()">Save</button>
-                            <button class="btn btn-space btn-default " style="height: 40px; font-size: 14px;" id="btnCancel">Cancel</button>
                         </div>
-                    </div>
-                </form>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label yazi">Product Name :</label>
+                            <div class="col-sm-6">
+                                <input type="text" placeholder="Enter the Product Name..." class="form-control parsley-error" data-parsley-id="29" id="productName" name="Name" value="@Model.Name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label yazi" for="sel1">Category :</label>
+                            <div class="col-sm-6">
+                                @Html.DropDownListFor(m => m.CategoryId, (SelectList)ViewBag.Category, "- Select Category -", new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label yazi" for="sel1">Supplier :</label>
+                            <div class="col-sm-6">
+                                @Html.DropDownListFor(m => m.SupplierId, (SelectList)ViewBag.Supplier, "- Select Supplier -", new { @class = "form-control" })
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label yazi">Stock Amount :</label>
+                            <div class="col-sm-6">
+                                <input type="text" data-parsley-max="6" placeholder="Enter the stock amount..." class="form-control parsley-error" data-parsley-id="39" name="StockAmount" id="productStock" value="@Model.StockAmount">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label yazi">Purchase Price :</label>
+                            <div class="col-sm-6">
+                                <input type="text" data-parsley-max="6" placeholder="Enter the purchase price..." class="form-control parsley-error" data-parsley-id="39" name="PurchasingPrice" id="productPurchase" value="@Model.PurchasingPrice">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label yazi">Selling Price :</label>
+                            <div class="col-sm-6">
+                                <input type="text" data-parsley-max="6" placeholder="Enter the sales price..." class="form-control parsley-error" data-parsley-id="39" name="SellingPrice" id="productSelling" value="@Model.SellingPrice">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-sm-2 col-sm-10 ">
+                                <button type="submit" class="btn btn-space btn-warning kaydet" style="font-size: 16px" onclick="Update(@Model.Id)">Update</button>
+                                <button class="btn btn-space btn-default " style="height: 40px; font-size: 14px;" id="btnCancel">Cancel</button>
+                                <input type="hidden" id="@Model.Id" />
+
+                            </div>
+                        </div>
+                    </form>
+                }
+                else
+                {
+                    <form action="#" class="form-horizontal group-border-dashed" novalidate="">
+                        <br>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label yazi">Product Code :</label>
+                            <div class="col-sm-6">
+                                <input type="text" placeholder="Product Code..." class="form-control parsley-error" data-parsley-id="29" id="productCode" name="Code">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label yazi">Product Name :</label>
+                            <div class="col-sm-6">
+                                <input type="text" placeholder="Enter the Product Name..." class="form-control parsley-error" data-parsley-id="29" id="productName" name="Name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label yazi" for="sel1">Category :</label>
+                            <div class="col-sm-6">
+                                @Html.DropDownListFor(m => m.CategoryId, (SelectList)ViewBag.Category, "- Select Category -", new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label yazi" for="sel1">Supplier :</label>
+                            <div class="col-sm-6">
+                                @Html.DropDownListFor(m => m.SupplierId, (SelectList)ViewBag.Supplier, "- Select Supplier -", new { @class = "form-control" })
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label yazi">Stock Amount :</label>
+                            <div class="col-sm-6">
+                                <input type="text" data-parsley-max="6" placeholder="Enter the stock amount..." class="form-control parsley-error" data-parsley-id="39" name="StockAmount" id="productStock">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label yazi">Purchase Price :</label>
+                            <div class="col-sm-6">
+                                <input type="text" data-parsley-max="6" placeholder="Enter the purchase price..." class="form-control parsley-error" data-parsley-id="39" name="PurchasingPrice" id="productPurchase">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label yazi">Selling Price :</label>
+                            <div class="col-sm-6">
+                                <input type="text" data-parsley-max="6" placeholder="Enter the sales price..." class="form-control parsley-error" data-parsley-id="39" name="SellingPrice" id="productSelling">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-sm-2 col-sm-10 ">
+                                <button type="submit" class="btn btn-space btn-success kaydet" style="font-size: 16px" onclick="Save()">Save</button>
+                                <button class="btn btn-space btn-default " style="height: 40px; font-size: 14px;" id="btnCancel">Cancel</button>
+                                <input type="hidden" id="productId" />
+                            </div>
+                        </div>
+                    </form>
+                }
             </div>
         </div>
     </div>
 </div>
+
+
+
+
+
+
 
 <script>
    var token = sessionStorage.getItem("accessToken");
@@ -91,7 +154,8 @@ headers.Authorization = "Bearer " + token;
 
 $(document).ready(function() {
   if (token == null) {
-    window.location.href = "/UserManagement/Login";
+        toastr.info( "Please try again after signin up !", { timeOut: 3000 });
+        window.location.href = "/UserManagement/Login";
   }
 });
 
@@ -109,7 +173,34 @@ var Save = function() {
       CategoryId: $("#CategoryId").val(),
       SupplierId: $("#SupplierId").val()
     },
+
     success: function() {
+      toastr.success( "Product added successfully !", { timeOut: 2000 });
+      window.location.href = "/Product/ListProduct";
+    },
+    error: function(jqXHR) {
+      alert("Error !");
+    }
+  });
+};
+
+    var Update = function(productId) {
+  $.ajax({
+    url: "/api/Products",
+    method: "PUT",
+    headers: headers,
+    data: {
+      Id: productId,
+      Name: $("#productName").val(),
+      Code: $("#productCode").val(),
+      SellingPrice: $("#productSelling").val(),
+      PurchasingPrice: $("#productPurchase").val(),
+      StockAmount: $("#productStock").val(),
+      CategoryId: $("#CategoryId").val(),
+      SupplierId: $("#SupplierId").val()
+    },
+    success: function() {
+    toastr.success( "Product updated successfully !", { timeOut: 2000 });
       window.location.href = "/Product/ListProduct";
     },
     error: function(jqXHR) {
@@ -119,3 +210,23 @@ var Save = function() {
 };
 
 </script>
+
+
+
+
+@*<div class="form-group">
+
+        <label class="col-sm-3 control-label yazi"><br><br><br><b>Product Picture : </b></label>
+        <div class="col-sm-4">
+            <br>
+            <br>
+            <br>
+            <input type="file" name="pic" accept="image/*" placeholder="Ürün Resmi Ekleyiniz..." class="form-control parsley-error">
+        </div>
+
+        <div class="col-sm-3">
+            &nbsp      &nbsp      &nbsp &nbsp
+
+            <img style="margin-top: -12px" width="140" height="115" src="http://news.yuvayana.org/wp-content/uploads/sites/10/2015/06/muther-dairy-milk.jpg">
+        </div>
+    </div>*@

@@ -38,5 +38,26 @@ namespace NTierApp.WebApp.Controllers
         {
             return View();
         }
+
+        public ActionResult Edit(int id)
+        {
+            if(id > 0)
+            {
+                var supplier = _supplier.GetById(id);
+                if(supplier != null)
+                {
+                    var vm = new SupplierViewModel
+                    {
+                        Id = supplier.Id,
+                        Name = supplier.Name,
+                        Adress = supplier.Adress, 
+                        PhoneNumber = supplier.PhoneNumber, 
+                        Email = supplier.Email
+                    };
+                    return View("AddSupplier", vm);
+                }
+            }
+            return View("AddSupplier");
+        }
     }
 }
