@@ -349,6 +349,7 @@
     <Content Include="Content\assets\img\logo.png" />
     <Content Include="Content\assets\img\logo2.png" />
     <Content Include="Content\assets\img\mail_chimp.png" />
+    <Content Include="Content\assets\img\myprofile.png" />
     <Content Include="Content\assets\img\pi-icon.png" />
     <Content Include="Content\assets\img\slack.png" />
     <Content Include="Content\assets\img\slack_logo.png" />
@@ -380,6 +381,7 @@
     <Content Include="Content\assets\js\app-ui-notifications.js" />
     <Content Include="Content\assets\js\main.js" />
     <Content Include="Content\assets\js\main.min.js" />
+    <Content Include="Content\assets\js\select2.min.js" />
     <Content Include="Content\assets\lib\bootstrap-markdown\css\bootstrap-markdown.min.css" />
     <Content Include="Content\assets\lib\bootstrap-markdown\js\bootstrap-markdown.js" />
     <Content Include="Content\assets\lib\bootstrap-markdown\locale\bootstrap-markdown.ar.js" />
@@ -1899,6 +1901,7 @@
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
+    <Content Include="Content\assets\css\select2.min.css" />
     <None Include="Properties\PublishProfiles\inventorywebapi - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\inventorywebapi - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1-vsdoc.js" />
@@ -2021,6 +2024,7 @@
     <Content Include="Views\Product\AddProduct.cshtml" />
     <Content Include="Views\Purchase\AddPurchase.cshtml" />
     <Content Include="Views\Orders\ConfirmedListOrder.cshtml" />
+    <Content Include="Views\UserManagement\MyAccount.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

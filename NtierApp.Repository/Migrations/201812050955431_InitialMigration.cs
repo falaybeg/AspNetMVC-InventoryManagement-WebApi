@@ -3,16 +3,16 @@ namespace NtierApp.Repository.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AddOrderShippinAddress : DbMigration
+    public partial class InitialMigration : DbMigration
     {
         public override void Up()
         {
-            AddColumn("dbo.Orders", "ShippingAdress", c => c.String());
+            AddColumn("dbo.Orders", "ShippingAddress", c => c.String());
         }
         
         public override void Down()
         {
-            DropColumn("dbo.Orders", "ShippingAdress");
+            DropColumn("dbo.Orders", "ShippingAddress");
         }
     }
 }

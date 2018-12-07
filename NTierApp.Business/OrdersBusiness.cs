@@ -62,7 +62,7 @@ namespace NTierApp.Business
                 order.ConfirmStatus = false;
                 order.ConfirmDate = DateTime.Now;
                 var product = _productBusiness.GetById(order.ProductId);
-                product.StockAmount--;
+                product.Quantity--;
                 _orderRepository.Insert(order);
                 _productBusiness.Update(product);
             }

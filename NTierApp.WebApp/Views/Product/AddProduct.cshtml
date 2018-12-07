@@ -17,124 +17,146 @@
             <div class="panel-body">
                 @if (Model != null)
                 {
-                    <form action="#" class="form-horizontal group-border-dashed" novalidate="">
-                        <br>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label yazi">Product Code :</label>
-                            <div class="col-sm-6">
-                                <input type="text" placeholder="Product Code..." class="form-control parsley-error" data-parsley-id="29" id="productCode" name="Code" value="@Model.Code">
-                            </div>
+                <form action="#" class="form-horizontal group-border-dashed" novalidate="">
+                    <br>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label yazi">Product Code :</label>
+                        <div class="col-sm-6">
+                            <input type="text" placeholder="Product Code..." class="form-control parsley-error" data-parsley-id="29" id="productCode" name="Code" value="@Model.Code">
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label yazi">Product Name :</label>
-                            <div class="col-sm-6">
-                                <input type="text" placeholder="Enter the Product Name..." class="form-control parsley-error" data-parsley-id="29" id="productName" name="Name" value="@Model.Name">
-                            </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label yazi">Product Name :</label>
+                        <div class="col-sm-6">
+                            <input type="text" placeholder="Enter the Product Name..." class="form-control parsley-error" data-parsley-id="29" id="productName" name="Name" value="@Model.Name">
                         </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label yazi" for="sel1">Category :</label>
-                            <div class="col-sm-6">
-                                @Html.DropDownListFor(m => m.CategoryId, (SelectList)ViewBag.Category, "- Select Category -", new { @class = "form-control" })
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label yazi" for="sel1">Category :</label>
+                        <div class="col-sm-6">
+                            @Html.DropDownListFor(m => m.CategoryId, (SelectList)ViewBag.Category, "- Select Category -", new { @class = "form-control" })
                         </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label yazi" for="sel1">Supplier :</label>
-                            <div class="col-sm-6">
-                                @Html.DropDownListFor(m => m.SupplierId, (SelectList)ViewBag.Supplier, "- Select Supplier -", new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label yazi" for="sel1">Supplier :</label>
+                        <div class="col-sm-6">
+                            @Html.DropDownListFor(m => m.SupplierId, (SelectList)ViewBag.Supplier, "- Select Supplier -", new { @class = "form-control" })
 
-                            </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label yazi">Stock Amount :</label>
-                            <div class="col-sm-6">
-                                <input type="text" data-parsley-max="6" placeholder="Enter the stock amount..." class="form-control parsley-error" data-parsley-id="39" name="StockAmount" id="productStock" value="@Model.StockAmount">
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label yazi">Quantity :</label>
+                        <div class="col-sm-6">
+                            <input type="number" min="1" data-parsley-max="6" placeholder="Enter the quantity..." class="form-control parsley-error" data-parsley-id="39" name="Quantity" id="quantity" value="@Model.Quantity">
                         </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label yazi">Purchase Price :</label>
-                            <div class="col-sm-6">
-                                <input type="text" data-parsley-max="6" placeholder="Enter the purchase price..." class="form-control parsley-error" data-parsley-id="39" name="PurchasingPrice" id="productPurchase" value="@Model.PurchasingPrice">
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label yazi">Cost Price :</label>
+                        <div class="col-sm-6">
+                            <input type="text" data-parsley-max="6" placeholder="Enter the cost price..." class="form-control parsley-error" data-parsley-id="39" name="PurchasingPrice" id="productPurchase" value="@Model.PurchasingPrice">
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label yazi">Selling Price :</label>
-                            <div class="col-sm-6">
-                                <input type="text" data-parsley-max="6" placeholder="Enter the sales price..." class="form-control parsley-error" data-parsley-id="39" name="SellingPrice" id="productSelling" value="@Model.SellingPrice">
-                            </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label yazi">Selling Price :</label>
+                        <div class="col-sm-6">
+                            <input type="text" data-parsley-max="6" placeholder="Enter the sales price..." class="form-control parsley-error" data-parsley-id="39" name="SellingPrice" id="productSelling" value="@Model.SellingPrice">
                         </div>
-
-
-                        <div class="form-group">
-                            <div class="col-sm-2 col-sm-10 ">
-                                <button type="submit" class="btn btn-space btn-warning kaydet" style="font-size: 16px" onclick="Update(@Model.Id)">Update</button>
-                                <button class="btn btn-space btn-default " style="height: 40px; font-size: 14px;" id="btnCancel">Cancel</button>
-                                <input type="hidden" id="@Model.Id" />
-
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <br /><br /><br /><br />
+                        <label class="col-sm-3 control-label yazi">Picture :</label>
+                        <div class="col-sm-4">
+                            <input type="file" accept="image/*" name="picture" placeholder="Ürün Resmi Ekleyiniz..." class="form-control parsley-error">
                         </div>
-                    </form>
+                        <div class="col-sm-3">
+                            <img id="preview" style="margin-top: -70px" width="140" height="115" src="http://news.yuvayana.org/wp-content/uploads/sites/10/2015/06/muther-dairy-milk.jpg">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-2 col-sm-10 ">
+                            <input class="btn btn-space btn-warning kaydet" style="font-size: 16px; height:40px" id="btnUpdate" value="Update" onclick="Update(@Model.Id)" />
+                            <input class="btn btn-space btn-default kaydet" style="height: 40px; font-size: 14px;" id="btnCancel" onclick="window.location.href ='@Url.Action("ListProduct","Product")'" value="Cancel" />
+                            <input type="hidden" id="@Model.Id" />
+                        </div>
+                    </div>
+                </form>
                 }
                 else
                 {
-                    <form action="#" class="form-horizontal group-border-dashed" novalidate="">
-                        <br>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label yazi">Product Code :</label>
-                            <div class="col-sm-6">
-                                <input type="text" placeholder="Product Code..." class="form-control parsley-error" data-parsley-id="29" id="productCode" name="Code">
-                            </div>
+                <form action="#" class="form-horizontal group-border-dashed" novalidate="">
+                    <br>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label yazi">Product Code :</label>
+                        <div class="col-sm-6">
+                            <input type="text" placeholder="Product Code..." class="form-control parsley-error" data-parsley-id="29" id="productCode" name="Code">
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label yazi">Product Name :</label>
-                            <div class="col-sm-6">
-                                <input type="text" placeholder="Enter the Product Name..." class="form-control parsley-error" data-parsley-id="29" id="productName" name="Name">
-                            </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label yazi">Product Name :</label>
+                        <div class="col-sm-6">
+                            <input type="text" placeholder="Enter the Product Name..." class="form-control parsley-error" data-parsley-id="29" id="productName" name="Name">
                         </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label yazi" for="sel1">Category :</label>
-                            <div class="col-sm-6">
-                                @Html.DropDownListFor(m => m.CategoryId, (SelectList)ViewBag.Category, "- Select Category -", new { @class = "form-control" })
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label yazi" for="sel1">Category :</label>
+                        <div class="col-sm-6">
+                            @Html.DropDownListFor(m => m.CategoryId, (SelectList)ViewBag.Category, "- Select Category -", new { @class = "form-control" })
                         </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label yazi" for="sel1">Supplier :</label>
-                            <div class="col-sm-6">
-                                @Html.DropDownListFor(m => m.SupplierId, (SelectList)ViewBag.Supplier, "- Select Supplier -", new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label yazi" for="sel1">Supplier :</label>
+                        <div class="col-sm-6">
+                            @Html.DropDownListFor(m => m.SupplierId, (SelectList)ViewBag.Supplier, "- Select Supplier -", new { @class = "form-control" })
 
-                            </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label yazi">Stock Amount :</label>
-                            <div class="col-sm-6">
-                                <input type="text" data-parsley-max="6" placeholder="Enter the stock amount..." class="form-control parsley-error" data-parsley-id="39" name="StockAmount" id="productStock">
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label yazi">Quantity :</label>
+                        <div class="col-sm-6">
+                            <input type="number" min="1" data-parsley-max="6" placeholder="Enter the quantity..." class="form-control parsley-error" data-parsley-id="39" name="Quantity" id="quantity">
                         </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label yazi">Purchase Price :</label>
-                            <div class="col-sm-6">
-                                <input type="text" data-parsley-max="6" placeholder="Enter the purchase price..." class="form-control parsley-error" data-parsley-id="39" name="PurchasingPrice" id="productPurchase">
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label yazi">Cost Price :</label>
+                        <div class="col-sm-6">
+                            <input type="text" data-parsley-max="6" placeholder="Enter the cost price..." class="form-control parsley-error" data-parsley-id="39" name="PurchasingPrice" id="productPurchase">
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label yazi">Selling Price :</label>
-                            <div class="col-sm-6">
-                                <input type="text" data-parsley-max="6" placeholder="Enter the sales price..." class="form-control parsley-error" data-parsley-id="39" name="SellingPrice" id="productSelling">
-                            </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label yazi">Selling Price :</label>
+                        <div class="col-sm-6">
+                            <input type="text" data-parsley-max="6" placeholder="Enter the sales price..." class="form-control parsley-error" data-parsley-id="39" name="SellingPrice" id="productSelling">
                         </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div style="margin-top: 70px">
+                            <label class="col-sm-3 control-label yazi">Picture :</label>
+                            <div class="col-sm-4">
+                                <input type="file" accept="image/*" id="inputFile" placeholder="Ürün Resmi Ekleyiniz..." class="form-control parsley-error">
+                            </div>
+
+                            <div class="col-sm-3">
+                                <img id="imgLogo" style="margin-top: -70px" width="175" height="135" src="http://news.yuvayana.org/wp-content/uploads/sites/10/2015/06/muther-dairy-milk.jpg">
+                            </div>
 
 
-                        <div class="form-group">
-                            <div class="col-sm-2 col-sm-10 ">
-                                <button type="submit" class="btn btn-space btn-success kaydet" style="font-size: 16px" onclick="Save()">Save</button>
-                                <button class="btn btn-space btn-default " style="height: 40px; font-size: 14px;" id="btnCancel">Cancel</button>
-                                <input type="hidden" id="productId" />
-                            </div>
                         </div>
-                    </form>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2 col-sm-10 ">
+                            <input class="btn btn-space btn-success kaydet" style="font-size: 16px; height:40px" id="btnSave" value="Save" />
+                            <input class="btn btn-space btn-default kaydet" style="height: 40px; font-size: 14px;" id="btnCancel" onclick="window.location.href ='@Url.Action("ListPurchase","Purchase")'" value="Cancel" />
+                        </div>
+                    </div>
+
+
+                </form>
                 }
             </div>
         </div>
@@ -142,8 +164,23 @@
 </div>
 
 
-
-
+<script>
+    $(function () {
+        $("#inputFile").change(function () {
+            readURL(this);
+        });
+    });
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                //alert(e.target.result);
+                $('#imgLogo').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
 
 
 
@@ -159,9 +196,9 @@ $(document).ready(function() {
   }
 });
 
-var Save = function() {
+    $("#btnSave").click(function() {
   $.ajax({
-    url: "/api/Products",
+    url: "http://localhost:5000/api/Products",
     method: "POST",
     headers: headers,
     data: {
@@ -169,7 +206,7 @@ var Save = function() {
       Code: $("#productCode").val(),
       SellingPrice: $("#productSelling").val(),
       PurchasingPrice: $("#productPurchase").val(),
-      StockAmount: $("#productStock").val(),
+      Quantity: $("#quantity").val(),
       CategoryId: $("#CategoryId").val(),
       SupplierId: $("#SupplierId").val()
     },
@@ -182,9 +219,9 @@ var Save = function() {
       alert("Error !");
     }
   });
-};
+});
 
-    var Update = function(productId) {
+var Update = function(productId) {
   $.ajax({
     url: "/api/Products",
     method: "PUT",
@@ -195,7 +232,7 @@ var Save = function() {
       Code: $("#productCode").val(),
       SellingPrice: $("#productSelling").val(),
       PurchasingPrice: $("#productPurchase").val(),
-      StockAmount: $("#productStock").val(),
+      Quantity: $("#quantity").val(),
       CategoryId: $("#CategoryId").val(),
       SupplierId: $("#SupplierId").val()
     },

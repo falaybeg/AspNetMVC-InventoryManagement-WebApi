@@ -12,7 +12,7 @@ namespace NTierApp.WebApp.Controllers
 {
     public class OrdersController : Controller
     {
-        IOrdersBusiness _order;
+        private IOrdersBusiness _order;
 
         public OrdersController(IOrdersBusiness orders)
         {

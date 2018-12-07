@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Microsoft.AspNet.Identity;
 using NTier.Domain;
 using NTierApp.Business.Interface;
 using NTierApp.WebApp.Models;
@@ -28,8 +29,8 @@ namespace NTierApp.WebApp.Controllers.Api
                 Id = x.Id,
                 ProductId = x.ProductId,
                 UserId = x.UserId,
-                PurchasedTime = x.PurchasedTime,
-                Amount = x.Amount
+                CreatedTime = x.CreatedTime,
+                Quantity = x.Quantity
             });
             return Ok(result);
         }
@@ -45,8 +46,8 @@ namespace NTierApp.WebApp.Controllers.Api
                     Id = result.Id,
                     ProductId = result.ProductId,
                     UserId = result.UserId,
-                    PurchasedTime = result.PurchasedTime,
-                    Amount = result.Amount
+                    CreatedTime = result.CreatedTime,
+                    Quantity = result.Quantity
                 };
 
                 return Ok(vm);
@@ -60,8 +61,11 @@ namespace NTierApp.WebApp.Controllers.Api
             {
                 Id = model.Id,
                 ProductId = model.ProductId,
-                UserId = model.UserId,
-                Amount = model.Amount
+                UserId = User.Identity.GetUserId(),
+                Quantity = model.Quantity,
+                CreatedTime = DateTime.Now,
+                DeliveryTime = model.DeliveryTime,
+                Description = model.Description
             };
             _purchase.Insert(purchase);
 
@@ -75,7 +79,9 @@ namespace NTierApp.WebApp.Controllers.Api
                 Id = model.Id,
                 ProductId = model.ProductId,
                 UserId = model.UserId,
-                Amount = model.Amount
+                Quantity = model.Quantity,
+                DeliveryTime = model.DeliveryTime,
+                Description = model.Description
             };
             _purchase.Update(purchase);
             return Ok(purchase);

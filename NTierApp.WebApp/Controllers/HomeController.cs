@@ -35,7 +35,7 @@ namespace NTierApp.WebApp.Controllers
             var result = _product.GetAll();
             foreach (var item in result)
             {
-                vm.TotalProductValues += (item.SellingPrice + item.StockAmount);
+                vm.TotalProductValues += (item.SellingPrice + item.Quantity);
             }
             vm.Orders = _order.GetAll().OrderByDescending(x=>x.OrderDate).Take(5);
             vm.User = _user.GetAll().OrderByDescending(x=>x.RegisteredDate).Take(5);

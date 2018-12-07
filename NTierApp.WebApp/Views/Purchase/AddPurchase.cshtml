@@ -1,8 +1,160 @@
-﻿
-@{
-    ViewBag.Title = "AddPurchase";
-}
+﻿@model NTierApp.WebApp.Models.PurchaseViewModel
 
-<h2>New Purchase</h2>
 
-<img  src="~/Content/assets/img/cooming.jpg"/>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default panel-border-color panel-border-color-primary">
+            @if (Model != null)
+            {
+                <div class="panel-heading panel-heading-divider" style="font-size: 22px"><b>Update Purchase</b></div>
+            }
+            else
+            {
+                <div class="panel-heading panel-heading-divider" style="font-size: 22px"><b>Create New Purchase</b></div>
+            }
+            <div class="panel-body">
+                @if (Model != null)
+                {
+                    <form action="#" class="form-horizontal group-border-dashed" novalidate="">
+                        <br>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label yazi" for="sel1">Product :</label>
+                            <div class="col-sm-6">
+                                @Html.DropDownListFor(m => m.ProductId, (SelectList)ViewBag.Products, "- Select Product -", new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label yazi">Quantity :</label>
+                            <div class="col-sm-6">
+                                <input type="number" data-parsley-max="6" min="1" class="form-control parsley-error" data-parsley-id="39" name="Quantity" id="quantity" value="@Model.Quantity">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label yazi">Delivery Date :</label>
+                            <div class="col-sm-6">
+                                <input type="date"  class="form-control parsley-error"  name="DeliveryDate" id="deliveryTime" value="@Model.DeliveryTime.ToString("yyyy-MM-dd")">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label yazi">Message :</label>
+                            <div class="col-sm-6">
+                                <textarea class="form-control parsley-error" data-parsley-max="6" data-parsley-id="39" rows="5" id="message">@Model.Description</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-2 col-sm-10 ">
+                                <input class="btn btn-space btn-warning kaydet" style="font-size: 16px; height:40px" id="btnUpdate" value="Update" onclick="Update(@Model.Id)" />
+                                <input class="btn btn-space btn-default kaydet" style="height: 40px; font-size: 14px;" id="btnCancel" onclick="window.location.href ='@Url.Action("ListPurchase","Purchase")'" value="Cancel" />
+                                <input type="hidden" id="_@Model.Id" />
+                            </div>
+                        </div>
+                    </form>
+                }
+                else
+                {
+                    <form action="#" class="form-horizontal group-border-dashed" novalidate="">
+                        <br>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label yazi" for="sel1">Product :</label>
+                            <div class="col-sm-6">
+                                @Html.DropDownListFor(m => m.ProductId, (SelectList)ViewBag.Products, "- Select Product -", new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label yazi">Quantity :</label>
+                            <div class="col-sm-6">
+                                <input type="number" data-parsley-max="6" min="1" class="form-control parsley-error" data-parsley-id="39" name="Quantity" id="quantity">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label yazi">Delivery Date :</label>
+                            <div class="col-sm-6">
+                                <input type="date" data-parsley-max="6" class="form-control parsley-error" data-parsley-id="39" name="DeliveryDate" id="deliveryTime">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label yazi">Message :</label>
+                            <div class="col-sm-6">
+                                <textarea class="form-control parsley-error" data-parsley-max="6" data-parsley-id="39" rows="5" id="message"></textarea>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-2 col-sm-10 ">
+                                <input class="btn btn-space btn-success kaydet" style="font-size: 16px; height:40px" id="btnSave" value="Save" />
+                                <input class="btn btn-space btn-default kaydet" style="height: 40px; font-size: 14px;" id="btnCancel" onclick="window.location.href ='@Url.Action("ListPurchase","Purchase")'" value="Cancel" />
+                            </div>
+                        </div>
+                    </form>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    var token = sessionStorage.getItem("accessToken");
+    var headers = {};
+    headers.Authorization = "Bearer " + token;
+
+    $(document).ready(function () {
+        if (token == null) {
+            toastr.info("Please try again after signin up !", { timeOut: 3000 });
+            window.location.href = "/UserManagement/Login";
+        }
+    });
+
+    $("#btnSave").click(function () {
+
+        $.ajax({
+            url: "/api/Purchases",
+            method: "POST",
+            headers: headers,
+            data: {
+                ProductId: $("#ProductId").val(),
+                Quantity: $("#quantity").val(),
+                DeliveryTime: $("#deliveryTime").val(),
+                Description: $("#message").val()
+            },
+            success: function () {
+                toastr.success("Purchase has been completed successfully !", { timeOut: 3000 });
+                window.location.href = "/Purchase/ListPurchase";
+            },
+            error: function (jqXHR) {
+                alert("Error !");
+            }
+        });
+    });
+
+   
+    var Update = function (purchaseId) {
+
+        $.ajax({
+            url: "/api/Purchases",
+            method: "PUT",
+            headers: headers,
+            data: {
+                Id: purchaseId,
+                ProductId: $("#ProductId").val(),
+                Quantity: $("#quantity").val(),
+                DeliveryTime: $("#deliveryTime").val(),
+                Description: $("#message").val()
+            },
+            success: function () {
+                toastr.success("Purchase has been updated successfully !", { timeOut: 3000 });
+                window.location.href = "/Purchase/ListPurchase";
+            },
+            error: function (jqXHR) {
+                alert("Error !");
+            }
+        });
+
+    };
+
+</script>

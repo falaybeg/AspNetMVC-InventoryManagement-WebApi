@@ -51,8 +51,6 @@ namespace NtierApp.Repository.Infrastucture
             dbSet.Attach(entity);
             _unitOfWork.Db.Entry(entity).State = EntityState.Modified;
             this._unitOfWork.Db.SaveChanges();
-
-
         }
 
         public virtual void UpdateAll(IList<T> entities)

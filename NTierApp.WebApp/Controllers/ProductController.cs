@@ -36,7 +36,7 @@ namespace NTierApp.WebApp.Controllers
                 SellingPrice = x.SellingPrice,
                 Category = x.Category,
                 Supplier = x.Supplier,
-                StockAmount = x.StockAmount
+                Quantity = x.Quantity
             });
 
             return View(result);
@@ -70,7 +70,7 @@ namespace NTierApp.WebApp.Controllers
                         SupplierId = product.SupplierId,
                         PurchasingPrice = product.PurchasingPrice,
                         SellingPrice = product.SellingPrice,
-                        StockAmount = product.StockAmount
+                        Quantity = product.Quantity
 
                     };
 

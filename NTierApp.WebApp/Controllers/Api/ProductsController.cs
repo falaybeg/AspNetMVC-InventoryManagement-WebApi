@@ -26,7 +26,7 @@ namespace NTierApp.WebApp.Controllers.Api
                 Code = x.Code,
                 PurchasingPrice = x.PurchasingPrice,
                 SellingPrice = x.SellingPrice,
-                StockAmount = x.StockAmount,
+                Quantity = x.Quantity,
                 CategoryId = x.CategoryId,
                 SupplierId = x.SupplierId,
                 CategoryName = x.Category.Name
@@ -48,7 +48,7 @@ namespace NTierApp.WebApp.Controllers.Api
                     Code = result.Code,
                     PurchasingPrice = result.PurchasingPrice,
                     SellingPrice = result.SellingPrice,
-                    StockAmount = result.StockAmount,
+                    Quantity = result.Quantity,
                     CategoryId = result.CategoryId,
                     SupplierId = result.SupplierId
                 };
@@ -67,7 +67,7 @@ namespace NTierApp.WebApp.Controllers.Api
                 Code = model.Code,
                 PurchasingPrice = model.PurchasingPrice,
                 SellingPrice = model.SellingPrice,
-                StockAmount = model.StockAmount,
+                Quantity = model.Quantity,
                 CategoryId = model.CategoryId,
                 SupplierId = model.SupplierId
             };
@@ -85,7 +85,7 @@ namespace NTierApp.WebApp.Controllers.Api
                 Code = model.Code,
                 PurchasingPrice = model.PurchasingPrice,
                 SellingPrice = model.SellingPrice,
-                StockAmount = model.StockAmount,
+                Quantity = model.Quantity,
                 CategoryId = model.CategoryId,
                 SupplierId = model.SupplierId
             };

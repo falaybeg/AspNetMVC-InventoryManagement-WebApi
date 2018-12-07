@@ -14,5 +14,7 @@ namespace NTierApp.Business.Interface
         void Insert(Purchase purchase);
         void Update(Purchase purchase);
         void Delete(int purchaseId);
+        void UpdateQuantity(int productId, int quantity);
+        
     }
 }

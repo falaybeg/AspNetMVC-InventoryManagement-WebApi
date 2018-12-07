@@ -21,6 +21,13 @@
     <script src="~/Scripts/jquery-3.3.1.js"></script>
     <script src="~/Scripts/toastr.js"></script>
     <link href="~/Content/toastr.css" rel="stylesheet" />
+
+    @*<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />*@
+    <link href="~/Content/assets/css/select2.min.css" rel="stylesheet" />
+
+    <script src="~/Content/assets/js/select2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
 </head>
 <body>
     <div class="be-wrapper be-fixed-sidebar">
@@ -39,7 +46,7 @@
                                         <div class="user-position online">Online</div>
                                     </div>
                                 </li>
-                                <li><a href="#"><span class="icon mdi mdi-card"></span>My Account</a></li>
+                                <li><a href="@Url.Action("MyAccount","UserManagement")"><span class="icon mdi mdi-card"></span>My Account</a></li>
                                 <li><a href="#" id="logout"><span class="icon mdi mdi-power"></span>Log Out</a></li>
                             </ul>
                         </li>
@@ -86,17 +93,17 @@
                                     <a href="@Url.Action("Index","Home")"><i class="icon mdi mdi-home"></i><span>Main Page</span></a>
                                 </li>
                                 @*<li class="parent">
-                                        <a href="#"><i class="icon mdi mdi-account"></i><span>Employee Management</span></a>
-                                        <ul class="sub-menu">
-                                            <li>
-                                                <a href="@Url.Action("AddEmployee","Employee")" style="font-size: 14px">New Employee</a>
-                                            </li>
-                                            <li>
-                                                <a href="@Url.Action("ListEmployee","Employee")" style="font-size: 14px">Employee Management</a>
-                                            </li>
+                <a href="#"><i class="icon mdi mdi-account"></i><span>Employee Management</span></a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="@Url.Action("AddEmployee","Employee")" style="font-size: 14px">New Employee</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ListEmployee","Employee")" style="font-size: 14px">Employee Management</a>
+                    </li>
 
-                                        </ul>
-                                    </li>*@
+                </ul>
+            </li>*@
                                 <li class="parent">
                                     <a href="#">
                                         <i class="icon mdi mdi-card"></i>
@@ -154,17 +161,20 @@
 
                                 </ul>
                             </li>
-                            <li class="parent">
-                                <a href="#"><i class="icon mdi mdi-account-add"></i><span>User Management</span></a>
-                                <ul class="sub-menu">
-                                    @*<li>
-                                            <a href="@Url.Action("AddCustomer","Customer")" style="font-size: 14px">New Customer</a>
-                                        </li>*@
-                                    <li>
-                                        <a href="@Url.Action("ListCustomer","Customer")" style="font-size: 14px">User Management</a>
-                                    </li>
-                                </ul>
-                            </li>
+                                <li class="parent">
+                                    <a href="#"><i class="icon mdi mdi-account-add"></i><span>User Management</span></a>
+                                    <ul class="sub-menu">
+                                        @*<li>
+                        <a href="@Url.Action("AddCustomer","Customer")" style="font-size: 14px">New Customer</a>
+                    </li>*@
+                                        <li>
+                                            <a href="@Url.Action("ListCustomer","Customer")" style="font-size: 14px">User Management</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                           
+
+
                             </ul>
                         </div>
                     </div>
@@ -199,6 +209,7 @@
     <script src="~/Content/assets/js/app-dashboard.js" type="text/javascript"></script>
 
     <script type="text/javascript">
+
         $(document).ready(function () {
             //initialize the javascript
             App.init();

@@ -18,5 +18,10 @@ namespace NTierApp.WebApp.Controllers
         {
             return View();
         }
+
+        public ActionResult MyAccount()
+        {
+            return View();
+        }
     }
 }

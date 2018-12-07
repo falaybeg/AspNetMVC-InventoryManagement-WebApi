@@ -1,0 +1,89 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default panel-border-color panel-border-color-primary">
+            <div class="panel-heading panel-heading-divider" style="font-size: 22px"><b>My Account Profile</b></div>
+            <div class="panel-body">
+                <form action="#" class="form-horizontal group-border-dashed" novalidate="">
+                    <br>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <center>
+                                <img src="~/Content/assets/img/myprofile.png" style="width:200px; height:150px">
+                            </center>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label yazi"> UserName :</label>
+                        <div class="col-sm-6">
+                            <input type="text" value="@User.Identity.Name" class="form-control parsley-error" readonly style="font-weight: bold;">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label yazi"> Old Password :</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control parsley-error" data-parsley-id="29" id="oldPassword">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label yazi"> New Password :</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control parsley-error" data-parsley-id="29" id="newPassword">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label yazi"> Confirm Password :</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control parsley-error" data-parsley-id="29" id="confirmPassword">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2 col-sm-10 ">
+                            <button type="submit" class="btn btn-space btn-success" style="font-size: 17px; width: 80px; height:38px;" id="btnSave" onclick="Change()">Save</button>
+                            <button class="btn btn-space btn-default" style="height: 40px; font-size: 14px;" id="cancel">Cancel</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $("#cancel").click(function(){
+    window.location.href = "http://localhost:5000/Home/Index";
+    return false;
+    });
+
+   var token = sessionStorage.getItem("accessToken");
+    var headers = {};
+    headers.Authorization = "Bearer " + token;
+
+    $(document).ready(function() {
+      if (token == null) {
+            toastr.info( "Please try again after signin up !", { timeOut: 3000 });
+            window.location.href = "/UserManagement/Login";
+      }
+    });
+
+var Change = function() {
+  $.ajax({
+    url: "/api/Account/ChangePassword",
+    method: "POST",
+    headers: headers,
+    data: {
+      OldPassword: $("#oldPassword").val(),
+      NewPassword: $("#newPassword").val(),
+      ConfirmPassword: $("#confirmPassword").val()
+    },
+
+    success: function() {
+      toastr.success( "Password changed successfully !", { timeOut: 3000 });
+      window.location.href = "/Home/Index";
+    },
+    error: function(jqXHR) {
+      alert("Error cannot changed !");
+    }
+  });
+};
+</script>

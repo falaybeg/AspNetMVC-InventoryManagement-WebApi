@@ -56,13 +56,33 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\InventoryDbContext.cs" />
-    <Compile Include="Migrations\201808121956065_InitialAzureDb.cs" />
-    <Compile Include="Migrations\201808121956065_InitialAzureDb.Designer.cs">
-      <DependentUpon>201808121956065_InitialAzureDb.cs</DependentUpon>
+    <Compile Include="Migrations\201812050955431_InitialMigration.cs" />
+    <Compile Include="Migrations\201812050955431_InitialMigration.Designer.cs">
+      <DependentUpon>201812050955431_InitialMigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808161616306_AddOrderShippinAddress.cs" />
-    <Compile Include="Migrations\201808161616306_AddOrderShippinAddress.Designer.cs">
-      <DependentUpon>201808161616306_AddOrderShippinAddress.cs</DependentUpon>
+    <Compile Include="Migrations\201812051646322_ChangedPurchaseModel.cs" />
+    <Compile Include="Migrations\201812051646322_ChangedPurchaseModel.Designer.cs">
+      <DependentUpon>201812051646322_ChangedPurchaseModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812051723333_ChangeColumnNames.cs" />
+    <Compile Include="Migrations\201812051723333_ChangeColumnNames.Designer.cs">
+      <DependentUpon>201812051723333_ChangeColumnNames.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812060949360_UpdateColumnMessage.cs" />
+    <Compile Include="Migrations\201812060949360_UpdateColumnMessage.Designer.cs">
+      <DependentUpon>201812060949360_UpdateColumnMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812061148285_Changing.cs" />
+    <Compile Include="Migrations\201812061148285_Changing.Designer.cs">
+      <DependentUpon>201812061148285_Changing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812061154231_Changing1.cs" />
+    <Compile Include="Migrations\201812061154231_Changing1.Designer.cs">
+      <DependentUpon>201812061154231_Changing1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812061239160_ColumnAddConfirmation.cs" />
+    <Compile Include="Migrations\201812061239160_ColumnAddConfirmation.Designer.cs">
+      <DependentUpon>201812061239160_ColumnAddConfirmation.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
@@ -93,11 +113,26 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201808121956065_InitialAzureDb.resx">
-      <DependentUpon>201808121956065_InitialAzureDb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812050955431_InitialMigration.resx">
+      <DependentUpon>201812050955431_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808161616306_AddOrderShippinAddress.resx">
-      <DependentUpon>201808161616306_AddOrderShippinAddress.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812051646322_ChangedPurchaseModel.resx">
+      <DependentUpon>201812051646322_ChangedPurchaseModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812051723333_ChangeColumnNames.resx">
+      <DependentUpon>201812051723333_ChangeColumnNames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812060949360_UpdateColumnMessage.resx">
+      <DependentUpon>201812060949360_UpdateColumnMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812061148285_Changing.resx">
+      <DependentUpon>201812061148285_Changing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812061154231_Changing1.resx">
+      <DependentUpon>201812061154231_Changing1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812061239160_ColumnAddConfirmation.resx">
+      <DependentUpon>201812061239160_ColumnAddConfirmation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

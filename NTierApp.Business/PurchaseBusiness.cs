@@ -1,4 +1,5 @@
 ﻿using NTier.Domain;
+using NtierApp.Repository;
 using NtierApp.Repository.Infrastucture.Contract;
 using NtierApp.Repository.Repositories;
 using NTierApp.Business.Interface;
@@ -14,11 +15,13 @@ namespace NTierApp.Business
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly PurchaseRepository _purchaseRepository;
+        private readonly ProductRepository _productRepository;
 
         public PurchaseBusiness(IUnitOfWork unitOfWork)
         {
             this._unitOfWork = unitOfWork;
             this._purchaseRepository = new PurchaseRepository(_unitOfWork);
+            this._productRepository = new ProductRepository(_unitOfWork);
         }
 
         public IEnumerable<Purchase> GetAll()
@@ -39,7 +42,7 @@ namespace NTierApp.Business
         {
             if (purchase != null)
             {
-                purchase.PurchasedTime = DateTime.Now;
+                purchase.CreatedTime = DateTime.Now;
                 _purchaseRepository.Insert(purchase);
             }
         }
@@ -48,7 +51,6 @@ namespace NTierApp.Business
         {
             if (purchase != null)
             {
-                purchase.PurchasedTime = DateTime.Now;
                 _purchaseRepository.Update(purchase);
             }
         }
@@ -56,8 +58,20 @@ namespace NTierApp.Business
         public void Delete(int purchaseId)
         {
             if (purchaseId != null)
+            {
+                var purchase = _purchaseRepository.GetById(x => x.Id == purchaseId);
                 _purchaseRepository.Delete(x => x.Id == purchaseId);
+
+                var product = _productRepository.GetById(p => p.Id == purchase.ProductId);
+                product.Quantity -= purchase.Quantity;
+                _productRepository.Update(product);
+            }
         }
 
+        public void UpdateQuantity(int productId, int quantity)
+        {
+            var product = _productRepository.GetById(p=>p.Id == productId);
+
+        }
     }
 }
