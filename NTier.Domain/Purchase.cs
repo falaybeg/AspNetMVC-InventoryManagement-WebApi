@@ -18,6 +18,8 @@ namespace NTier.Domain
         public DateTime DeliveryTime { get; set; }
         public string Description { get; set; }
         public bool Confirmation { get; set; }
+        [Column(TypeName = "DateTime2")]
+        public DateTime ConfirmationTime { get; set; }
 
         public virtual Product Product { get; set; }
         [ForeignKey("UserId")]

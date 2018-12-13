@@ -23,5 +23,10 @@ namespace NTierApp.WebApp.Controllers
         {
             return View();
         }
+
+        public ActionResult RoleList()
+        {
+            return View();
+        }
     }
 }

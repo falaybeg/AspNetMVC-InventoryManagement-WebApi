@@ -271,7 +271,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
-    <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\PurchaseController.cs" />
     <Compile Include="Controllers\SupplierController.cs" />
@@ -2012,19 +2012,22 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Orders\ListOrder.cshtml" />
     <Content Include="Views\Purchase\ListPurchase.cshtml" />
     <Content Include="Views\Supplier\ListSupplier.cshtml" />
     <Content Include="Views\Supplier\AddSupplier.cshtml" />
-    <Content Include="Views\Product\AddCategory.cshtml" />
+    <Content Include="Views\Product\CategoryList.cshtml" />
     <Content Include="Views\Product\ListProduct.cshtml" />
     <Content Include="Views\Customer\ListCustomer.cshtml" />
     <Content Include="Views\UserManagement\Login.cshtml" />
     <Content Include="Views\UserManagement\Register.cshtml" />
     <Content Include="Views\Product\AddProduct.cshtml" />
     <Content Include="Views\Purchase\AddPurchase.cshtml" />
-    <Content Include="Views\Orders\ConfirmedListOrder.cshtml" />
     <Content Include="Views\UserManagement\MyAccount.cshtml" />
+    <Content Include="Views\Purchase\ConfirmedPurchase.cshtml" />
+    <Content Include="Views\Order\ConfirmedListOrder.cshtml" />
+    <Content Include="Views\Order\ListOrder.cshtml" />
+    <Content Include="Views\Product\EditCategory.cshtml" />
+    <Content Include="Views\UserManagement\RoleList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

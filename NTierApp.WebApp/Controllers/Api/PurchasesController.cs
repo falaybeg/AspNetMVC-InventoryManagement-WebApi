@@ -93,5 +93,19 @@ namespace NTierApp.WebApp.Controllers.Api
             _purchase.Delete(id);
             return Ok("Deleted Successfully !");
         }
+
+        [Route("api/Purchases/ConfirmPurchases")]
+        public IHttpActionResult ConfirmPurchases(int id)
+        {
+            _purchase.ConfirmPurchase(id);
+            return Ok("Confirmed Successfully");
+        }
+
+        [Route("api/Purchases/UnconfirmPurchases")]
+        public IHttpActionResult UnconfirmPurchases(int id)
+        {
+            _purchase.UnconfirmPurchase(id);
+            return Ok("Unconfirmed Successfully");
+        }
     }
 }

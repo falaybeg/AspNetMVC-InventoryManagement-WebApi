@@ -16,6 +16,9 @@ namespace NTierApp.WebApp.Models
         public DateTime CreatedTime { get; set; }
         public DateTime DeliveryTime { get; set; }
         public string Description { get; set; }
+        public bool Confirmation { get; set; }
+        public DateTime ConfirmationTime { get; set; }
+
         public Product Product { get; set; }
         public ApplicationUserr User { get; set; }
 

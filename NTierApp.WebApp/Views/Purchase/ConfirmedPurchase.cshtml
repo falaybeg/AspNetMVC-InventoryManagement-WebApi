@@ -5,28 +5,30 @@
     <div class="panel panel-default panel-table">
         <div class="panel-heading">
             <center>
-                <h2 class="page-head-title"><b><b>Product Management Screen</b></b></h2>
+                <h2 class="page-head-title"><b><b>Confirmed Purchases</b></b></h2>
             </center>
             <br /><br />
             <div class="col-sm-4">
-                <div><a href="@Url.Action("AddPurchase","Purchase")"><button class="btn btn-success">New Purchase </button></a></div>
+                <div>
+                    <a href="@Url.Action("ListPurchase","Purchase")"><button class="btn btn-primary">Back To List  </button></a>
+                </div>
+
                 <br />
             </div>
 
             <div class="panel-body">
                 <table class="table table-striped table-hover" id="productTablee">
                     <thead>
-                        <tr style="font-size: 16px;  background-color:lavender">
+                        <tr style="font-size: 16px; background-color:lavender">
                             <th width="15%">Product Name </th>
                             <th width="7%">Purchased Price</th>
                             <th width="7%">Quantity</th>
                             <th width="7%">Total Price</th>
                             <th width="10%">Created Time</th>
-                            <th width="12%">Delivery Time</th>
-                            <th width="12%">Supplier</th>
-                            <th width="18%">Description</th>
-                            <th width="7%">Confirm Status</th>
-                            <th> </th>
+                            <th width="10%">Delivery Time</th>
+                            <th width="11%">Supplier</th>
+                            <th width="10%">Confirm Time</th>
+                            <th width="5%"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -40,17 +42,9 @@
                                 <td>@item.CreatedTime.ToString("dd-MM-yyyy HH:mm")</td>
                                 <td>@item.DeliveryTime.ToString("dd-MM-yyyy HH:mm")</td>
                                 <td>@item.Product.Supplier.Name</td>
-                                <td>@item.Description</td>
-                                <td>@item.Confirmation</td>
-                                <td class="text-right">
-                                    <div class="btn-group btn-hspace">
-                                        <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle " aria-expanded="false">Actions <span class="icon-dropdown mdi mdi-chevron-down"></span></button>
-                                        <ul role="menu" class="dropdown-menu pull-right">
-                                            <li><a href="#" onclick="Confirm(@item.Id)"><i class="icon mdi mdi-check" id="btnDelete"></i><span>Confirm</span></a></li>
-                                            <li><a href="@Url.Action("EditPurchase","Purchase", new { id = item.Id})"><i class="icon mdi mdi-edit"></i><span>Edit</span></a></li>
-                                            <li><a href="#" onclick="Delete(@item.Id)"><i class="icon mdi mdi-delete" id="btnDelete"></i><span>Delete</span></a></li>
-                                        </ul>
-                                    </div>
+                                <td>@item.ConfirmationTime.ToString("dd-MM-yyyy HH:mm")</td>
+                                <td>
+                                    <a href="#" class="btn btn-primary" onclick="Unconfirm(@item.Id)"><i class="icon mdi mdi-arrow-left" id="btnUnconfirm"></i><span>&nbsp; Unconfirm</span></a>
                                 </td>
                             </tr>
                         }
@@ -73,30 +67,14 @@
         }
     });
 
-    var Delete = function (id) {
+    var Unconfirm = function (id) {
 
         $.ajax({
-            url: "/api/Purchases/" + id,
-            method: "DELETE",
-            headers: headers,
-            success: function () {
-                toastr.success("Purchase was deleted successfully", { timeOut: 1000 })
-                window.location.href = "/Purchase/ListPurchase";
-            },
-            error: function (jqXHR) {
-                alert("Error !");
-            }
-        });
-    };
-
-    var Confirm = function (id) {
-
-        $.ajax({
-            url: '/api/Purchases/ConfirmPurchases?id='+id,
+            url: '/api/Purchases/UnconfirmPurchases?id=' + id,
             method: "POST",
             headers: headers,
             success: function () {
-                toastr.success("Purchase was confirmed successfully", { timeOut: 1500 })
+                toastr.success("Purchase was unconfirmed successfully", { timeOut: 1500 })
                 window.location.href = "/Purchase/ListPurchase";
             },
             error: function (jqXHR) {
@@ -104,6 +82,4 @@
             }
         });
     };
-
 </script>
-

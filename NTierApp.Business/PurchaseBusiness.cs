@@ -68,10 +68,33 @@ namespace NTierApp.Business
             }
         }
 
-        public void UpdateQuantity(int productId, int quantity)
+        public void ConfirmPurchase(int purchaseId)
         {
-            var product = _productRepository.GetById(p=>p.Id == productId);
+            if(purchaseId != null)
+            {
+                var purchase = _purchaseRepository.GetById(p => p.Id == purchaseId);
+                purchase.Confirmation = true;
+                purchase.ConfirmationTime = DateTime.Now;
+                _purchaseRepository.Update(purchase);
 
+                var product = _productRepository.GetById(p=> p.Id == purchase.ProductId);
+                product.Quantity += purchase.Quantity;
+                _productRepository.Update(product); 
+            }
+        }
+
+        public void UnconfirmPurchase(int purchaseId)
+        {
+            if (purchaseId != null)
+            {
+                var purchase = _purchaseRepository.GetById(p => p.Id == purchaseId);
+                purchase.Confirmation = false;
+                _purchaseRepository.Update(purchase);
+
+                var product = _productRepository.GetById(p => p.Id == purchase.ProductId);
+                product.Quantity -= purchase.Quantity;
+                _productRepository.Update(product);
+            }
         }
     }
 }

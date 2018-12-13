@@ -1,0 +1,63 @@
+﻿@model NTierApp.WebApp.Models.CategoryViewModel
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default panel-border-color panel-border-color-primary">
+            <div class="panel-heading panel-heading-divider" style="font-size: 22px"><b>Category Management</b></div>
+            <div class="panel-body">
+                <form action="#" class="form-horizontal group-border-dashed" novalidate="">
+                    <br>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label yazi"> Cateogry Name :</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control parsley-error" data-parsley-id="29" id="categoryName" value="@Model.Name">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-2 col-sm-10 ">
+                            <input class="btn btn-space btn-warning" style="font-size: 16px; width: 80px; height:38px;" id="btnUpdate" value="Update" onclick="Update(@Model.Id)" />
+
+                            <button class="btn btn-space btn-default " style="height: 40px; font-size: 14px;">Cancel</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var token = sessionStorage.getItem("accessToken");
+    var headers = {};
+    headers.Authorization = "Bearer " + token;
+
+    $(document).ready(function () {
+        if (token == null) {
+            toastr.info("Please try again after signing up!");
+            window.location.href = "/UserManagement/Login";
+        }
+    });
+
+        var Update = function (categoryId) {
+            $.ajax({
+                url: "/api/Categories",
+                method: "PUT",
+                headers: headers,
+                data: {
+                    Id: categoryId,
+                    Name: $("#categoryName").val()
+                },
+                success: function () {
+                    toastr.success("Category was updated successfully !", { timeOut: 2000 });
+                    window.location.href = "/Product/CategoryList";
+                },
+                error: function (jqXHR) {
+                    alert("Error !");
+                }
+            });
+        };
+
+</script>

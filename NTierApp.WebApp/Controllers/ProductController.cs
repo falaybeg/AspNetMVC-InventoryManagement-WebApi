@@ -2,10 +2,7 @@
 using NTier.Domain;
 using NTierApp.Business.Interface;
 using NTierApp.WebApp.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace NTierApp.WebApp.Controllers
@@ -45,11 +42,11 @@ namespace NTierApp.WebApp.Controllers
         public ActionResult AddProduct()
         {
 
-                var category = _category.GetAll().ToList();
-                ViewBag.Category = new SelectList(category, "Id", "Name");
+            var category = _category.GetAll().ToList();
+            ViewBag.Category = new SelectList(category, "Id", "Name");
 
-                var supplier = _supplier.GetAll().ToList();
-                ViewBag.Supplier = new SelectList(supplier, "Id", "Name");
+            var supplier = _supplier.GetAll().ToList();
+            ViewBag.Supplier = new SelectList(supplier, "Id", "Name");
 
             return View();
         }
@@ -97,7 +94,7 @@ namespace NTierApp.WebApp.Controllers
             return View();
         }
 
-        public ActionResult AddCategory()
+        public ActionResult CategoryList()
         {
             var result = _category.GetAll()
                  .Select(m => new CategoryViewModel
@@ -107,6 +104,18 @@ namespace NTierApp.WebApp.Controllers
                  });
 
             return View(result);
+        }
+
+        public ActionResult EditCategory(int id)
+        {
+            var result = _category.GetById(id);
+
+            CategoryViewModel model = new CategoryViewModel
+            {
+                Id = result.Id,
+                Name = result.Name
+            };
+            return View("EditCategory", model);
         }
 
     }

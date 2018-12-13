@@ -7,7 +7,7 @@
         <div class="widget widget-tile">
             <div id="spark1" class="chart sparkline"></div>
             <div class="data-info">
-                <div class="desc">Total Product Value</div>
+                <div class="desc">Total Product Value ₺</div>
                 <div class="value">
                     <span data-toggle="counter" data-end="@Model.TotalProductValues" class="number">500</span>
                 </div>
@@ -18,9 +18,9 @@
         <div class="widget widget-tile">
             <div id="spark2" class="chart sparkline"></div>
             <div class="data-info">
-                <div class="desc">Total Products</div>
+                <div class="desc">Total Expense ₺</div>
                 <div class="value">
-                    </span><span data-toggle="counter" data-end="@Model.TotalProducts" class="number">0</span>
+                    </span><span data-toggle="counter" data-end="@Model.TotalPurchase" class="number">0</span>
                 </div>
             </div>
         </div>
@@ -29,9 +29,9 @@
         <div class="widget widget-tile">
             <div id="spark3" class="chart sparkline"></div>
             <div class="data-info">
-                <div class="desc">Number of Suppliers</div>
+                <div class="desc">Total Revenue ₺</div>
                 <div class="value">
-                    <span data-toggle="counter" data-end="@Model.TotalSuppliers" class="number">0</span>
+                    <span data-toggle="counter" data-end="@Model.TotalOrders" class="number">0</span>
                 </div>
             </div>
         </div>
@@ -40,13 +40,113 @@
         <div class="widget widget-tile">
             <div id="spark4" class="chart sparkline"></div>
             <div class="data-info">
-                <div class="desc">Total Order Numbers</div>
+                <div class="desc">Profit ₺</div>
                 <div class="value">
-                    <span data-toggle="counter" data-end="@Model.TotalOrders" class="number">0</span>
+                    <span data-toggle="counter" data-end="@Model.Profit">0</span>
                 </div>
             </div>
         </div>
     </div>
+</div>
+<div class="row">
+
+    <div class="col-xs-12 col-md-4">
+        <div class="widget be-loading">
+            <div class="widget-head">
+                <div class="tools"><span class="icon mdi mdi-chevron-down"></span><span class="icon mdi mdi-refresh-sync toggle-loading"></span><span class="icon mdi mdi-close"></span></div>
+                <div class="title">Top Sales</div>
+            </div>
+            @*<div class="widget-chart-container">
+                    <img src="~/Content/assets/img/hdd.jpg" ">
+                </div>*@
+            <div class="chart-legend">
+                <table>
+                    <tbody>
+                        @foreach (var item in Model.TopSeller)
+                        {
+                            <tr>
+                                <td class="chart-legend-color"><span data-color="top-sales-color3" style="background-color: #cacaca"></span></td>
+                                <td>@item.ProductName</td>
+                                <td class="chart-legend-value ">@item.ProductCount</td>
+                            </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="be-spinner">
+                <svg width="40px" height="40px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                    <circle fill="none" stroke-width="4" stroke-linecap="round" cx="33" cy="33" r="30" class="circle"></circle>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-md-4">
+        <div class="widget be-loading">
+            <div class="widget-head">
+                <div class="tools"><span class="icon mdi mdi-chevron-down"></span><span class="icon mdi mdi-refresh-sync toggle-loading"></span><span class="icon mdi mdi-close"></span></div>
+                <div class="title">Most Sold Categories</div>
+            </div>
+            @*<div class="widget-chart-container">
+                    <img src="~/Content/assets/img/iphone7.jpg" ">
+                </div>*@
+            <div class="chart-legend">
+                <table>
+                    @foreach (var item in Model.MostSoldCategories)
+                    {
+                        <tr>
+                            <td class="chart-legend-color"><span data-color="top-sales-color1" style="background-color: #cacaca"></span></td>
+                            <td>@item.CategoryName</td>
+                            <td class="chart-legend-value">@item.CategoryCount</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+            <div class="be-spinner">
+                <svg width="40px" height="40px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                    <circle fill="none" stroke-width="4" stroke-linecap="round" cx="33" cy="33" r="30" class="circle"></circle>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="col-xs-12 col-md-4">
+        <div class="widget be-loading">
+            <div class="widget-head">
+                <div class="tools"><span class="icon mdi mdi-chevron-down"></span><span class="icon mdi mdi-refresh-sync toggle-loading"></span><span class="icon mdi mdi-close"></span></div>
+                <div class="title">Most Profitable Products</div>
+            </div>
+            @*<div class="widget-chart-container">
+                    <img src="~/Content/assets/img/hdd.jpg" ">
+                </div>*@
+            <div class="chart-legend">
+                <table>
+                    <tbody>
+                        @foreach(var item in Model.MostProfitableProducts)
+                        {
+                        <tr>
+                            <td class="chart-legend-color"><span data-color="top-sales-color3" style="background-color: #cacaca"></span></td>
+                            <td>@item.ProductName</td>
+                            <td class="chart-legend-value">@String.Format("{0:0.###}", item.Profit) ₺</td>
+                        </tr>
+                        }
+                        
+                        
+                    </tbody>
+                </table>
+            </div>
+            <div class="be-spinner">
+                <svg width="40px" height="40px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                    <circle fill="none" stroke-width="4" stroke-linecap="round" cx="33" cy="33" r="30" class="circle"></circle>
+                </svg>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <div class="row">
@@ -54,29 +154,27 @@
         <div class="panel panel-default panel-table">
             <div class="panel-heading">
 
-                <div class="title">Latest Sales</div>
+                <div class="title"><b>Latest Sales</b></div>
             </div>
             <div class="panel-body table-responsive">
                 <table class="table table-striped table-borderless">
                     <thead>
-                        <tr>
+                        <tr style="background-color: #cacaca">
                             <th style="width:30%;">Product</th>
-                            <th class="number" style="width:20%;">Price</th>
-                            <th style="width:25%;">Date</th>
+                            <th style="width:12%;">Price</th>
+                            <th style="width:27%;">Date</th>
                             <th style="width:20%;">Category</th>
-                            <th style="width:5%;" class="actions"></th>
                         </tr>
                     </thead>
                     <tbody class="no-border-x">
 
-                        @foreach (var item in Model.Orders)
+                        @foreach (var item in Model.LatesOrders)
                         {
                             <tr>
                                 <td>@item.Product.Name</td>
-                                <td class="number">@item.Product.SellingPrice</td>
+                                <td>@String.Format("{0:0.###}", item.Product.SellingPrice) ₺</td>
                                 <td>@item.OrderDate.ToString("dd/MM/yyyy HH:mm:ss")</td>
                                 <td class="text-muted ">@item.Product.Category.Name</td>
-                                <td class="actions"><a href="#" class="icon"></a></td>
                             </tr>
                         }
 
@@ -90,141 +188,75 @@
         <div class="panel panel-default panel-table">
             <div class="panel-heading">
 
-                <div class="title">Last Registered Customers</div>
+                <div class="title"><b>Last Purchases</b></div>
             </div>
             <div class="panel-body table-responsive">
                 <table class="table table-striped table-hover">
                     <thead>
-                        <tr>
-                            <th style="width:30%;">User </th>
-                            <th style="width:20%;">Phone</th>
-                            <th style="width:27%;">Email</th>
-                            <th style="width:27%;">Registered Date</th>
-                            <th class="actions"></th>
+                        <tr style="background-color: #cacaca">
+                            <th style="width:30%;">Product </th>
+                            <th style="width:12%;">Price</th>
+                            <th style="width:10%;">Quantity</th>
+                            <th style="width:27%;">Created Date</th>
+                            <th style="width:27%;">Category</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var item in Model.User)
+                        @foreach (var item in Model.LatesPurchases)
                         {
                             <tr>
-                                <td>@item.FirstName &nbsp; @item.LastName</td>
-                                <td>@item.PhoneNumber</td>
-                                <td>@item.Email</td>
-                                <td>@item.RegisteredDate.ToString("dd/MM/yyyy HH:mm:ss")</td>
+                                <td>@item.Product.Name</td>
+                                <td>@String.Format("{0:0.###}", item.Product.PurchasingPrice) ₺</td>
+                                <td>@item.Quantity</td>
+                                <td>@item.CreatedTime</td>
+                                <td>@item.Product.Category.Name</td>
                             </tr>
-
                         }
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+
+    @*<div class="col-md-6">
+            <div class="panel panel-default panel-table">
+                <div class="panel-heading">
+
+                    <div class="title">Last Registered Customers</div>
+                </div>
+                <div class="panel-body table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th style="width:30%;">User </th>
+                                <th style="width:20%;">Phone</th>
+                                <th style="width:27%;">Email</th>
+                                <th style="width:27%;">Registered Date</th>
+                                <th class="actions"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.User)
+                            {
+                                <tr>
+                                    <td>@item.FirstName &nbsp; @item.LastName</td>
+                                    <td>@item.PhoneNumber</td>
+                                    <td>@item.Email</td>
+                                    <td>@item.RegisteredDate.ToString("dd/MM/yyyy HH:mm:ss")</td>
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>*@
 </div>
 
-@*
-    <div class="col-xs-12 col-md-4">
-        <div class="widget be-loading">
-            <div class="widget-head">
-                <div class="tools"><span class="icon mdi mdi-chevron-down"></span><span class="icon mdi mdi-refresh-sync toggle-loading"></span><span class="icon mdi mdi-close"></span></div>
-                <div class="title">Top sellers</div>
-            </div>
-            <div class="widget-chart-container">
-                <img src="~/Content/assets/img/iphone7.jpg" ">
-            </div>
-            <div class="chart-legend">
-                <table>
-                    <tr>
-                        <td class="chart-legend-color"><span data-color="top-sales-color1"></span></td>
-                        <td>iPhone 7</td>
-                        <td class="chart-legend-value">125</td>
-                    </tr>
-                    <tr>
-                        <td class="chart-legend-color"><span data-color="top-sales-color2"></span></td>
-                        <td>Samsung S7</td>
-                        <td class="chart-legend-value">117</td>
-                    </tr>
-                    <tr>
-                        <td class="chart-legend-color"><span data-color="top-sales-color3"></span></td>
-                        <td>Logitech Mouse</td>
-                        <td class="chart-legend-value">70</td>
-                    </tr>
-                    <tr>
-                        <td class="chart-legend-color"><span data-color="top-sales-color3"></span></td>
-                        <td>Asus Rog G771J</td>
-                        <td class="chart-legend-value">35</td>
-                    </tr>
-                    <tr>
-                        <td class="chart-legend-color"><span data-color="top-sales-color3"></span></td>
-                        <td>SSD Kingstone</td>
-                        <td class="chart-legend-value">27</td>
-                    </tr>
-
-                </table>
-            </div>
-            <div class="be-spinner">
-                <svg width="40px" height="40px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-                    <circle fill="none" stroke-width="4" stroke-linecap="round" cx="33" cy="33" r="30" class="circle"></circle>
-                </svg>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-xs-12 col-md-4">
-        <div class="widget be-loading">
-            <div class="widget-head">
-                <div class="tools"><span class="icon mdi mdi-chevron-down"></span><span class="icon mdi mdi-refresh-sync toggle-loading"></span><span class="icon mdi mdi-close"></span></div>
-                <div class="title">Least Stock Remaining</div>
-            </div>
-            <div class="widget-chart-container">
-                <img src="~/Content/assets/img/hdd.jpg" ">
-            </div>
-            <div class="chart-legend">
-                <table>
-                    <tbody>
-                        <tr>
-                            <td class="chart-legend-color"><span data-color="top-sales-color3"></span></td>
-                            <td>HDD WD 1 TB</td>
-                            <td class="chart-legend-value">1</td>
-                        </tr>
-                        <tr>
-                            <td class="chart-legend-color"><span data-color="top-sales-color1"></span></td>
-                            <td>Game Mouse Pad</td>
-                            <td class="chart-legend-value">2</td>
-                        </tr>
-                        <tr>
-                            <td class="chart-legend-color"><span data-color="top-sales-color2"></span></td>
-                            <td>Logitech Mouse</td>
-                            <td class="chart-legend-value">4</td>
-                        </tr>
-                        <tr>
-                            <td class="chart-legend-color"><span data-color="top-sales-color3"></span></td>
-                            <td>Sandisk USB 3.0</td>
-                            <td class="chart-legend-value">4</td>
-                        </tr>
-
-                        <tr>
-                            <td class="chart-legend-color"><span data-color="top-sales-color3"></span></td>
-                            <td>Samsun Tab 3</td>
-                            <td class="chart-legend-value">5</td>
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div>
-            <div class="be-spinner">
-                <svg width="40px" height="40px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-                    <circle fill="none" stroke-width="4" stroke-linecap="round" cx="33" cy="33" r="30" class="circle"></circle>
-                </svg>
-            </div>
-        </div>
-    </div>
-
-*@
 
 
 
 <script>
-
 $(document).ready(function() {
   var token = sessionStorage.getItem("accessToken");
   var headers = {};
@@ -232,9 +264,6 @@ $(document).ready(function() {
   if (token == null) {
     toastr.info("Please try again after signin up !", { timeOut: 3000 });
     window.location.href = "/UserManagement/Login";
-  } 
+  }
 });
-
-
-
 </script>

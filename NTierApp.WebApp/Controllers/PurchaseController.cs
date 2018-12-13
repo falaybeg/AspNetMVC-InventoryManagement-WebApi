@@ -1,9 +1,6 @@
 ﻿using NTierApp.Business.Interface;
 using NTierApp.WebApp.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace NTierApp.WebApp.Controllers
@@ -22,6 +19,7 @@ namespace NTierApp.WebApp.Controllers
         public ActionResult ListPurchase()
         {
             var result = _purchase.GetAll()
+                .Where(p=> p.Confirmation == false)
                 .Select(m => new PurchaseViewModel
                 {
                     Id = m.Id,
@@ -30,8 +28,26 @@ namespace NTierApp.WebApp.Controllers
                     Quantity = m.Quantity,
                     CreatedTime = m.CreatedTime,
                     DeliveryTime = m.DeliveryTime,
-                    Description = m.Description
+                    Description = m.Description,
+                    Confirmation = m.Confirmation
                 }).OrderByDescending(x => x.CreatedTime);
+            return View(result);
+        }
+
+        public ActionResult ConfirmedPurchase()
+        {
+            var result = _purchase.GetAll()
+                .Where(p => p.Confirmation == true)
+                .Select(p => new PurchaseViewModel
+                {
+                    Id = p.Id,
+                    Product = p.Product,
+                    Quantity = p.Quantity,
+                    CreatedTime = p.CreatedTime,
+                    DeliveryTime = p.DeliveryTime,
+                    ConfirmationTime = p.ConfirmationTime
+                }).OrderByDescending(x => x.ConfirmationTime);
+
             return View(result);
         }
 

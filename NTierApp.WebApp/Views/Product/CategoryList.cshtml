@@ -3,11 +3,9 @@
 <div class="row">
     <div class="col-md-12">
         <div class="panel panel-default panel-border-color panel-border-color-primary">
-            <div class="panel-heading panel-heading-divider" style="font-size: 22px"><b>New Category Registration</b></div>
+            <div class="panel-heading panel-heading-divider" style="font-size: 22px"><b>Category Management</b></div>
             <div class="panel-body">
                 <form action="#" class="form-horizontal group-border-dashed" novalidate="">
-
-
                     <br>
                     <div class="form-group">
                         <label class="col-sm-3 control-label yazi"> Cateogry Name :</label>
@@ -36,7 +34,7 @@
                                     <thead>
                                         <tr>
                                             <th>Category Name</th>
-                                            <th style="float: right;margin-right: -70px;">&nbsp; Kategori İşlemleri</th>
+                                            <th style="float: right;margin-right: -70px;">&nbsp; Category Actions</th>
                                             <th class="actions"></th>
                                         </tr>
                                     </thead>
@@ -45,7 +43,9 @@
                                         {
                                             <tr>
                                                 <td>@item.Name</td>
-                                                <td class="actions"><a href="#" class="icon"><i class="mdi mdi-edit" style="float: right"></i></a></td>
+                                                <td class="actions">
+                                                    <a href="@Url.Action("EditCategory","Product", new { id=item.Id})" class="icon"><i class="mdi mdi-edit" style="float: right"></i></a>
+                                                </td>
                                                 <td class="actions">
                                                     <a href="#" class="icon"><i class="mdi mdi-delete" onclick="Delete(@item.Id)"></i></a>
                                                 </td>
@@ -57,14 +57,12 @@
                             </div>
                         </div>
                     </div>
-
                     <br>
                 </form>
             </div>
         </div>
     </div>
 </div>
-
 
 <script type="text/javascript">
 var token = sessionStorage.getItem("accessToken");
@@ -84,7 +82,7 @@ var Delete = function(id) {
     method: "DELETE",
     headers: headers,
     success: function() {
-      window.location.href = "/Product/AddCategory";
+        window.location.href = "/Product/CategoryList";
     },
     error: function(jqXHR) {
       alert("Error !");
@@ -101,7 +99,7 @@ $("#btnSave").click(function() {
       Name: $("#categoryName").val()
     },
     success: function() {
-      window.location.href = "/Product/AddCategory";
+        window.location.href = "/Product/CategoryList";
     },
     error: function(jqXHR) {
       alert("Error !");

@@ -103,12 +103,13 @@ C:\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.DAL
 C:\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.Repository.Migrations.InitialMigration.resources
 C:\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.Repository.Migrations.ChangedPurchaseModel.resources
 C:\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.Repository.Migrations.ChangeColumnNames.resources
+C:\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.Repository.Migrations.UpdateColumnMessage.resources
+C:\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.Repository.Migrations.Changing.resources
+C:\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.Repository.Migrations.Changing1.resources
+C:\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.Repository.Migrations.ColumnAddConfirmation.resources
+C:\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.Repository.Migrations.AddConfirmationTime.resources
 C:\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.DAL.csproj.GenerateResource.cache
 C:\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.DAL.csproj.CoreCompileInputs.cache
 C:\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.DAL.csproj.CopyComplete
 C:\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.Repository.dll
 C:\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.Repository.pdb
-C:\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.Repository.Migrations.UpdateColumnMessage.resources
-C:\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.Repository.Migrations.Changing.resources
-C:\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.Repository.Migrations.Changing1.resources
-C:\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.Repository.Migrations.ColumnAddConfirmation.resources

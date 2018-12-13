@@ -10,11 +10,11 @@ using System.Web.Mvc;
 
 namespace NTierApp.WebApp.Controllers
 {
-    public class OrdersController : Controller
+    public class OrderController : Controller
     {
         private IOrdersBusiness _order;
 
-        public OrdersController(IOrdersBusiness orders)
+        public OrderController(IOrdersBusiness orders)
         {
             this._order = orders;
         }
