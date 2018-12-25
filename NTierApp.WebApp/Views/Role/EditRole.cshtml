@@ -1,4 +1,4 @@
-﻿@model NTierApp.WebApp.Models.CategoryViewModel
+﻿@model NTierApp.WebApp.Models.RoleViewModel
 
 <div class="row">
     <div class="col-md-12">
@@ -9,15 +9,15 @@
                     <br>
 
                     <div class="form-group">
-                        <label class="col-sm-3 control-label yazi"> Cateogry Name :</label>
+                        <label class="col-sm-3 control-label yazi"> Role Name :</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control parsley-error" data-parsley-id="29" id="categoryName" value="@Model.Name">
+                            <input type="text" class="form-control parsley-error" data-parsley-id="29" id="roleName" value="@Model.RoleName">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-sm-2 col-sm-10 ">
-                            <input class="btn btn-space btn-warning" style="font-size: 16px; width: 80px; height:38px;" id="btnUpdate" value="Update" onclick="Update(@Model.Id)" />
+                            <input class="btn btn-space btn-warning" style="font-size: 16px; width: 80px; height:38px;" id="btnUpdate" value="Update" onclick="Update('@Model.Id')" />
 
                             <button class="btn btn-space btn-default " style="height: 40px; font-size: 14px;">Cancel</button>
                         </div>
@@ -41,18 +41,18 @@
         }
     });
 
-        var Update = function (categoryId) {
+        var Update = function (roleId) {
             $.ajax({
-                url: "/api/Categories",
+                url: "/api/Roles",
                 method: "PUT",
                 headers: headers,
                 data: {
-                    Id: categoryId,
-                    Name: $("#categoryName").val()
+                    Id: roleId,
+                    RoleName: $("#roleName").val()
                 },
                 success: function () {
-                    toastr.success("Category was updated successfully !", { timeOut: 2000 });
-                    window.location.replace("/Product/CategoryList");
+                    toastr.success("Role was updated successfully !", { timeOut: 2000 });
+                    window.location.replace("/Role/RoleList");
                 },
                 error: function (jqXHR) {
                     alert("Error !");

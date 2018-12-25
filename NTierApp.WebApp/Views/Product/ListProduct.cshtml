@@ -77,7 +77,8 @@
             headers: headers,
             success: function () {
                 toastr.success("Product deleted successfully", { timeOut: 1000 })
-                window.location.href = "/Product/ListProduct";
+                window.location.replace("/Product/ListProduct");
+
             },
             error: function (jqXHR) {
                 alert("Error !");

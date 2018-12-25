@@ -1,16 +1,16 @@
-﻿@model IEnumerable<NTierApp.WebApp.Models.CategoryViewModel>
+﻿@model IEnumerable<NTierApp.WebApp.Models.RoleViewModel>
 
 <div class="row">
     <div class="col-md-12">
         <div class="panel panel-default panel-border-color panel-border-color-primary">
-            <div class="panel-heading panel-heading-divider" style="font-size: 22px"><b>Category Management</b></div>
+            <div class="panel-heading panel-heading-divider" style="font-size: 22px"><b>Role Management</b></div>
             <div class="panel-body">
                 <form action="#" class="form-horizontal group-border-dashed" novalidate="">
                     <br>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label yazi"> Cateogry Name :</label>
+                        <label class="col-sm-3 control-label yazi"> Role Name :</label>
                         <div class="col-sm-6">
-                            <input type="text" placeholder="Enter the new category..." class="form-control parsley-error" data-parsley-id="29" id="categoryName">
+                            <input type="text" class="form-control parsley-error" data-parsley-id="29" id="roleName">
                         </div>
                     </div>
 
@@ -25,7 +25,7 @@
                         <div class="panel panel-default panel-table">
 
                             <div class="panel-heading" style="font-size: 22px">
-                                <b>Category List</b><hr>
+                                <b>User Role List</b><hr>
 
 
                             </div>
@@ -33,8 +33,8 @@
                                 <table class="table table-condensed table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Category Name</th>
-                                            <th style="float: right;margin-right: -70px;">&nbsp; Category Actions</th>
+                                            <th>Role Name</th>
+                                            <th style="float: right;margin-right: -70px;">&nbsp; Role Actions</th>
                                             <th class="actions"></th>
                                         </tr>
                                     </thead>
@@ -42,12 +42,12 @@
                                         @foreach (var item in Model)
                                         {
                                             <tr>
-                                                <td>@item.Name</td>
+                                                <td>@item.RoleName</td>
                                                 <td class="actions">
-                                                    <a href="@Url.Action("EditCategory","Product", new { id=item.Id})" class="icon"><i class="mdi mdi-edit" style="float: right"></i></a>
+                                                    <a href="@Url.Action("EditRole","Role", new { id=item.Id})" class="icon"><i class="mdi mdi-edit" style="float: right"></i></a>
                                                 </td>
                                                 <td class="actions">
-                                                    <a href="#" class="icon"><i class="mdi mdi-delete" onclick="Delete(@item.Id)"></i></a>
+                                                    <a href="#" class="icon" data-toggle="modal" data-target="#exampleModal"><i class="mdi mdi-delete" onclick="Delete('@item.Id')"></i></a>
                                                 </td>
                                             </tr>
                                         }
@@ -64,52 +64,53 @@
     </div>
 </div>
 
+
+
+
 <script type="text/javascript">
-var token = sessionStorage.getItem("accessToken");
-var headers = {};
-headers.Authorization = "Bearer " + token;
+    var token = sessionStorage.getItem("accessToken");
+    var headers = {};
+    headers.Authorization = "Bearer " + token;
 
-$(document).ready(function() {
-  if (token == null) {
-    toastr.info("Please try again after signing up!");
-    window.location.href = "/UserManagement/Login";
-  }
-});
+    $(document).ready(function () {
+        if (token == null) {
+            toastr.info("Please try again after signing up!");
+            window.location.href = "/UserManagement/Login";
+        }
+    });
 
-var Delete = function(id) {
-  $.ajax({
-    url: "/api/Categories/" + id,
-    method: "DELETE",
-    headers: headers,
-    success: function() {
-                    window.location.replace("/Product/CategoryList");
+    var Delete = function (id) {
+        $.ajax({
+            url: "/api/Roles/" + id,
+            method: "DELETE",
+            headers: headers,
+            success: function () {
+                window.location.replace("/Role/RoleList");
+            },
+            error: function (jqXHR) {
+                alert("Error !");
+            }
+        });
+    };
 
-    },
-    error: function(jqXHR) {
-      alert("Error !");
-    }
-  });
-};
+    $("#btnSave").click(function () {
+        $.ajax({
+            url: "/api/Roles",
+            method: "POST",
+            headers: headers,
+            data: {
+                RoleName: $("#roleName").val()
+            },
+            success: function () {
+                window.location.replace("/Role/RoleList");
 
-$("#btnSave").click(function() {
-  $.ajax({
-    url: "/api/Categories",
-    method: "POST",
-    headers: headers,
-    data: {
-      Name: $("#categoryName").val()
-    },
-    success: function() {
-        window.location.href = "/Product/";
-                    window.location.replace("/Product/CategoryList");
-
-
-    },
-    error: function(jqXHR) {
-      alert("Error !");
-    }
-  });
-});
+                //window.location.href = "/Role/RoleList";
+            },
+            error: function (jqXHR) {
+                alert("Error !");
+            }
+        });
+    });
 
 
 </script>
