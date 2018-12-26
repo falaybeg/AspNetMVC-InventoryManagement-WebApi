@@ -22,10 +22,30 @@ namespace NTierApp.Business
             this._userRepository = new UserRepository(unitOfWork);
         }
 
+        public void Delete(string userId)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<ApplicationUserr> GetAll()
         {
             var result = _userRepository.GetAll();
             return result;
         }
-}
+
+        public ApplicationUserr GetById(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Insert(ApplicationUserr category)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(ApplicationUserr category)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Security.Claims;
-using System.Security.Cryptography;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Http;
-using System.Web.Http.ModelBinding;
-using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -16,6 +7,14 @@ using Microsoft.Owin.Security.OAuth;
 using NTierApp.WebApp.Models;
 using NTierApp.WebApp.Providers;
 using NTierApp.WebApp.Results;
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Security.Claims;
+using System.Security.Cryptography;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Http;
 
 namespace NTierApp.WebApp.Controllers
 {
@@ -341,12 +340,64 @@ namespace NTierApp.WebApp.Controllers
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 
+            if (model.RoleName != null)
+            {
+                UserManager.AddToRole(user.Id, model.RoleName);
+            }
+
             if (!result.Succeeded)
             {
                 return GetErrorResult(result);
             }
 
             return Ok();
+        }
+
+        [Route("EditUser")]
+        [HttpPut]
+        public IHttpActionResult AddUserRole(UserManagementViewModel model)
+        {
+            ApplicationUser user = UserManager.FindById(model.Id);
+
+            if (model != null)
+            {
+                user.Id = model.Id;
+                user.FirstName = model.FirstName;
+                user.LastName = model.LastName;
+                user.PhoneNumber = model.PhoneNumber;
+                user.Email = model.Email;
+
+                UserManager.Update(user);
+                var roleResult = UserManager.GetRoles(model.Id);
+
+                if (roleResult[0] == model.RoleName)
+                {
+                    return Ok();
+                }
+                else
+                {
+                    UserManager.RemoveFromRole(model.Id, roleResult[0]);
+                    UserManager.AddToRole(model.Id, model.RoleName);
+                    return Ok();
+                }
+            }
+
+            return BadRequest();
+        }
+
+        [HttpDelete]
+        [Route("DeleteUser")]
+        public IHttpActionResult UserDelete(string id)
+        {
+            var user = UserManager.FindById(id);
+
+            if(user != null)
+            {
+                UserManager.Delete(user);
+                return Ok("User deleted successfuly");
+            }
+
+            return BadRequest("Error !");
         }
 
         // POST api/Account/RegisterExternal

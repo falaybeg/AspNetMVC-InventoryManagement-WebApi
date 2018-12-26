@@ -47,7 +47,7 @@
                                                     <a href="@Url.Action("EditRole","Role", new { id=item.Id})" class="icon"><i class="mdi mdi-edit" style="float: right"></i></a>
                                                 </td>
                                                 <td class="actions">
-                                                    <a href="#" class="icon" data-toggle="modal" data-target="#exampleModal"><i class="mdi mdi-delete" onclick="Delete('@item.Id')"></i></a>
+                                                    <a href="#" class="icon" ><i class="mdi mdi-delete" onclick="Delete('@item.Id')"></i></a>
                                                 </td>
                                             </tr>
                                         }
@@ -75,7 +75,7 @@
     $(document).ready(function () {
         if (token == null) {
             toastr.info("Please try again after signing up!");
-            window.location.href = "/UserManagement/Login";
+            window.location.replace("/UserManagement/Login");
         }
     });
 

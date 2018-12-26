@@ -203,7 +203,7 @@
         </member>
         <member name="T:Microsoft.ApplicationInsights.DependencyCollector.Implementation.DependencyCollectorEventSource.Keywords">
             <summary>
-            Keywords for the <see cref="T:Microsoft.ApplicationInsights.DependencyCollector.Implementation.DependencyCollectorEventSource"/>.
+            Keywords for the <see cref="T:Microsoft.ApplicationInsA7½:Kþ˜+H5Ã*encyCollector.Implementation.DependencyCollectorEventSource"/>.
             </summary>
         </member>
         <member name="F:Microsoft.ApplicationInsights.DependencyCollector.Implementation.DependencyCollectorEventSource.Keywords.UserActionable">

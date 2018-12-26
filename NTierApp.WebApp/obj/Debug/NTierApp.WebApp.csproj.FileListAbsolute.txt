@@ -748,6 +748,7 @@ C:\WebProgamlama\InventoryManagement-WebApi-Project\NTierApp.WebApp\bin\roslyn\M
 C:\WebProgamlama\InventoryManagement-WebApi-Project\NTierApp.WebApp\bin\roslyn\Microsoft.CSharp.Core.targets
 C:\WebProgamlama\InventoryManagement-WebApi-Project\NTierApp.WebApp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
 C:\WebProgamlama\InventoryManagement-WebApi-Project\NTierApp.WebApp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\WebProgamlama\InventoryManagement-WebApi-Project\NTierApp.WebApp\bin\roslyn\Microsoft.Managed.Core.targets
 C:\WebProgamlama\InventoryManagement-WebApi-Project\NTierApp.WebApp\bin\roslyn\Microsoft.VisualBasic.Core.targets
 C:\WebProgamlama\InventoryManagement-WebApi-Project\NTierApp.WebApp\bin\roslyn\System.AppContext.dll
 C:\WebProgamlama\InventoryManagement-WebApi-Project\NTierApp.WebApp\bin\roslyn\System.Collections.Immutable.dll
@@ -757,6 +758,7 @@ C:\WebProgamlama\InventoryManagement-WebApi-Project\NTierApp.WebApp\bin\roslyn\S
 C:\WebProgamlama\InventoryManagement-WebApi-Project\NTierApp.WebApp\bin\roslyn\System.IO.Compression.dll
 C:\WebProgamlama\InventoryManagement-WebApi-Project\NTierApp.WebApp\bin\roslyn\System.IO.FileSystem.dll
 C:\WebProgamlama\InventoryManagement-WebApi-Project\NTierApp.WebApp\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\WebProgamlama\InventoryManagement-WebApi-Project\NTierApp.WebApp\bin\roslyn\System.IO.Pipes.AccessControl.dll
 C:\WebProgamlama\InventoryManagement-WebApi-Project\NTierApp.WebApp\bin\roslyn\System.IO.Pipes.dll
 C:\WebProgamlama\InventoryManagement-WebApi-Project\NTierApp.WebApp\bin\roslyn\System.Reflection.Metadata.dll
 C:\WebProgamlama\InventoryManagement-WebApi-Project\NTierApp.WebApp\bin\roslyn\System.Security.AccessControl.dll
@@ -888,5 +890,3 @@ C:\WebProgamlama\InventoryManagement-WebApi-Project\NTierApp.WebApp\obj\Debug\NT
 C:\WebProgamlama\InventoryManagement-WebApi-Project\NTierApp.WebApp\obj\Debug\NTierApp.WebApp.csproj.CopyComplete
 C:\WebProgamlama\InventoryManagement-WebApi-Project\NTierApp.WebApp\obj\Debug\NTierApp.WebApp.dll
 C:\WebProgamlama\InventoryManagement-WebApi-Project\NTierApp.WebApp\obj\Debug\NTierApp.WebApp.pdb
-C:\WebProgamlama\InventoryManagement-WebApi-Project\NTierApp.WebApp\bin\roslyn\Microsoft.Managed.Core.targets
-C:\WebProgamlama\InventoryManagement-WebApi-Project\NTierApp.WebApp\bin\roslyn\System.IO.Pipes.AccessControl.dll

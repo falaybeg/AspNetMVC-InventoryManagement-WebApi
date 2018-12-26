@@ -1,4 +1,5 @@
-﻿using NTier.Domain;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using NTier.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,5 +21,6 @@ namespace NTierApp.WebApp.Models
 
         public  Product Product { get; set; }
         public  ApplicationUserr User { get; set; }
+        public IdentityRole UserRole { get; set; }
     }
 }

@@ -1,0 +1,93 @@
+﻿@model IEnumerable<NTierApp.WebApp.Models.UserManagementViewModel>
+
+<div class="row">
+    <div class="col-sm-12" style="margin-top: 30px">
+        <div class="panel panel-default panel-table">
+            <div class="panel-heading">
+                <center>
+                    <h2 class="page-head-title"><b><b>User Management Screen</b></b></h2>
+                </center>
+                <br />
+                <div class="col-sm-4">
+                    <a href="@Url.Action("EditUser","UserManagement")"><button class="btn btn-primary" style="font-size:14px">New User</button></a><br>
+                </div>
+                <br><hr>
+                <div class="panel-body">
+                    <table class="table table-striped table-hover">
+
+                        <thead>
+                            <tr style=" background-color:lavender;">
+
+                                <th style="width:21%;">User</th>
+                                <th style="width:15%;">Phone</th>
+                                <th style="width:25%;">Email</th>
+                                <th style="width:20%;">Registered Date</th>
+                                <th style="width:12%">Role</th>
+
+                                <th style="width:8%;"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                @*<td class="user-avatar cell-detail user-info "><img width="64" height="64" @*src="~/Content/assets/img/avatar6.png" alt="Avatar"><span>@item.FirstName &nbsp; @item.LastName</span></td>*@
+                                <td>@item.FirstName &nbsp; @item.LastName</td>
+                                <td>@item.PhoneNumber</td>
+                                <td class="cell-detail"><span>@item.Email</span></td>
+                                <td class="cell-detail"><span>@item.RegisteredDate.ToString("dd/MM/yyyy HH:mm")</span></td>
+                                @if (item.RoleName == "Admin")
+                                {
+                                    <td><span class="label label-info" style="font-size: 14px">@item.RoleName</span></td>
+                                }
+                                else
+                                {
+                                    <td><span class="label label-warning" style="font-size: 14px">@item.RoleName</span></td>
+                                }
+                                <td class="text-right">
+                                    <div class="btn-group btn-hspace">
+                                        <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle islemler" aria-expanded="false">Actions<span class="icon-dropdown mdi mdi-chevron-down"></span></button>
+                                        <ul role="menu" class="dropdown-menu pull-right">
+                                            <li><a href="@Url.Action("UpdateUser","UserManagement", new { id=item.Id})"><i class="icon mdi mdi-edit"></i><span>Edit</span></a></li>
+                                            <li><a href="#" onclick="Delete('@item.Id')"><i class="icon mdi mdi-delete"></i><span>Delete</span></a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+var token = sessionStorage.getItem("accessToken");
+var headers = {};
+headers.Authorization = "Bearer " + token;
+
+$(document).ready(function() {
+  if (token == null) {
+    toastr.info("Please try again after signing up!");
+    window.location.href = "/UserManagement/Login";
+  }
+});
+
+var Delete = function (userId) {
+    $.ajax({
+        url: "/api/Account/DeleteUser?id="+ userId,
+        method: "DELETE",
+        headers: headers,
+        success: function () {
+            toastr.success("User deleted successfully !", { timeOut: 2000 });
+            window.location.replace("/UserManagement/UserList");
+        },
+        error: function (jqXHR) {
+            alert("Error !");
+        }
+    });
+};
+
+</script>

@@ -88,6 +88,14 @@
     <Compile Include="Migrations\201812130805585_AddConfirmationTime.Designer.cs">
       <DependentUpon>201812130805585_AddConfirmationTime.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812251657395_ChangeDatabase.cs" />
+    <Compile Include="Migrations\201812251657395_ChangeDatabase.Designer.cs">
+      <DependentUpon>201812251657395_ChangeDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812251932446_DenemeMig.cs" />
+    <Compile Include="Migrations\201812251932446_DenemeMig.Designer.cs">
+      <DependentUpon>201812251932446_DenemeMig.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
     <Compile Include="Infrastucture\BaseRepository.cs" />
@@ -140,6 +148,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812130805585_AddConfirmationTime.resx">
       <DependentUpon>201812130805585_AddConfirmationTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812251657395_ChangeDatabase.resx">
+      <DependentUpon>201812251657395_ChangeDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812251932446_DenemeMig.resx">
+      <DependentUpon>201812251932446_DenemeMig.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

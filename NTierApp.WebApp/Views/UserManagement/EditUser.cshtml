@@ -1,0 +1,190 @@
+﻿@model NTierApp.WebApp.Models.UserManagementViewModel
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default panel-border-color panel-border-color-primary">
+
+            @if (Model != null)
+            {
+                <div class="panel-heading panel-heading-divider" style="font-size: 22px"><b>Update User</b></div>
+            }
+            else
+            {
+                <div class="panel-heading panel-heading-divider" style="font-size: 22px"><b>New User</b></div>
+
+            }
+                <div class="panel-body">
+
+
+                    @if (Model != null)
+                    {
+                        <form action="#" class="form-horizontal group-border-dashed" novalidate="">
+                            <br>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label yazi">First Name :</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control parsley-error" data-parsley-id="29" id="firstName" name="FirstName" value="@Model.FirstName">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label yazi">Last Name :</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control parsley-error" data-parsley-id="29" id="lastName" name="LastName" value="@Model.LastName">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label yazi">Phone Number :</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control parsley-error" data-parsley-id="29" id="phoneNumber" name="PhoneNumber" value="@Model.PhoneNumber">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label yazi">Email :</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control parsley-error" data-parsley-id="29" id="email" name="Email" value="@Model.Email">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label yazi" for="sel1">Role :</label>
+                                <div class="col-sm-6">
+                                    @*@Html.DropDownListFor(m => m.RoleName, (SelectList)ViewBag.Roles, "- Select Role -", new { @class = "form-control" })*@
+                                    @*@Html.DropDownList("Roles", ViewBag.Roles as SelectList, htmlAttributes: new { @class = "form-control" })*@
+
+                                    @*@Html.DropDownListFor(m => m.SupplierId, (SelectList)ViewBag.Supplier, "- Select Supplier -", new { @class = "form-control" })*@
+
+                                    @Html.DropDownListFor(m => m.RoleName, (SelectList)ViewBag.Roles, "- Select Role -", new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-2 col-sm-10 ">
+                                    <input class="btn btn-space btn-warning kaydet" style="font-size: 16px; height:40px" id="btnUpdate" value="Update" onclick="Update('@Model.Id')" />
+                                    <input class="btn btn-space btn-default kaydet" style="height: 40px; font-size: 14px;" id="btnCancel" onclick="window.location.href ='@Url.Action("UserList","UserManagement")'" value="Cancel" />
+                                    <input type="hidden" id="@Model.Id" />
+                                </div>
+                            </div>
+                        </form>
+                    }
+                    else
+                    {
+                        <form action="#" class="form-horizontal group-border-dashed" novalidate="">
+                            <br>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label yazi">First Name :</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control parsley-error" data-parsley-id="29" id="firstName" name="FirstName" value="">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label yazi">Last Name :</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control parsley-error" data-parsley-id="29" id="lastName" name="LastName" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label yazi">Phone Number :</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control parsley-error" data-parsley-id="29" id="phoneNumber" name="PhoneNumber" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label yazi">Email :</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control parsley-error" data-parsley-id="29" id="email" name="Email" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label yazi">Password :</label>
+                                <div class="col-sm-6">
+                                    <div class="col-xs-6">
+                                        <input type="password" placeholder="Password" class="form-control" id="password">
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <input type="password" placeholder="Confirm Password" class="form-control" id="confirmPassword">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label yazi" for="sel1">Role :</label>
+                                <div class="col-sm-6">
+                                    @Html.DropDownListFor(m => m.RoleName, (SelectList)ViewBag.Roles, "- Select Role -", new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-2 col-sm-10 ">
+                                    <input class="btn btn-space btn-success kaydet" style="font-size: 16px; height:40px" id="btnSave" value="Save" />
+                                    <input class="btn btn-space btn-default kaydet" style="height: 40px; font-size: 14px;" id="btnCancel" onclick="window.location.href ='@Url.Action("UserList","UserManagement")'" value="Cancel" />
+                                </div>
+                            </div>
+                        </form>
+                    }
+
+                </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var token = sessionStorage.getItem("accessToken");
+    var headers = {};
+    headers.Authorization = "Bearer " + token;
+
+    $(document).ready(function () {
+        if (token == null) {
+            toastr.info("Please try again after signing up!");
+            window.location.href = "/UserManagement/Login";
+        }
+    });
+
+    var Update = function(userId) {
+  $.ajax({
+    url: "/api/Account/EditUser",
+    method: "PUT",
+    headers: headers,
+    data: {
+      Id: userId,
+      FirstName: $("#firstName").val(),
+      LastName: $("#lastName").val(),
+      Email: $("#email").val(),
+      PhoneNumber: $("#phoneNumber").val(),
+      RoleName: $("#RoleName").val()
+    },
+    success: function() {
+    toastr.success( "User updated successfully !", { timeOut: 2000 });
+      window.location.replace("/UserManagement/UserList");
+    },
+    error: function(jqXHR) {
+      alert("Error !");
+    }
+  });
+};
+
+
+      $("#btnSave").click(function() {
+  $.ajax({
+    url: "/api/Account/Register",
+    method: "POST",
+    headers: headers,
+    data: {
+        Email: $("#email").val(),
+        Password: $("#password").val(),
+        ConfirmPassword: $("#confirmPassword").val(),
+        FirstName: $("#firstName").val(),
+        LastName: $("#lastName").val(),
+        PhoneNumber: $("#phoneNumber").val(),
+        RoleName: $("#RoleName").val()
+    },
+
+    success: function() {
+      toastr.success( "User added successfully !", { timeOut: 2000 });
+      window.location.replace("/UserManagement/UserList");
+    },
+    error: function(jqXHR) {
+      alert("Error !");
+    }
+  });
+});
+</script>

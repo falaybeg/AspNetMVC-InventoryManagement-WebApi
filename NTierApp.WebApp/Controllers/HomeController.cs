@@ -29,47 +29,49 @@ namespace NTierApp.WebApp.Controllers
         {
             HomeViewModel vm = new HomeViewModel();
 
-            vm.TotalSuppliers = _supplier.GetAll().Count<Supplier>();
-            vm.TotalOrders = _order.GetAll().Count<Orders>();
-            vm.TotalProducts = _product.GetAll().Count<Product>();
+            //vm.TotalSuppliers = _supplier.GetAll().Count<Supplier>();
+            //vm.TotalOrders = _order.GetAll().Count<Orders>();
+            //vm.TotalProducts = _product.GetAll().Count<Product>();
 
-            #region Total Product Cost
-            var result = _product.GetAll();
-            foreach (var item in result)
+            if(User.IsInRole("Admin"))
             {
-                vm.TotalProductValues += (item.PurchasingPrice * item.Quantity);
+                #region Total Product Cost
+                var result = _product.GetAll();
+                foreach (var item in result)
+                {
+                    vm.TotalProductValues += (item.PurchasingPrice * item.Quantity);
+                }
+                #endregion
+
+                #region Total Purchase
+                var purchase = _purchase.GetAll();
+                foreach (var item in purchase)
+                {
+                    vm.TotalPurchase += (item.Quantity * item.Product.PurchasingPrice);
+                }
+                #endregion
+
+                #region Total Revenue 
+                var order = _order.GetAll();
+
+                foreach (var item in order)
+                {
+                    vm.TotalOrders += item.Product.SellingPrice;
+                }
+                #endregion
+
+                #region Profit
+
+                foreach (var item in order)
+                {
+                    vm.Profit += (item.Product.SellingPrice - item.Product.PurchasingPrice);
+                }
+
+                #endregion
             }
-            #endregion
 
-            #region Total Purchase
-            var purchase = _purchase.GetAll();
-            foreach (var item in purchase)
-            {
-                vm.TotalPurchase += (item.Quantity * item.Product.PurchasingPrice);
-            }
-            #endregion
 
-            #region Total Revenue 
-            var order = _order.GetAll();
-
-            foreach (var item in order)
-            {
-                vm.TotalOrders += item.Product.SellingPrice;
-            }
-            #endregion
-
-            #region Profit
-
-            foreach (var item in order)
-            {
-                vm.Profit +=  (item.Product.SellingPrice - item.Product.PurchasingPrice);
-            }
-
-            #endregion
-
-            vm.LatesOrders = _order.GetAll().OrderByDescending(x => x.OrderDate).Take(5);
-            vm.LatesPurchases = _purchase.GetAll().OrderByDescending(x => x.CreatedTime).Take(5);
-            vm.User = _user.GetAll().OrderByDescending(x => x.RegisteredDate).Take(5);
+           
 
             #region Top Seller
             vm.TopSeller = _order.GetAll()
@@ -101,42 +103,17 @@ namespace NTierApp.WebApp.Controllers
                    SellingPrice = i.Key.SellingPrice,
                    PurchasingPrice = i.Key.PurchasingPrice,
                    Profit = (i.Key.SellingPrice  - i.Key.PurchasingPrice)
-               }).OrderByDescending(x => x.Profit).Take(5); 
-         
-            
-            
+               }).OrderByDescending(x => x.Profit).Take(5);
+
+
+
 
             #endregion
 
+            vm.LatesOrders = _order.GetAll().OrderByDescending(x => x.OrderDate).Take(5);
+            vm.LatesPurchases = _purchase.GetAll().OrderByDescending(x => x.CreatedTime).Take(5);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            vm.User = _user.GetAll().OrderByDescending(x => x.RegisteredDate).Take(5);
 
             return View(vm);
         }

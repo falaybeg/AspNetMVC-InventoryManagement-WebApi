@@ -1,37 +1,68 @@
-﻿
-using AutoMapper;
-using NTierApp.Business.Interface;
+﻿using NtierApp.Repository.Context;
 using NTierApp.WebApp.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace NTierApp.WebApp.Controllers
 {
     public class CustomerController : Controller
     {
+        InventoryDbContext db;
 
-        IUserBusiness _user;
-        public CustomerController(IUserBusiness user)
+        public CustomerController()
         {
-            this._user = user;
+            db = new InventoryDbContext();
         }
 
         // GET: Customer
         public ActionResult ListCustomer()
         {
-            var result = _user.GetAll().Select(x=> new CustomerViewModel {
-                Id = x.Id,
-                FirstName = x.FirstName,
-                LastName = x.LastName,
-                PhoneNumber = x.PhoneNumber,
-                Email = x.Email,
-                CardNumber = x.CardNumber,
-                RegisteredDate = x.RegisteredDate
-            });
+            var result = (from user in db.Users
+                          from userRole in user.Roles
+                          join role in db.Roles on userRole.RoleId equals
+                          role.Id
+                          select new UserManagementViewModel()
+                          {
+                              Id = user.Id,
+                              FirstName = user.FirstName,
+                              LastName = user.LastName,
+                              PhoneNumber = user.PhoneNumber,
+                              Email = user.Email,
+                              CardNumber = user.CardNumber,
+                              RegisteredDate = user.RegisteredDate,
+                              RoleName = role.Name
+                          }).ToList();
+
             return View(result);
+        }
+
+        public ActionResult EditRole(string id)
+        {
+
+
+
+            return View();
+        }
+
+        public ActionResult Deneme()
+        {
+
+            var usersWithRoles = (from user in db.Users
+                                  from userRole in user.Roles
+                                  join role in db.Roles on userRole.RoleId equals
+                                  role.Id
+                                  select new UserManagementViewModel()
+                                  {
+                                      Id = user.Id,
+                                      FirstName = user.FirstName,
+                                      LastName = user.LastName,
+                                      Email = user.Email,
+                                      RoleName = role.Name
+                                  }).ToList();
+
+
+
+            return View(usersWithRoles);
         }
     }
 }

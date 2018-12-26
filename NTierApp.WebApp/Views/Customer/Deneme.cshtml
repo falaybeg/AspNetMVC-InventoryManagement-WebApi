@@ -1,0 +1,11 @@
+﻿@model IEnumerable<NTierApp.WebApp.Models.CustomerViewModel>
+
+
+@foreach (var item in Model)
+{
+    <li>@item.Id</li>
+    <li>@item.FirstName</li>
+    <li>@item.LastName</li>
+    <li>@item.Email</li>
+    <li>@item.RoleName</li>
+}

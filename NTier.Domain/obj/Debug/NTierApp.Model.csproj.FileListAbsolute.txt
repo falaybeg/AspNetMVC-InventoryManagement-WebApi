@@ -166,7 +166,6 @@ C:\WebProgamlama\InventoryManagement-WebApi-Project\NTier.Domain\bin\Debug\Micro
 C:\WebProgamlama\InventoryManagement-WebApi-Project\NTier.Domain\bin\Debug\Microsoft.Owin.Security.Cookies.xml
 C:\WebProgamlama\InventoryManagement-WebApi-Project\NTier.Domain\bin\Debug\Microsoft.Owin.Security.OAuth.xml
 C:\WebProgamlama\InventoryManagement-WebApi-Project\NTier.Domain\bin\Debug\Newtonsoft.Json.xml
-C:\WebProgamlama\InventoryManagement-WebApi-Project\NTier.Domain\obj\Debug\NTierApp.Model.csprojAssemblyReference.cache
 C:\WebProgamlama\InventoryManagement-WebApi-Project\NTier.Domain\obj\Debug\NTierApp.Model.csproj.CoreCompileInputs.cache
 C:\WebProgamlama\InventoryManagement-WebApi-Project\NTier.Domain\obj\Debug\NTierApp.Model.csproj.CopyComplete
 C:\WebProgamlama\InventoryManagement-WebApi-Project\NTier.Domain\obj\Debug\NTier.Domain.dll

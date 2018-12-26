@@ -292,7 +292,7 @@
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CategoryViewModel.cs" />
-    <Compile Include="Models\CustomerViewModel.cs" />
+    <Compile Include="Models\UserManagementViewModel.cs" />
     <Compile Include="Models\HomeViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\OrderViewModel.cs" />
@@ -1905,6 +1905,8 @@
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
     <Content Include="Content\assets\css\select2.min.css" />
+    <Content Include="ClassDiagram1.cd" />
+    <Content Include="ClassDiagram2.cd" />
     <None Include="Properties\PublishProfiles\inventorywebapi - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\inventorywebapi - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1-vsdoc.js" />
@@ -2030,9 +2032,11 @@
     <Content Include="Views\Order\ConfirmedListOrder.cshtml" />
     <Content Include="Views\Order\ListOrder.cshtml" />
     <Content Include="Views\Product\EditCategory.cshtml" />
-    <Content Include="Views\UserManagement\RoleList.cshtml" />
+    <Content Include="Views\UserManagement\UserList.cshtml" />
     <Content Include="Views\Role\RoleList.cshtml" />
     <Content Include="Views\Role\EditRole.cshtml" />
+    <Content Include="Views\Customer\Deneme.cshtml" />
+    <Content Include="Views\UserManagement\EditUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

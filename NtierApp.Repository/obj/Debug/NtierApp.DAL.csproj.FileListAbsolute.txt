@@ -136,6 +136,8 @@ C:\WebProgamlama\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debu
 C:\WebProgamlama\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.Repository.Migrations.Changing1.resources
 C:\WebProgamlama\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.Repository.Migrations.ColumnAddConfirmation.resources
 C:\WebProgamlama\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.Repository.Migrations.AddConfirmationTime.resources
+C:\WebProgamlama\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.Repository.Migrations.ChangeDatabase.resources
+C:\WebProgamlama\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.Repository.Migrations.DenemeMig.resources
 C:\WebProgamlama\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.DAL.csproj.GenerateResource.cache
 C:\WebProgamlama\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.DAL.csproj.CoreCompileInputs.cache
 C:\WebProgamlama\InventoryManagement-WebApi-Project\NtierApp.Repository\obj\Debug\NtierApp.DAL.csproj.CopyComplete

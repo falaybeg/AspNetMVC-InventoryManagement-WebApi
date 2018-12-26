@@ -1,53 +1,56 @@
 ﻿@model NTierApp.WebApp.Models.HomeViewModel
 
+@if (User.IsInRole("Admin"))
+{
+    <div class="row">
 
+        <div class="col-xs-12 col-md-6 col-lg-3">
+            <div class="widget widget-tile">
+                <div id="spark1" class="chart sparkline"></div>
+                <div class="data-info">
+                    <div class="desc">Total Product Value ₺</div>
+                    <div class="value">
+                        <span data-toggle="counter" data-end="@Model.TotalProductValues" class="number">500</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-3">
+            <div class="widget widget-tile">
+                <div id="spark2" class="chart sparkline"></div>
+                <div class="data-info">
+                    <div class="desc">Total Expense ₺</div>
+                    <div class="value">
+                        <span data-toggle="counter" data-end="@Model.TotalPurchase" class="number">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-3">
+            <div class="widget widget-tile">
+                <div id="spark3" class="chart sparkline"></div>
+                <div class="data-info">
+                    <div class="desc">Total Revenue ₺</div>
+                    <div class="value">
+                        <span data-toggle="counter" data-end="@Model.TotalOrders" class="number">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-3">
+            <div class="widget widget-tile">
+                <div id="spark4" class="chart sparkline"></div>
+                <div class="data-info">
+                    <div class="desc">Profit ₺</div>
+                    <div class="value">
+                        <span data-toggle="counter" data-end="@Model.Profit">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
 
-<div class="row">
-    <div class="col-xs-12 col-md-6 col-lg-3">
-        <div class="widget widget-tile">
-            <div id="spark1" class="chart sparkline"></div>
-            <div class="data-info">
-                <div class="desc">Total Product Value ₺</div>
-                <div class="value">
-                    <span data-toggle="counter" data-end="@Model.TotalProductValues" class="number">500</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-12 col-md-6 col-lg-3">
-        <div class="widget widget-tile">
-            <div id="spark2" class="chart sparkline"></div>
-            <div class="data-info">
-                <div class="desc">Total Expense ₺</div>
-                <div class="value">
-                    </span><span data-toggle="counter" data-end="@Model.TotalPurchase" class="number">0</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-12 col-md-6 col-lg-3">
-        <div class="widget widget-tile">
-            <div id="spark3" class="chart sparkline"></div>
-            <div class="data-info">
-                <div class="desc">Total Revenue ₺</div>
-                <div class="value">
-                    <span data-toggle="counter" data-end="@Model.TotalOrders" class="number">0</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-12 col-md-6 col-lg-3">
-        <div class="widget widget-tile">
-            <div id="spark4" class="chart sparkline"></div>
-            <div class="data-info">
-                <div class="desc">Profit ₺</div>
-                <div class="value">
-                    <span data-toggle="counter" data-end="@Model.Profit">0</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 <div class="row">
 
     <div class="col-xs-12 col-md-4">
@@ -126,16 +129,16 @@
             <div class="chart-legend">
                 <table>
                     <tbody>
-                        @foreach(var item in Model.MostProfitableProducts)
+                        @foreach (var item in Model.MostProfitableProducts)
                         {
-                        <tr>
-                            <td class="chart-legend-color"><span data-color="top-sales-color3" style="background-color: #cacaca"></span></td>
-                            <td>@item.ProductName</td>
-                            <td class="chart-legend-value">@String.Format("{0:0.###}", item.Profit) ₺</td>
-                        </tr>
+                            <tr>
+                                <td class="chart-legend-color"><span data-color="top-sales-color3" style="background-color: #cacaca"></span></td>
+                                <td>@item.ProductName</td>
+                                <td class="chart-legend-value">@String.Format("{0:0.###}", item.Profit) ₺</td>
+                            </tr>
                         }
-                        
-                        
+
+
                     </tbody>
                 </table>
             </div>
@@ -159,7 +162,7 @@
             <div class="panel-body table-responsive">
                 <table class="table table-striped table-borderless">
                     <thead>
-                        <tr style="background-color: #cacaca">
+                        <tr style="font-size:15px; background-color:#cecece">
                             <th style="width:30%;">Product</th>
                             <th style="width:12%;">Price</th>
                             <th style="width:27%;">Date</th>
@@ -193,7 +196,7 @@
             <div class="panel-body table-responsive">
                 <table class="table table-striped table-hover">
                     <thead>
-                        <tr style="background-color: #cacaca">
+                        <tr style="font-size:15px;  background-color:#cecece;">
                             <th style="width:30%;">Product </th>
                             <th style="width:12%;">Price</th>
                             <th style="width:10%;">Quantity</th>
@@ -217,22 +220,25 @@
             </div>
         </div>
     </div>
+</div>
 
-    @*<div class="col-md-6">
+@if (User.IsInRole("Admin"))
+{
+    <div class="row">
+        <div class="col-md-6">
             <div class="panel panel-default panel-table">
                 <div class="panel-heading">
 
-                    <div class="title">Last Registered Customers</div>
+                    <div class="title"><b>Last Registered Users</b></div>
                 </div>
                 <div class="panel-body table-responsive">
                     <table class="table table-striped table-hover">
                         <thead>
-                            <tr>
+                            <tr style="font-size:15px;  background-color:#cecece;">
                                 <th style="width:30%;">User </th>
                                 <th style="width:20%;">Phone</th>
                                 <th style="width:27%;">Email</th>
                                 <th style="width:27%;">Registered Date</th>
-                                <th class="actions"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -250,9 +256,10 @@
                     </table>
                 </div>
             </div>
-        </div>*@
-</div>
+        </div>
+    </div>
 
+}
 
 
 

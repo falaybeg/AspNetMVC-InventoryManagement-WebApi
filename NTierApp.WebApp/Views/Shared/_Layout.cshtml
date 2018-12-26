@@ -92,94 +92,119 @@
                                     <a href="@Url.Action("Index","Home")"><i class="icon mdi mdi-home"></i><span>Main Page</span></a>
                                 </li>
                                 @*<li class="parent">
-                                        <a href="#"><i class="icon mdi mdi-account"></i><span>Employee Management</span></a>
+            <a href="#"><i class="icon mdi mdi-account"></i><span>Employee Management</span></a>
+            <ul class="sub-menu">
+                <li>
+                    <a href="@Url.Action("AddEmployee","Employee")" style="font-size: 14px">New Employee</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("ListEmployee","Employee")" style="font-size: 14px">Employee Management</a>
+                </li>
+
+            </ul>
+        </li>*@
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <li class="parent">
+                                        <a href="#"><i class="icon mdi mdi-card"></i><span>Product Management</span></a>
                                         <ul class="sub-menu">
                                             <li>
-                                                <a href="@Url.Action("AddEmployee","Employee")" style="font-size: 14px">New Employee</a>
+                                                <a href="@Url.Action("AddProduct","Product")" style="font-size: 14px">New Product</a>
                                             </li>
                                             <li>
-                                                <a href="@Url.Action("ListEmployee","Employee")" style="font-size: 14px">Employee Management</a>
+                                                <a href="@Url.Action("ListProduct","Product")" style="font-size: 14px">Product Management</a>
+                                            </li>
+                                                <li>
+                                                    <a href="@Url.Action("CategoryList","Product")" style="font-size: 14px">Category Management</a>
+                                                </li>
+                                        </ul    >
+                                    </li>
+
+                                    <li class="parent">
+                                        <a href="#"><i class="icon mdi mdi-assignment-o"></i><span>Supplier Management</span></a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="@Url.Action("AddSupplier","Supplier")" style="font-size: 14px">New Supplier</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("ListSupplier","Supplier")" style="font-size: 14px">Supplier Management</a>
                                             </li>
 
                                         </ul>
-                                    </li>*@
-                                <li class="parent">
-                                    <a href="#">
-                                        <i class="icon mdi mdi-card"></i>
-                                        <span>Product Management</span>
-                                    </a>
-                                    <ul class="sub-menu">
-
-                                        <li>
-                                            <a href="@Url.Action("AddProduct","Product")" style="font-size: 14px">New Product</a>
-                                        </li>
-                                        <li>
-                                            <a href="@Url.Action("ListProduct","Product")" style="font-size: 14px">Product Management</a>
-                                        </li>
-                                        <li>
-                                            <a href="@Url.Action("CategoryList","Product")" style="font-size: 14px">Category Management</a>
-                                        </li>
-                                </li>
-
-                            </ul>
-                            </li>
-
-                            <li class="parent">
-                                <a href="#"><i class="icon mdi mdi-assignment-o"></i><span>Supplier Management</span></a>
-                                <ul class="sub-menu">
-                                    <li>
-                                        <a href="@Url.Action("AddSupplier","Supplier")" style="font-size: 14px">New Supplier</a>
-                                    </li>
-                                    <li>
-                                        <a href="@Url.Action("ListSupplier","Supplier")" style="font-size: 14px">Supplier Management</a>
                                     </li>
 
-                                </ul>
-                            </li>
+                                    <li class="parent">
+                                        <a href="#"><i class="icon mdi mdi-shopping-cart"></i><span>Order Management</span></a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="@Url.Action("ListOrder","Order")" style="font-size: 14px">Order Management</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("ConfirmedListOrder","Order")" style="font-size: 14px">Confirmed Orders</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="parent">
+                                        <a href="#"><i class="icon mdi mdi-shopping-basket"></i><span>Purchase Management</span></a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="@Url.Action("AddPurchase","Purchase")" style="font-size: 14px">New Purchase</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("ListPurchase","Purchase")" style="font-size: 14px">Purchase Management</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("ConfirmedPurchase","Purchase")" style="font-size: 14px">Confirmed Purchase</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="parent">
+                                        <a href="#"><i class="icon mdi mdi-account-add"></i><span>User Management</span></a>
+                                        <ul class="sub-menu">
+                                            @*<li>
+                    <a href="@Url.Action("AddCustomer","Customer")" style="font-size: 14px">New Customer</a>
+                     </li>*@
+                                            <li>
+                                                <a href="@Url.Action("RoleList","Role")" style="font-size: 14px">Role Management</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("UserList","UserManagement")" style="font-size: 14px">User Management</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("ListCustomer","Customer")" style="font-size: 14px">Customer Management</a>
+                                            </li>
 
-                            <li class="parent">
-                                <a href="#"><i class="icon mdi mdi-shopping-cart"></i><span>Order Management</span></a>
-                                <ul class="sub-menu">
-                                    <li>
-                                        <a href="@Url.Action("ListOrder","Order")" style="font-size: 14px">Order Management</a>
+                                        </ul>
                                     </li>
-                                    <li>
-                                        <a href="@Url.Action("ConfirmedListOrder","Order")" style="font-size: 14px">Confirmed Orders</a>
+                                }
+                                else if (User.IsInRole("WarehouseManager"))
+                                {
+                                    <li class="parent">
+                                        <a href="#"><i class="icon mdi mdi-card"></i><span>Product Management</span></a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="@Url.Action("AddProduct","Product")" style="font-size: 14px">New Product</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("ListProduct","Product")" style="font-size: 14px">Product Management</a>
+                                            </li>
+                                        </ul>
                                     </li>
-                                </ul>
-                            </li>
-                            <li class="parent">
-                                <a href="#"><i class="icon mdi mdi-shopping-basket"></i><span>Purchase Management</span></a>
-                                <ul class="sub-menu">
-                                    <li>
-                                        <a href="@Url.Action("AddPurchase","Purchase")" style="font-size: 14px">New Purchase</a>
+                                    <li class="parent">
+                                        <a href="#"><i class="icon mdi mdi-shopping-basket"></i><span>Purchase Management</span></a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="@Url.Action("AddPurchase","Purchase")" style="font-size: 14px">New Purchase</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("ListPurchase","Purchase")" style="font-size: 14px">Purchase Management</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("ConfirmedPurchase","Purchase")" style="font-size: 14px">Confirmed Purchase</a>
+                                            </li>
+                                        </ul>
                                     </li>
-                                    <li>
-                                        <a href="@Url.Action("ListPurchase","Purchase")" style="font-size: 14px">Purchase Management</a>
-                                    </li>
-                                    <li>
-                                        <a href="@Url.Action("ConfirmedPurchase","Purchase")" style="font-size: 14px">Confirmed Purchase</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="parent">
-                                <a href="#"><i class="icon mdi mdi-account-add"></i><span>User Management</span></a>
-                                <ul class="sub-menu">
-                                    @*<li>
-                                    <a href="@Url.Action("AddCustomer","Customer")" style="font-size: 14px">New Customer</a>
-                                     </li>*@
-                                    <li>
-                                        <a href="@Url.Action("RoleList","Role")" style="font-size: 14px">Role Management</a>
-                                    </li>
-                                    <li>
-                                        <a href="@Url.Action("ListCustomer","Customer")" style="font-size: 14px">User Management</a>
-                                    </li>
-                                    <li>
-                                        <a href="@Url.Action("ListCustomer","Customer")" style="font-size: 14px">Customer Management</a>
-                                    </li>
-
-                                </ul>
-                            </li>
+                                }
 
 
 

@@ -22,6 +22,8 @@
                                 <th style="width:20%;">Email</th>
                                 <th style="width:15%;">Card Number</th>
                                 <th style="width:20%;">Registered Date</th>
+                                <th style="width:10;">Role</th>
+
                                 <th style="width:8%;"></th>
                             </tr>
                         </thead>
@@ -34,12 +36,13 @@
                                 <td class="cell-detail"><span>@item.Email</span></td>
                                 <td class="cell-detail"><span>@item.CardNumber</span></td>
                                 <td class="cell-detail"><span>@item.RegisteredDate.ToString("dd/MM/yy HH:mm")</span></td>
+                                <td>@item.RoleName</td>
                                 <td class="text-right">
                                     <div class="btn-group btn-hspace">
                                         <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle islemler" aria-expanded="false">Actions<span class="icon-dropdown mdi mdi-chevron-down"></span></button>
                                         <ul role="menu" class="dropdown-menu pull-right">
-                                            <li><a href="#"><i class="icon mdi mdi-edit"></i><span>Edit</span></a></li>
-                                            <li><a href="#"><i class="icon mdi mdi-delete"></i><span>Delete</span></a></li>
+                                            <li><a href="@Url.Action("EditRole","Role", new { id=item.Id})"><i class="icon mdi mdi-edit"></i><span>Edit</span></a></li>
+                                            <li><a href="#"><i class="icon mdi mdi-delete" onclick="Delete('@item.Id')"></i><span>Delete</span></a></li>
                                         </ul>
                                     </div>
                                 </td>

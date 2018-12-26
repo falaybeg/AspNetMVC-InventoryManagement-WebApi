@@ -37,7 +37,7 @@
     $(document).ready(function () {
         if (token == null) {
             toastr.info("Please try again after signing up!");
-            window.location.href = "/UserManagement/Login";
+            window.location.href.replace("/UserManagement/Login")
         }
     });
 
