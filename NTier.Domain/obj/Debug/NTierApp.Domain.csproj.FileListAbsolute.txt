@@ -1,5 +1,0 @@
-C:\Users\Admin\Documents\Visual Studio 2017\Projects\NTierApp\NTier.Domain\bin\Debug\NTier.Domain.dll
-C:\Users\Admin\Documents\Visual Studio 2017\Projects\NTierApp\NTier.Domain\bin\Debug\NTier.Domain.pdb
-C:\Users\Admin\Documents\Visual Studio 2017\Projects\NTierApp\NTier.Domain\obj\Debug\NTierApp.Domain.csproj.CoreCompileInputs.cache
-C:\Users\Admin\Documents\Visual Studio 2017\Projects\NTierApp\NTier.Domain\obj\Debug\NTier.Domain.dll
-C:\Users\Admin\Documents\Visual Studio 2017\Projects\NTierApp\NTier.Domain\obj\Debug\NTier.Domain.pdb
