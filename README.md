@@ -5,6 +5,7 @@ The project was written in as a N-Tier Architecture C# Asp.Net MVC environment u
 - Generic Repository Pattern
 - Unit of Work
 - Dependency Injection
+
 CRUD like Create, Edit and Delete actions were performed by created Web API functions using Jquery.
 
 inventorywebapi.azurewebsites.net                
