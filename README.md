@@ -8,9 +8,14 @@ The project was written in as a N-Tier Architecture C# Asp.Net MVC environment u
 
 CRUD like Create, Edit and Delete actions were performed by created Web API functions using Jquery.
 
+## First version of published project
+---
 inventorywebapi.azurewebsites.net                
 user: admin@gmail.com                    
 pass: 123123
+
+## Screenshots
+---
 
 <b>Login</b><br>
 <img src="images/Login.PNG" /></br></br>
